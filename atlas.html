@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>星の図鑑 · 星语图鉴 — ほしことば Hoshikotoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+.display{font-family:"Noto Serif JP","Noto Sans SC",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+.navlinks a.on{background:var(--surface2);color:var(--verm)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:13px 22px;text-decoration:none}
+.btn-primary{background:var(--verm);color:#fff}
+.btn-primary:hover{background:var(--verm-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.hidden{display:none !important}
+.small{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+
+/* headline stats */
+.head-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:11px 16px}
+.stat b{font-size:19px;line-height:1.1;margin-right:6px}
+.stat span{font-size:12.5px;color:var(--muted);font-weight:700}
+
+/* level pills + badges */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)}
+
+/* level tabs */
+.train-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tlvl{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:900;font-size:15px}
+.tlvl[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.tlvl .cnt{font-size:12px;font-weight:700;color:var(--muted);margin-left:5px}
+.tlvl[aria-selected="true"] .cnt{color:var(--verm)}
+
+/* segmented toggles */
+.train-modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.tmode{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 16px;font-weight:800;font-size:14.5px}
+.tmode[aria-selected="true"]{border-color:var(--indigo);background:var(--surface2)}
+.ctl-label{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--muted);text-transform:uppercase;margin-right:2px}
+
+/* search */
+.searchbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.search-input{flex:1 1 260px;font:inherit;font-size:16px;padding:12px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.search-input:focus{outline:none;border-color:var(--verm)}
+.count-note{font-size:13.5px;color:var(--muted);font-weight:700}
+
+/* grid cards */
+.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mini-pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:#EFE8D8;color:#5B4A12}
+@media(prefers-color-scheme:dark){.mini-pill{background:#2A3654;color:#E8D9A0}}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:760px){.vocab-grid{grid-template-columns:1fr}}
+.vocab-cell{position:relative;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);display:flex;flex-direction:column;gap:2px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.vocab-cell:hover,.kcard:hover{border-color:var(--verm)}
+.vocab-top{display:flex;align-items:flex-start;gap:8px}
+.vocab-top .vw{flex:1;min-width:0}
+.vocab-cell b{font-size:19px;line-height:1.3}
+.vocab-cell .vr{font-size:13.5px;color:var(--verm);font-weight:700;margin-left:6px}
+.vocab-cell .vzh{display:block;font-size:15.5px;font-weight:700;color:var(--ink);margin-top:2px}
+.vocab-cell .vm{display:block;font-size:13px;color:var(--muted)}
+.card-foot{display:flex;align-items:center;gap:8px;margin-top:8px}
+.learned-star{position:absolute;top:8px;right:10px;color:var(--gold);font-size:16px;line-height:1}
+.kanji-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
+.kcard{position:relative;border:1px solid var(--line);border-radius:12px;padding:14px 10px 12px;background:var(--surface);text-align:center;cursor:pointer;font:inherit;color:inherit;width:100%}
+.kcard .kc{font-family:"Noto Serif JP",serif;font-size:42px;font-weight:900;line-height:1.15;display:block}
+.kcard .kr{display:block;font-size:12px;color:var(--verm);font-weight:700;margin-top:4px;word-break:break-all}
+.kcard .kzh{display:block;font-size:13.5px;font-weight:700;margin-top:3px}
+.kcard .kfoot{margin-top:8px;display:flex;justify-content:center}
+
+/* list rows */
+.list-rows{display:flex;flex-direction:column;gap:8px}
+.lrow{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--surface);cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.lrow:hover{border-color:var(--verm)}
+.lrow .lw{font-size:18px;font-weight:900;white-space:nowrap}
+.lrow .lr{font-size:13.5px;color:var(--verm);font-weight:700;white-space:nowrap}
+.lrow .lzh{flex:1;min-width:0;font-size:14.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lrow .ldot{color:var(--gold);font-size:14px;flex:none}
+.lrow .ldot.dim{color:var(--line)}
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--verm);display:grid;place-items:center;cursor:pointer;padding:0}
+.speak-btn:hover{border-color:var(--verm);background:var(--surface2)}
+.speak-btn:active{transform:scale(.94)}
+.speak-btn.playing{background:var(--verm);color:#fff;border-color:var(--verm)}
+.speak-btn svg{width:17px;height:17px;display:block}
+.loadmore-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px}
+.err-box{border:1.5px solid var(--verm);background:var(--surface);border-radius:14px;padding:18px 20px;font-weight:700}
+.loading-note{color:var(--muted);font-weight:700;padding:18px 0}
+
+/* star map */
+.star-layout{display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start}
+@media(max-width:860px){.star-layout{grid-template-columns:1fr}}
+.star-panel{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:radial-gradient(1200px 600px at 30% 20%,#1D2A4A 0%,#121826 55%,#0C1120 100%);box-shadow:var(--shadow)}
+#starCanvas{display:block;width:100%;height:520px;touch-action:none;cursor:grab}
+#starCanvas.dragging{cursor:grabbing}
+.star-tools{position:absolute;top:10px;right:10px;display:flex;gap:6px}
+.star-tools button{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:rgba(18,24,38,.72);color:#EEF0F6;font-size:18px;font-weight:900;cursor:pointer;line-height:1}
+.star-tools button:hover{border-color:var(--gold);color:var(--gold)}
+.star-hint{position:absolute;left:12px;bottom:10px;color:rgba(238,240,246,.75);font-size:12px;font-weight:700;pointer-events:none}
+.star-side{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.star-side h3{font-size:16px;margin-bottom:4px}
+.pbar-row{margin-top:13px}
+.pbar-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:800}
+.pbar-head .cnt{color:var(--muted);font-weight:700;font-size:12.5px}
+.pbar{height:8px;border-radius:999px;background:var(--surface2);overflow:hidden;margin-top:5px}
+.pbar i{display:block;height:100%;border-radius:999px;background:var(--gold)}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,14,24,.62);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+.modal-card{background:var(--surface);color:var(--ink);border-radius:22px;box-shadow:var(--shadow);max-width:560px;width:100%;max-height:88vh;overflow:auto;padding:28px 28px 22px;position:relative;border:1px solid var(--line)}
+.modal-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:18px;cursor:pointer;line-height:1}
+.modal-close:hover{border-color:var(--verm);color:var(--verm)}
+.m-word{font-family:"Noto Serif JP",serif;font-size:46px;font-weight:900;line-height:1.15}
+.m-kanji{font-family:"Noto Serif JP",serif;font-size:84px;font-weight:900;line-height:1.1;text-align:center}
+.m-reading{font-size:17px;color:var(--verm);font-weight:700;margin-top:2px}
+.m-zh{font-size:22px;font-weight:900;margin-top:12px}
+.m-en{font-size:14.5px;color:var(--muted);margin-top:4px}
+.m-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.m-sec{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.m-sec .ex-label{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--verm);text-transform:uppercase}
+.m-ex-jp{font-size:16.5px;line-height:1.6;margin-top:4px}
+.m-ex-en{font-size:13.5px;color:var(--muted)}
+.m-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.m-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.m-nav .pos{font-weight:900;color:var(--muted);font-size:14px}
+.nav-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:20px;cursor:pointer;line-height:1}
+.nav-arrow:hover{border-color:var(--verm);color:var(--verm)}
+.mark-btn{font:inherit;cursor:pointer;border-radius:999px;padding:11px 20px;font-weight:800;border:1.5px solid var(--gold);background:var(--surface);color:var(--ink)}
+.mark-btn.learned{background:var(--gold);color:#231a00;border-color:var(--gold)}
+.mark-btn:disabled{opacity:.75;cursor:default}
+</style>
+</head>
+<body>
+<header class="topnav"><div class="topnav-in">
+  <div class="brand"><a href="index.html"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></a></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="index.html">今日</a><a href="learn.html">学習</a><a href="lessons.html">授業</a><a href="atlas.html" class="on">図鑑</a><a href="grammar.html">文法</a><a href="practice.html">練習</a><a href="training.html">訓練</a>
+  </nav>
+</div></header>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">図鑑 · Atlas</p>
+      <h2><span class="jp">星の図鑑</span> · 星语图鉴</h2>
+      <p>単語と漢字の全収録を眺める図鑑です。カード・リスト・星図の3つの見方で、覚えた星を金色に灯していきましょう。图鉴收录全部单词与汉字：用卡片、列表、星图三种方式浏览，把学会的词点亮成金色的星。</p>
+      <div class="head-stats">
+        <div class="stat"><b>7,811</b><span>単語 · 单词</span></div>
+        <div class="stat"><b>2,383</b><span>漢字 · 汉字</span></div>
+        <div class="stat"><b id="statLearned">0</b><span>覚えた · 已学</span></div>
+      </div>
+    </div>
+
+    <div class="train-modes" role="group" aria-label="種別 · 类别">
+      <span class="ctl-label">種別 · 类别</span>
+      <button class="tmode" id="typeWord" aria-selected="true">単語 · 单词</button>
+      <button class="tmode" id="typeKanji" aria-selected="false">漢字 · 汉字</button>
+    </div>
+
+    <div class="train-levels" role="tablist" aria-label="レベル · 级别" id="lvlTabs"></div>
+
+    <div class="train-modes" role="group" aria-label="状態 · 状态">
+      <span class="ctl-label">状態 · 状态</span>
+      <button class="tmode" data-status="all" aria-selected="true">全部</button>
+      <button class="tmode" data-status="learned" aria-selected="false">覚えた · 已学</button>
+      <button class="tmode" data-status="new" aria-selected="false">まだ · 未学</button>
+    </div>
+
+    <div class="searchbar">
+      <input class="search-input" id="searchInput" type="search" placeholder="単語・読み・中文で検索 · 按词、读音或中文搜索" aria-label="検索 · 搜索">
+      <span class="count-note" id="countNote"></span>
+    </div>
+
+    <div class="train-modes" role="group" aria-label="表示 · 视图">
+      <span class="ctl-label">表示 · 视图</span>
+      <button class="tmode" data-view="grid" aria-selected="true">カード · 卡片</button>
+      <button class="tmode" data-view="list" aria-selected="false">リスト · 列表</button>
+      <button class="tmode" data-view="star" aria-selected="false">星図 · 星图</button>
+    </div>
+
+    <div id="errBox" class="err-box hidden">データの読み込みに失敗しました。· 数据加载失败，请检查网络后刷新页面重试。</div>
+    <p id="loadingNote" class="loading-note hidden">読み込み中… · 加载中…</p>
+
+    <div id="gridWrap">
+      <div class="vocab-grid" id="gridEl"></div>
+      <div class="kanji-grid hidden" id="kanjiGridEl"></div>
+      <div class="list-rows hidden" id="listEl"></div>
+      <div class="loadmore-wrap" id="moreWrap">
+        <span class="count-note" id="shownNote"></span>
+        <button class="btn btn-ghost" id="moreBtn">もっと見る · 加载更多</button>
+      </div>
+      <p class="small hidden" id="emptyNote">見つかりませんでした。· 没有找到匹配的内容，换个条件试试。</p>
+    </div>
+
+    <div id="starWrap" class="hidden">
+      <div class="star-layout">
+        <div class="star-panel">
+          <canvas id="starCanvas" width="800" height="520"></canvas>
+          <div class="star-tools">
+            <button type="button" id="zoomIn" aria-label="拡大 · 放大">＋</button>
+            <button type="button" id="zoomOut" aria-label="縮小 · 缩小">−</button>
+            <button type="button" id="zoomReset" aria-label="リセット · 重置">⟲</button>
+          </div>
+          <div class="star-hint">ドラッグで移動 · 拖动平移 ／ ホイールで拡大縮小 · 滚轮缩放 ／ 星をクリックで詳細 · 点击星看详情</div>
+        </div>
+        <aside class="star-side">
+          <h3><span class="jp">星座の進み具合</span> · 各级进度</h3>
+          <p class="small" id="panelTypeNote">単語 · 单词</p>
+          <div id="progressPanel"></div>
+          <p class="small" style="margin-top:14px">金色の星は覚えたもの。星を灯すほど、あなたの星図は明るくなります。· 金色的星是已学会的；点亮越多，星图越亮。</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>収録データ · 内容来源：OpenJLPT 数据集（© OpenJLPT contributors, CC BY-SA 4.0；底层词典 JMdict/KANJIDIC2, EDRDG）；中文释义与语法讲解为本站原创。</p>
+  <p class="small" style="margin-top:8px"><a href="index.html">ほしことば Hoshikotoba · 星语图鉴</a> — JLPT 日语学习</p>
+</div></footer>
+
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="詳細 · 详情">
+    <button class="modal-close" id="modalClose" aria-label="閉じる · 关闭">×</button>
+    <div id="modalBody"></div>
+    <div class="m-nav">
+      <button class="nav-arrow" id="modalPrev" aria-label="前へ · 上一个">‹</button>
+      <span class="pos" id="modalPos"></span>
+      <button class="nav-arrow" id="modalNext" aria-label="次へ · 下一个">›</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/progress.js"></script>
+<script>
+(function(){
+"use strict";
+var SPEAK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>';
+function $(s){return document.querySelector(s);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+
+/* ---------- speech (ja-JP, ~0.9 rate) ---------- */
+var jaVoice=null;
+function pickVoice(){
+  if(!('speechSynthesis' in window))return;
+  var vs=speechSynthesis.getVoices();
+  for(var i=0;i<vs.length;i++){var l=(vs[i].lang||'').toLowerCase().replace('_','-');if(l.indexOf('ja')===0){jaVoice=vs[i];break;}}
+}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function speakJa(text,btn){
+  if(!('speechSynthesis' in window)||!text)return;
+  try{
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='ja-JP'; u.rate=0.9;
+    if(jaVoice)u.voice=jaVoice;
+    if(btn){btn.classList.add('playing');u.onend=function(){btn.classList.remove('playing');};u.onerror=function(){btn.classList.remove('playing');};}
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- learned-state adapter ----------
+   Prefer window.HK (assets/progress.js) when present:
+     words: HK.isWordLearned(level, i) / HK.markWordLearned(level, i)
+     kanji: HK.isKanjiLearned(level, i) / HK.markKanjiLearned(level, i)
+     unmark: HK.unmarkWordLearned / HK.unmarkKanjiLearned (if provided)
+   If HK (or the per-type functions) are absent, fall back to an
+   in-memory set so markers/toggles still work for this session. */
+var HK=(typeof window!=='undefined'&&window.HK)?window.HK:null;
+function hkFn(name){return (HK&&typeof HK[name]==='function')?HK[name]:null;}
+var localLearned={word:{},kanji:{}};
+function localSet(type,lv){
+  if(!localLearned[type][lv])localLearned[type][lv]={};
+  return localLearned[type][lv];
+}
+function hkNames(type){
+  return type==='word'
+    ? {is:'isWordLearned',mark:'markWordLearned',unmark:'unmarkWordLearned'}
+    : {is:'isKanjiLearned',mark:'markKanjiLearned',unmark:'unmarkKanjiLearned'};
+}
+function useHK(type){return !!hkFn(hkNames(type).is);}
+function isLearned(type,lv,i){
+  var n=hkNames(type), f=hkFn(n.is);
+  if(f){try{return !!f.call(HK,lv,i);}catch(e){return false;}}
+  return !!localSet(type,lv)[i];
+}
+function canUnmark(type){
+  if(hkFn(hkNames(type).unmark))return true;
+  return !useHK(type); /* local fallback toggles freely; HK without unmark API is mark-only */
+}
+function setLearned(type,lv,i,on){
+  var n=hkNames(type);
+  if(on){
+    var mf=hkFn(n.mark);
+    if(mf){try{mf.call(HK,lv,i);}catch(e){}}
+    else localSet(type,lv)[i]=true;
+  }else{
+    var uf=hkFn(n.unmark);
+    if(uf){try{uf.call(HK,lv,i);}catch(e){}}
+    else if(!useHK(type)){delete localSet(type,lv)[i];}
+  }
+}
+
+/* ---------- data ---------- */
+var LEVELS=['n5','n4','n3','n2','n1'];
+var TOTALS={
+  word:{n5:674,n4:630,n3:1659,n2:1778,n1:3070},
+  kanji:{n5:84,n4:169,n3:387,n2:398,n1:1345}
+};
+var cache={}; /* key: type+':'+lv -> array */
+function loadData(type,lv){
+  var key=type+':'+lv;
+  if(cache[key])return Promise.resolve(cache[key]);
+  var file=(type==='word'?'data/vocab-':'data/kanji-')+lv+'.json';
+  return fetch(file).then(function(r){
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(d){cache[key]=d;return d;});
+}
+
+/* ---------- state ---------- */
+var CHUNK=200;
+var state={type:'word',lv:'n5',status:'all',view:'grid',
+           data:[],filtered:[], /* filtered: array of indices into data */
+           shown:0,modalIdx:-1};
+var learnedCounts={}; /* key type:lv -> number learned (known once counted) */
+
+function countLearned(type,lv){
+  /* HK exposes exact per-level counts without loading the data files */
+  var cf=hkFn(type==='word'?'wordLearnedCount':'kanjiLearnedCount');
+  if(cf){try{var n=cf.call(HK,lv);if(typeof n==='number'&&isFinite(n))return n;}catch(e){}}
+  var d=cache[type+':'+lv];if(!d)return null;
+  var c=0;for(var i=0;i<d.length;i++)if(isLearned(type,lv,i))c++;
+  return c;
+}
+function refreshCounts(type,lv){
+  var n=countLearned(type,lv);
+  if(typeof n==='number')learnedCounts[type+':'+lv]=n;
+  var total=0,k;
+  for(k in learnedCounts)total+=learnedCounts[k];
+  $('#statLearned').textContent=fmt(total);
+}
+
+/* ---------- filtering ---------- */
+function entryMatches(type,e,q){
+  if(!q)return true;
+  if(type==='word'){
+    return (e.w&&e.w.toLowerCase().indexOf(q)>=0)||
+           (e.r&&e.r.toLowerCase().indexOf(q)>=0)||
+           (e.zh&&e.zh.toLowerCase().indexOf(q)>=0);
+  }
+  var readings=((e.on||[]).join(' ')+' '+(e.kun||[]).join(' ')).toLowerCase();
+  return (e.c&&e.c.indexOf(q)>=0)||readings.indexOf(q)>=0||
+         (e.zh&&e.zh.toLowerCase().indexOf(q)>=0);
+}
+function applyFilter(){
+  var q=$('#searchInput').value.trim().toLowerCase();
+  state.filtered=[];
+  for(var i=0;i<state.data.length;i++){
+    var e=state.data[i];
+    if(state.status!=='all'){
+      var learned=isLearned(state.type,state.lv,i);
+      if(state.status==='learned'&&!learned)continue;
+      if(state.status==='new'&&learned)continue;
+    }
+    if(!entryMatches(state.type,e,q))continue;
+    state.filtered.push(i);
+  }
+  $('#countNote').textContent=fmt(state.filtered.length)+' 件 · 共 '+fmt(state.filtered.length)+' 条';
+}
+
+/* ---------- grid / list rendering ---------- */
+function starMark(type,lv,i){
+  return isLearned(type,lv,i)?'<span class="learned-star" title="覚えた · 已学">★</span>':'';
+}
+function wordCardHTML(e,i,fi){
+  var h='<button type="button" class="vocab-cell" data-open="'+fi+'">'+starMark('word',state.lv,i)+
+    '<span class="vocab-top"><span class="vw"><b class="jp">'+esc(e.w)+'</b>';
+  if(e.r)h+='<span class="vr jp">'+esc(e.r)+'</span>';
+  h+='</span></span>';
+  if(e.zh)h+='<span class="vzh">'+esc(e.zh)+'</span>';
+  if(e.en&&e.en.length)h+='<span class="vm">'+esc(e.en.join('; '))+'</span>';
+  h+='<span class="card-foot"><span class="lvl l-'+state.lv+'">'+state.lv.toUpperCase()+'</span></span></button>';
+  return h;
+}
+function kanjiCardHTML(e,i,fi){
+  var readings=[];
+  if(e.on&&e.on.length)readings.push('音 '+e.on.join('・'));
+  if(e.kun&&e.kun.length)readings.push('訓 '+e.kun.join('・'));
+  var h='<button type="button" class="kcard" data-open="'+fi+'">'+starMark('kanji',state.lv,i)+
+    '<span class="kc jp">'+esc(e.c)+'</span>';
+  if(readings.length)h+='<span class="kr jp">'+esc(readings.join('　'))+'</span>';
+  if(e.zh)h+='<span class="kzh">'+esc(e.zh)+'</span>';
+  h+='<span class="kfoot"><span class="lvl l-'+state.lv+'">'+state.lv.toUpperCase()+'</span></span></button>';
+  return h;
+}
+function rowHTML(e,i,fi){
+  var learned=isLearned(state.type,state.lv,i);
+  var main,reading;
+  if(state.type==='word'){main=e.w;reading=e.r||'';}
+  else{main=e.c;var rs=[];if(e.on&&e.on.length)rs.push(e.on.join('・'));if(e.kun&&e.kun.length)rs.push(e.kun.join('・'));reading=rs.join('　');}
+  var h='<button type="button" class="lrow" data-open="'+fi+'">'+
+    '<span class="lw jp">'+esc(main)+'</span>';
+  if(reading)h+='<span class="lr jp">'+esc(reading)+'</span>';
+  h+='<span class="lzh">'+esc(e.zh||'')+'</span>';
+  if(state.type==='word')h+='<span class="speak-btn" role="button" tabindex="-1" data-speak="'+fi+'" aria-label="発音 · 发音">'+SPEAK_SVG+'</span>';
+  h+='<span class="ldot'+(learned?'':' dim')+'" title="'+(learned?'覚えた · 已学':'まだ · 未学')+'">'+(learned?'★':'☆')+'</span></button>';
+  return h;
+}
+function activeContainer(){
+  if(state.view==='list')return $('#listEl');
+  return state.type==='word'?$('#gridEl'):$('#kanjiGridEl');
+}
+function renderChunk(reset){
+  var box=activeContainer();
+  if(reset){box.innerHTML='';state.shown=0;}
+  var end=Math.min(state.shown+CHUNK,state.filtered.length),html='';
+  for(var k=state.shown;k<end;k++){
+    var i=state.filtered[k],e=state.data[i];
+    if(state.view==='list')html+=rowHTML(e,i,k);
+    else if(state.type==='word')html+=wordCardHTML(e,i,k);
+    else html+=kanjiCardHTML(e,i,k);
+  }
+  box.insertAdjacentHTML('beforeend',html);
+  state.shown=end;
+  $('#shownNote').textContent=state.filtered.length+' 件中 '+state.shown+' 件を表示 · 已显示 '+state.shown+' / '+state.filtered.length;
+  $('#moreBtn').style.display=(state.shown<state.filtered.length)?'':'none';
+  $('#emptyNote').classList.toggle('hidden',state.filtered.length>0);
+  $('#moreWrap').style.display=state.filtered.length?'':'none';
+}
+function renderView(){
+  var isStar=state.view==='star';
+  $('#gridWrap').classList.toggle('hidden',isStar);
+  $('#starWrap').classList.toggle('hidden',!isStar);
+  $('#gridEl').classList.toggle('hidden',!(state.view==='grid'&&state.type==='word'));
+  $('#kanjiGridEl').classList.toggle('hidden',!(state.view==='grid'&&state.type==='kanji'));
+  $('#listEl').classList.toggle('hidden',state.view!=='list');
+  if(isStar){enterStarView();}
+  else renderChunk(true);
+}
+
+/* ---------- detail modal ---------- */
+function modalEntry(){
+  if(state.modalIdx<0||state.modalIdx>=state.filtered.length)return null;
+  return state.data[state.filtered[state.modalIdx]];
+}
+function renderModal(){
+  var e=modalEntry(),body=$('#modalBody');
+  if(!e){closeModal();return;}
+  var i=state.filtered[state.modalIdx];
+  var learned=isLearned(state.type,state.lv,i);
+  var h='<div class="m-meta"><span class="lvl l-'+state.lv+'">'+state.lv.toUpperCase()+'</span>'+
+        '<span class="small">'+(state.type==='word'?'単語 · 单词':'漢字 · 汉字')+'</span></div>';
+  if(state.type==='word'){
+    h+='<div class="m-word jp">'+esc(e.w)+'</div>';
+    if(e.r)h+='<div class="m-reading jp">'+esc(e.r)+'</div>';
+    if(e.zh)h+='<div class="m-zh">'+esc(e.zh)+'</div>';
+    if(e.en&&e.en.length)h+='<div class="m-en">'+esc(e.en.join('; '))+'</div>';
+    if(e.pos&&e.pos.length){
+      h+='<div class="pillrow">';
+      e.pos.forEach(function(p){h+='<span class="mini-pill">'+esc(p)+'</span>';});
+      h+='</div>';
+    }
+    h+='<div class="m-actions"><button type="button" class="btn btn-ghost" data-mspeak="word">🔊 発音 · 听发音</button>';
+    if(e.ex&&e.ex.length&&e.ex[0]&&e.ex[0].ja)h+='<button type="button" class="btn btn-ghost" data-mspeak="ex">🔊 例文 · 听例句</button>';
+    h+='</div>';
+    if(e.ex&&e.ex.length&&e.ex[0]&&e.ex[0].ja){
+      h+='<div class="m-sec"><span class="ex-label">例文 · 例句</span><p class="m-ex-jp jp">'+esc(e.ex[0].ja)+'</p>';
+      if(e.ex[0].en)h+='<p class="m-ex-en">'+esc(e.ex[0].en)+'</p>';
+      h+='</div>';
+    }
+  }else{
+    h+='<div class="m-kanji jp">'+esc(e.c)+'</div>';
+    var rl='';
+    if(e.on&&e.on.length)rl+='音読み · 音读：<span class="jp">'+esc(e.on.join('・'))+'</span>';
+    if(e.kun&&e.kun.length)rl+=(rl?'　':'')+'訓読み · 训读：<span class="jp">'+esc(e.kun.join('・'))+'</span>';
+    if(rl)h+='<div class="m-reading" style="text-align:center">'+rl+'</div>';
+    if(e.zh)h+='<div class="m-zh" style="text-align:center">'+esc(e.zh)+'</div>';
+    if(e.en&&e.en.length)h+='<div class="m-en" style="text-align:center">'+esc(e.en.join(', '))+'</div>';
+    h+='<div class="m-sec"><span class="ex-label">画数 · 笔画</span><p class="m-ex-jp">'+esc(e.st)+' 画 · 笔画</p></div>';
+    h+='<div class="m-actions" style="justify-content:center"><button type="button" class="btn btn-ghost" data-mspeak="kanji">🔊 読み方 · 听读音</button></div>';
+  }
+  var unmarkable=canUnmark(state.type);
+  h+='<div class="m-actions">';
+  if(learned){
+    h+='<button type="button" class="mark-btn learned" id="markBtn"'+(unmarkable?'':' disabled')+'>★ 覚えた · 已学会</button>';
+    if(!unmarkable)h+='<span class="small">（記録済み · 已记录）</span>';
+  }else{
+    h+='<button type="button" class="mark-btn" id="markBtn">☆ 覚えた · 标记已学</button>';
+  }
+  h+='</div>';
+  body.innerHTML=h;
+  $('#modalPos').textContent=(state.modalIdx+1)+' / '+state.filtered.length;
+  var mb=$('#markBtn');
+  if(mb)mb.addEventListener('click',function(){toggleLearned();});
+}
+function openModal(fi){
+  if(fi<0||fi>=state.filtered.length)return;
+  state.modalIdx=fi;
+  $('#modalOverlay').classList.remove('hidden');
+  renderModal();
+}
+function closeModal(){
+  state.modalIdx=-1;
+  $('#modalOverlay').classList.add('hidden');
+}
+function stepModal(d){
+  if(!state.filtered.length)return;
+  state.modalIdx=(state.modalIdx+d+state.filtered.length)%state.filtered.length;
+  renderModal();
+}
+function toggleLearned(){
+  var e=modalEntry();if(!e)return;
+  var i=state.filtered[state.modalIdx];
+  var learned=isLearned(state.type,state.lv,i);
+  if(learned&&!canUnmark(state.type))return;
+  setLearned(state.type,state.lv,i,!learned);
+  refreshCounts(state.type,state.lv);
+  var keepIdx=state.modalIdx;
+  applyFilter();
+  if(!state.filtered.length){closeModal();}
+  else{
+    /* keep the same entry in view when possible */
+    var pos=state.filtered.indexOf(i);
+    state.modalIdx=(pos>=0)?pos:Math.min(keepIdx,state.filtered.length-1);
+    renderModal();
+  }
+  if(state.view==='star'){drawStars();renderPanel();}
+  else renderChunk(true);
+}
+
+/* ---------- star map ---------- */
+var WORLD=1000;
+var cam={scale:1,ox:0,oy:0,ready:false};
+var starPosCache={};
+function hashSeed(str){
+  var h=2166136261;
+  for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}
+  return h>>>0;
+}
+function mulberry32(a){
+  return function(){
+    a|=0;a=a+0x6D2B79F5|0;
+    var t=Math.imul(a^a>>>15,1|a);
+    t=t+Math.imul(t^t>>>7,61|t)^t;
+    return ((t^t>>>14)>>>0)/4294967296;
+  };
+}
+function starPos(type,lv,i){
+  var key=type+':'+lv+':'+i;
+  if(starPosCache[key])return starPosCache[key];
+  var rnd=mulberry32(hashSeed(key));
+  var p={x:30+rnd()*940,y:30+rnd()*940};
+  starPosCache[key]=p;return p;
+}
+function canvasSize(){
+  var c=$('#starCanvas');
+  return {w:c.clientWidth||800,h:c.clientHeight||520};
+}
+function fitCamera(){
+  var s=canvasSize();
+  cam.scale=Math.min(s.w,s.h)/WORLD*0.97;
+  cam.ox=(s.w-WORLD*cam.scale)/2;
+  cam.oy=(s.h-WORLD*cam.scale)/2;
+  cam.ready=true;
+}
+function sizeCanvas(){
+  var c=$('#starCanvas'),dpr=window.devicePixelRatio||1,s=canvasSize();
+  c.width=Math.round(s.w*dpr);c.height=Math.round(s.h*dpr);
+  var ctx=c.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+function toScreen(p){return {x:p.x*cam.scale+cam.ox,y:p.y*cam.scale+cam.oy};}
+function drawStars(){
+  var c=$('#starCanvas');if(!c||state.view!=='star')return;
+  if(!cam.ready)fitCamera();
+  var ctx=c.getContext('2d'),s=canvasSize();
+  ctx.clearRect(0,0,s.w,s.h);
+  /* decorative background stars (deterministic, screen space) */
+  var bg=mulberry32(hashSeed('atlas-bg'));
+  ctx.fillStyle='rgba(210,220,245,.5)';
+  for(var b=0;b<130;b++){
+    var bx=bg()*s.w,by=bg()*s.h,br=bg()*1.1+0.3;
+    ctx.globalAlpha=0.18+bg()*0.4;
+    ctx.beginPath();ctx.arc(bx,by,br,0,6.2832);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+  for(var k=0;k<state.filtered.length;k++){
+    var i=state.filtered[k];
+    var sp=toScreen(starPos(state.type,state.lv,i));
+    if(sp.x<-10||sp.y<-10||sp.x>s.w+10||sp.y>s.h+10)continue;
+    if(isLearned(state.type,state.lv,i)){
+      ctx.save();
+      ctx.shadowColor='rgba(242,193,78,.95)';ctx.shadowBlur=13;
+      ctx.fillStyle='#F2C14E';
+      ctx.beginPath();ctx.arc(sp.x,sp.y,3.4,0,6.2832);ctx.fill();
+      ctx.restore();
+      ctx.fillStyle='#FFF6DC';
+      ctx.beginPath();ctx.arc(sp.x,sp.y,1.5,0,6.2832);ctx.fill();
+    }else{
+      ctx.fillStyle='rgba(196,208,232,.55)';
+      ctx.beginPath();ctx.arc(sp.x,sp.y,1.6,0,6.2832);ctx.fill();
+    }
+  }
+}
+function renderPanel(){
+  var panel=$('#progressPanel');if(!panel)return;
+  $('#panelTypeNote').textContent=state.type==='word'?'単語 · 单词':'漢字 · 汉字';
+  var h='';
+  LEVELS.forEach(function(lv){
+    var total=TOTALS[state.type][lv];
+    var learned=learnedCounts[state.type+':'+lv];
+    var known=(typeof learned==='number');
+    var pct=known&&total?Math.round(learned/total*100):0;
+    h+='<div class="pbar-row"><div class="pbar-head"><span><span class="lvl l-'+lv+'">'+lv.toUpperCase()+'</span></span>'+
+       '<span class="cnt">'+(known?fmt(learned)+' / '+fmt(total)+' · '+pct+'%':'読み込み中… · 加载中')+'</span></div>'+
+       '<div class="pbar"><i style="width:'+pct+'%"></i></div></div>';
+  });
+  panel.innerHTML=h;
+}
+function enterStarView(){
+  renderPanel();
+  requestAnimationFrame(function(){
+    sizeCanvas();fitCamera();drawStars();
+    /* load every level of this type so the progress panel is complete */
+    var t=state.type;
+    Promise.all(LEVELS.map(function(lv){return loadData(t,lv).catch(function(){return null;});}))
+      .then(function(){
+        if(state.type!==t)return;
+        LEVELS.forEach(function(lv){refreshCounts(t,lv);});
+        renderPanel();
+        if(state.view==='star')drawStars();
+      });
+  });
+}
+function zoomAt(fx,cx,cy){
+  var s=canvasSize();
+  if(cx==null){cx=s.w/2;cy=s.h/2;}
+  var ns=Math.min(6,Math.max(0.15,cam.scale*fx));
+  var wx=(cx-cam.ox)/cam.scale,wy=(cy-cam.oy)/cam.scale;
+  cam.scale=ns;cam.ox=cx-wx*ns;cam.oy=cy-wy*ns;
+  drawStars();
+}
+(function initStarEvents(){
+  var c=$('#starCanvas');
+  var drag=null;
+  c.addEventListener('pointerdown',function(ev){
+    drag={x:ev.clientX,y:ev.clientY,ox:cam.ox,oy:cam.oy,moved:false};
+    c.classList.add('dragging');
+    try{c.setPointerCapture(ev.pointerId);}catch(e){}
+  });
+  c.addEventListener('pointermove',function(ev){
+    if(!drag)return;
+    var dx=ev.clientX-drag.x,dy=ev.clientY-drag.y;
+    if(Math.abs(dx)+Math.abs(dy)>4)drag.moved=true;
+    if(drag.moved){cam.ox=drag.ox+dx;cam.oy=drag.oy+dy;drawStars();}
+  });
+  c.addEventListener('pointerup',function(ev){
+    c.classList.remove('dragging');
+    if(drag&&!drag.moved){
+      var rect=c.getBoundingClientRect();
+      var mx=ev.clientX-rect.left,my=ev.clientY-rect.top;
+      var best=-1,bestD=16;
+      for(var k=0;k<state.filtered.length;k++){
+        var sp=toScreen(starPos(state.type,state.lv,state.filtered[k]));
+        var d=Math.hypot(sp.x-mx,sp.y-my);
+        if(d<bestD){bestD=d;best=k;}
+      }
+      if(best>=0)openModal(best);
+    }
+    drag=null;
+  });
+  c.addEventListener('pointercancel',function(){drag=null;c.classList.remove('dragging');});
+  c.addEventListener('wheel',function(ev){
+    ev.preventDefault();
+    var rect=c.getBoundingClientRect();
+    zoomAt(ev.deltaY<0?1.12:0.89,ev.clientX-rect.left,ev.clientY-rect.top);
+  },{passive:false});
+  $('#zoomIn').addEventListener('click',function(){zoomAt(1.3);});
+  $('#zoomOut').addEventListener('click',function(){zoomAt(0.77);});
+  $('#zoomReset').addEventListener('click',function(){fitCamera();drawStars();});
+  window.addEventListener('resize',function(){
+    if(state.view==='star'){sizeCanvas();drawStars();}
+  });
+})();
+
+/* ---------- controls ---------- */
+function buildLevelPills(){
+  var h='';
+  LEVELS.forEach(function(lv){
+    h+='<button class="tlvl" role="tab" data-lv="'+lv+'" aria-selected="'+(lv===state.lv?'true':'false')+'">'+
+       lv.toUpperCase()+'<span class="cnt">'+fmt(TOTALS[state.type][lv])+'</span></button>';
+  });
+  $('#lvlTabs').innerHTML=h;
+}
+function selectLevel(lv){
+  state.lv=lv;
+  var tabs=document.querySelectorAll('#lvlTabs .tlvl');
+  tabs.forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('data-lv')===lv?'true':'false');});
+  $('#errBox').classList.add('hidden');
+  $('#loadingNote').classList.remove('hidden');
+  loadData(state.type,lv).then(function(d){
+    $('#loadingNote').classList.add('hidden');
+    if(state.lv!==lv)return;
+    state.data=d;
+    refreshCounts(state.type,lv);
+    applyFilter();
+    cam.ready=false;
+    renderView();
+    if(state.view==='star')renderPanel();
+  }).catch(function(){
+    $('#loadingNote').classList.add('hidden');
+    if(state.lv!==lv)return;
+    $('#errBox').classList.remove('hidden');
+  });
+}
+function setType(t){
+  if(state.type===t)return;
+  state.type=t;
+  $('#typeWord').setAttribute('aria-selected',t==='word'?'true':'false');
+  $('#typeKanji').setAttribute('aria-selected',t==='kanji'?'true':'false');
+  $('#searchInput').placeholder=t==='word'
+    ?'単語・読み・中文で検索 · 按词、读音或中文搜索'
+    :'漢字・読み・中文で検索 · 按汉字、读音或中文搜索';
+  buildLevelPills();
+  selectLevel(state.lv);
+}
+function setView(v){
+  state.view=v;
+  var btns=document.querySelectorAll('[data-view]');
+  btns.forEach(function(b){b.setAttribute('aria-selected',b.getAttribute('data-view')===v?'true':'false');});
+  renderView();
+}
+
+/* events */
+$('#typeWord').addEventListener('click',function(){setType('word');});
+$('#typeKanji').addEventListener('click',function(){setType('kanji');});
+$('#lvlTabs').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-lv]');if(!b)return;
+  if(b.getAttribute('data-lv')!==state.lv)selectLevel(b.getAttribute('data-lv'));
+});
+document.querySelectorAll('[data-status]').forEach(function(b){
+  b.addEventListener('click',function(){
+    state.status=b.getAttribute('data-status');
+    document.querySelectorAll('[data-status]').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');});
+    applyFilter();
+    if(state.view==='star')drawStars();else renderChunk(true);
+  });
+});
+document.querySelectorAll('[data-view]').forEach(function(b){
+  b.addEventListener('click',function(){setView(b.getAttribute('data-view'));});
+});
+$('#searchInput').addEventListener('input',function(){
+  applyFilter();
+  if(state.view==='star')drawStars();else renderChunk(true);
+});
+$('#moreBtn').addEventListener('click',function(){renderChunk(false);});
+function onContainerClick(ev){
+  var sp=ev.target.closest('[data-speak]');
+  if(sp){
+    ev.stopPropagation();
+    var fe=state.data[state.filtered[parseInt(sp.getAttribute('data-speak'),10)]];
+    if(fe)speakJa(fe.w,sp);
+    return;
+  }
+  var op=ev.target.closest('[data-open]');
+  if(op)openModal(parseInt(op.getAttribute('data-open'),10));
+}
+$('#gridEl').addEventListener('click',onContainerClick);
+$('#kanjiGridEl').addEventListener('click',onContainerClick);
+$('#listEl').addEventListener('click',onContainerClick);
+$('#modalClose').addEventListener('click',closeModal);
+$('#modalOverlay').addEventListener('click',function(ev){if(ev.target===this)closeModal();});
+$('#modalPrev').addEventListener('click',function(){stepModal(-1);});
+$('#modalNext').addEventListener('click',function(){stepModal(1);});
+$('#modalBody').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-mspeak]');if(!b)return;
+  var e=modalEntry();if(!e)return;
+  var kind=b.getAttribute('data-mspeak');
+  if(kind==='word')speakJa(e.w,b);
+  else if(kind==='ex'&&e.ex&&e.ex[0])speakJa(e.ex[0].ja,b);
+  else if(kind==='kanji'){
+    var parts=[];
+    if(e.on&&e.on.length)parts.push(e.on[0]);
+    if(e.kun&&e.kun.length)parts.push(String(e.kun[0]).replace(/[-.]/g,''));
+    speakJa(parts.length?parts.join('、'):e.c,b);
+  }
+});
+document.addEventListener('keydown',function(ev){
+  if(state.modalIdx<0)return;
+  if(ev.key==='Escape')closeModal();
+  else if(ev.key==='ArrowLeft')stepModal(-1);
+  else if(ev.key==='ArrowRight')stepModal(1);
+});
+
+/* init */
+LEVELS.forEach(function(lv){refreshCounts('word',lv);refreshCounts('kanji',lv);});
+buildLevelPills();
+selectLevel('n5');
+})();
+</script>
+</body>
+</html>

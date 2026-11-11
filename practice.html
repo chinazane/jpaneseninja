@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>練習 · 练习 — ほしことば Hoshikotoba · 星语图鉴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+.navlinks a.on{background:var(--surface2);color:var(--verm)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:13px 22px;text-decoration:none}
+.btn-primary{background:var(--verm);color:#fff}
+.btn-primary:hover{background:var(--verm-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn-big{font-size:19px;padding:17px 42px;width:100%;justify-content:center}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.hidden{display:none !important}
+.small{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+.tag-note{display:inline-block;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13.5px}
+.err-box{border:1.5px solid var(--verm);background:var(--surface);border-radius:14px;padding:18px 20px;font-weight:700}
+.loading-note{color:var(--muted);font-weight:700;padding:18px 0}
+
+/* level pills + tabs */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)}
+.train-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tlvl{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:900;font-size:15px}
+.tlvl[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.tlvl .cnt{font-size:12px;font-weight:700;color:var(--muted);margin-left:5px}
+.tlvl[aria-selected="true"] .cnt{color:var(--verm)}
+.train-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tsec{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;font-size:13.5px}
+.tsec[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+
+/* speaker + vocab bits */
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--verm);display:grid;place-items:center;cursor:pointer;padding:0}
+.speak-btn:hover{border-color:var(--verm);background:var(--surface2)}
+.speak-btn:active{transform:scale(.94)}
+.speak-btn.playing{background:var(--verm);color:#fff;border-color:var(--verm)}
+.speak-btn svg{width:17px;height:17px;display:block}
+.speak-btn.sm{width:26px;height:26px}
+.speak-btn.sm svg{width:13px;height:13px}
+.speak-btn.lg{width:64px;height:64px}
+.speak-btn.lg svg{width:30px;height:30px}
+.vocab-ex{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);text-align:left}
+.vocab-ex .ex-row{display:flex;gap:7px;align-items:flex-start;margin-top:3px}
+.vocab-ex .ex-jp{flex:1;font-size:15.5px;line-height:1.55}
+.vocab-ex .ex-en{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+
+/* quiz options (from index) */
+.opts{display:grid;gap:9px}
+.opt{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:13px;padding:14px 16px;font-size:16.5px;font-weight:600;display:flex;gap:11px;align-items:center;width:100%}
+.opt:hover{border-color:var(--indigo)}
+.opt .key{width:26px;height:26px;border-radius:8px;background:var(--surface2);display:grid;place-items:center;font-size:13px;font-weight:900;flex:none}
+.opt.correct{border-color:var(--matcha);background:rgba(95,125,79,.14)}
+.opt.wrong{border-color:var(--verm);background:rgba(199,62,46,.12)}
+.opt.dim{opacity:.45}
+.opt:disabled{cursor:default}
+.explain{border-left:4px solid var(--matcha);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14.5px;margin-top:14px}
+.explain.bad{border-left-color:var(--verm)}
+
+/* progress */
+.progress-track{height:9px;border-radius:99px;background:#E4DCC6;overflow:hidden}
+@media(prefers-color-scheme:dark){.progress-track{background:#2A3654}}
+.progress-fill{height:100%;background:var(--verm);border-radius:99px;transition:width .3s ease}
+.progress-track.thin{height:6px}
+
+/* ---- practice page ---- */
+.setup-h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800;margin:22px 0 9px}
+.mode-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.mode-cards{grid-template-columns:1fr}}
+.mode-card{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:16px;padding:18px;display:block;width:100%}
+.mode-card:hover{border-color:var(--indigo)}
+.mode-card[aria-checked="true"]{border-color:var(--verm);background:var(--surface2)}
+.mc-title{font-size:19px;font-weight:900;display:block;line-height:1.3}
+.mc-sub{color:var(--verm);font-weight:800;font-size:13px}
+.mc-desc{font-size:13.5px;color:var(--muted);margin-top:6px;display:block}
+.round-wrap{max-width:680px;margin:0 auto}
+.round-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.round-top .progress-track{flex:1 1 180px}
+.stat-chip{font-weight:800;font-size:13.5px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap}
+.stat-chip b{font-weight:900}
+.stage-label{font-size:12.5px;letter-spacing:.14em;font-weight:800;color:var(--verm);text-transform:uppercase;margin-bottom:12px}
+.stage-label span{color:var(--muted);letter-spacing:.04em;margin-left:8px}
+.prompt-card{padding:28px 26px;box-shadow:var(--shadow)}
+.qc-word-row{display:flex;align-items:center;gap:12px}
+.qc-word{font-family:"Noto Serif JP",serif;font-size:clamp(36px,7.5vw,48px);font-weight:900;line-height:1.15}
+.q-help{color:var(--muted);font-size:14px;margin:8px 0 16px}
+.feedback{animation:slideUp .28s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fb-title{font-size:17px;font-weight:900}
+.fb-title.ok{color:var(--matcha)} .fb-title.bad{color:var(--verm)}
+.fb-word{margin-top:8px;font-size:15.5px}
+.fb-word b{font-size:18px}
+.fb-word .rd{color:var(--verm);font-weight:800;margin-left:6px}
+.fb-foot{display:flex;justify-content:flex-end;margin-top:14px}
+.prompt-zh{font-size:clamp(26px,6vw,34px);font-weight:900;line-height:1.4;text-align:center}
+.prompt-en{text-align:center;color:var(--muted);font-size:14.5px;margin-top:4px}
+.listen-stage{text-align:center;padding:10px 0 4px}
+.listen-stage .speak-btn{margin:0 auto}
+.type-form{margin-top:20px}
+.type-input{width:100%;box-sizing:border-box;font:inherit;font-size:22px;text-align:center;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.type-input:focus{outline:none;border-color:var(--indigo)}
+.type-input.ok{border-color:var(--matcha);background:rgba(95,125,79,.12)}
+.type-input.bad{border-color:var(--verm);background:rgba(199,62,46,.10)}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.shake{animation:shake .4s ease}
+.type-row{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+.type-row .btn{flex:1;justify-content:center}
+.type-msg{min-height:24px;text-align:center;font-weight:800;margin-top:12px;font-size:15px}
+.type-msg.ok{color:var(--matcha)} .type-msg.bad{color:var(--verm)}
+.reveal-reading{font-family:"Noto Serif JP",serif;font-size:30px;font-weight:900;color:var(--verm);text-align:center;margin-top:6px}
+.done-card{text-align:center;padding:40px 26px;box-shadow:var(--shadow)}
+.done-big{font-family:"Noto Serif JP",serif;font-size:40px;font-weight:900;line-height:1.15}
+.done-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:420px;margin:22px auto}
+@media(max-width:480px){.done-stats{grid-template-columns:1fr}}
+.done-stat{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:14px}
+.done-stat b{display:block;font-size:26px;line-height:1.1}
+.done-stat span{font-size:12.5px;color:var(--muted)}
+.done-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.review-item{border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px;background:var(--surface);display:flex;gap:10px;align-items:flex-start}
+.review-item .rw{flex:1;min-width:0}
+.review-item b{font-size:17px}
+.review-item .rr{color:var(--verm);font-weight:700;font-size:13.5px;margin-left:6px}
+.review-item .rz{display:block;font-size:14px;color:var(--muted)}
+.review-item a{white-space:nowrap;font-size:13.5px;font-weight:700}
+</style>
+</head>
+<body>
+<header class="topnav"><div class="topnav-in">
+  <div class="brand"><a href="index.html"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></a></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="index.html">今日</a><a href="learn.html">学習</a><a href="lessons.html">授業</a><a href="atlas.html">図鑑</a><a href="grammar.html">文法</a><a href="practice.html" class="on">練習</a><a href="training.html">訓練</a>
+  </nav>
+</div></header>
+
+<main>
+<section>
+  <div class="wrap">
+    <!-- ======== hub ======== -->
+    <div id="hubScreen">
+      <div class="sec-head">
+        <p class="eyebrow">練習 · Practice</p>
+        <h2><span class="jp">練習</span> · 练习</h2>
+        <p>学んだ単語を、クイズ・タイピング・聞き取りで繰り返し確認します。短いラウンドで、覚えたことを定着させましょう。用短轮次反复确认学过的词，把记忆练扎实。</p>
+      </div>
+      <p style="margin-bottom:8px"><span class="tag-note">練習は定着のためのもの。JLPT の進度には直接カウントしません。· 练习只为巩固，答错也没关系，不计入考试进度。</span></p>
+
+      <h3 class="setup-h">モード · 模式</h3>
+      <div class="mode-cards" role="radiogroup" aria-label="モード · 模式" id="modeCards">
+        <button class="mode-card" type="button" role="radio" data-mode="quiz" aria-checked="true">
+          <span class="mc-title jp">意味クイズ</span> <span class="mc-sub">意思测验</span>
+          <span class="mc-desc">単語を見て、正しい意味を4つから選ぶ。· 看单词，从四项中选出正确意思。</span>
+        </button>
+        <button class="mode-card" type="button" role="radio" data-mode="reading" aria-checked="false">
+          <span class="mc-title jp">読みタイピング</span> <span class="mc-sub">读音输入</span>
+          <span class="mc-desc">意味を見て、読み方をかなで入力する。· 看中文意思，用假名输入单词的读音。</span>
+        </button>
+        <button class="mode-card" type="button" role="radio" data-mode="listening" aria-checked="false">
+          <span class="mc-title jp">聞き取り</span> <span class="mc-sub">听力输入</span>
+          <span class="mc-desc">音声を聞いて、読み方をかなで入力する。· 听发音，用假名输入单词的读音。</span>
+        </button>
+      </div>
+
+      <h3 class="setup-h">レベル · 级别</h3>
+      <div class="train-levels" role="tablist" aria-label="レベル · 级别" id="lvlTabs">
+        <button class="tlvl" role="tab" data-lv="n5" aria-selected="true">N5<span class="cnt">674</span></button>
+        <button class="tlvl" role="tab" data-lv="n4" aria-selected="false">N4<span class="cnt">630</span></button>
+        <button class="tlvl" role="tab" data-lv="n3" aria-selected="false">N3<span class="cnt">1,659</span></button>
+        <button class="tlvl" role="tab" data-lv="n2" aria-selected="false">N2<span class="cnt">1,778</span></button>
+        <button class="tlvl" role="tab" data-lv="n1" aria-selected="false">N1<span class="cnt">3,070</span></button>
+      </div>
+
+      <h3 class="setup-h">出題範囲 · 出题范围</h3>
+      <div class="train-secs" role="group" aria-label="出題範囲 · 出题范围" id="scopeTabs">
+        <button class="tsec" type="button" data-scope="learned" aria-selected="true">最近学んだことば · 学过的词</button>
+        <button class="tsec" type="button" data-scope="wrong" aria-selected="false">間違いノート · 错题本</button>
+        <button class="tsec" type="button" data-scope="random" aria-selected="false">ランダム · 随机</button>
+      </div>
+
+      <div id="errBox" class="err-box hidden">データの読み込みに失敗しました。· 数据加载失败，请检查网络后刷新页面重试。</div>
+      <p id="poolNote" class="loading-note">読み込み中… · 加载中…</p>
+
+      <div style="margin-top:14px;max-width:680px">
+        <button class="btn btn-primary btn-big" id="startBtn" disabled>スタート · 开始</button>
+      </div>
+    </div>
+
+    <!-- ======== round ======== -->
+    <div id="roundScreen" class="hidden">
+      <div class="round-wrap">
+        <div class="round-top">
+          <div class="progress-track thin"><div class="progress-fill" id="rProg" style="width:0%"></div></div>
+          <span class="stat-chip">正答率 <b id="rAcc">—</b></span>
+          <span class="stat-chip">現在 <b id="rPos">0/10</b></span>
+          <span class="lvl l-n5" id="rLevel">N5</span>
+          <button class="btn btn-ghost" type="button" id="endBtn" style="padding:8px 16px">終了 · 结束</button>
+        </div>
+        <div id="roundStage"></div>
+      </div>
+    </div>
+
+    <!-- ======== completion ======== -->
+    <div id="doneScreen" class="hidden">
+      <div class="round-wrap">
+        <div class="card done-card">
+          <p class="stage-label" style="margin-bottom:6px">ラウンド完了 · 本轮完成</p>
+          <div class="done-big jp">おつかれさま！</div>
+          <div class="done-stats">
+            <div class="done-stat"><b id="doneAcc">0%</b><span>正答率 · 首答正确率</span></div>
+            <div class="done-stat"><b id="doneCorrect">0/0</b><span>正解数 · 答对题数</span></div>
+          </div>
+          <div class="done-btns">
+            <button class="btn btn-primary" type="button" id="againBtn">もう一度 · 再来一轮</button>
+            <button class="btn btn-ghost" type="button" id="hubBtn">ハブに戻る · 回到练习主页</button>
+          </div>
+        </div>
+        <h3 class="setup-h" id="missedHead">間違えた単語 · 本轮错词</h3>
+        <div id="missedList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>収録データ · 内容来源：OpenJLPT 数据集（© OpenJLPT contributors, CC BY-SA 4.0；底层词典 JMdict/KANJIDIC2, EDRDG）；中文释义与语法讲解为本站原创。</p>
+  <p class="small" style="margin-top:8px"><a href="index.html">ほしことば Hoshikotoba · 星语图鉴</a> — JLPT 日语学习</p>
+</div></footer>
+
+<script src="assets/progress.js"></script>
+<script>
+(function(){
+"use strict";
+var SPEAK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>';
+function $(s){return document.querySelector(s);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+/* kana input matching: trim, drop spaces, fold katakana to hiragana on both sides */
+function normKana(s){
+  return String(s==null?'':s).replace(/[\s　]+/g,'').replace(/[ァ-ヶ]/g,function(c){
+    return String.fromCharCode(c.charCodeAt(0)-0x60);
+  });
+}
+
+/* speech (ja-JP, ~0.9 rate) — same pattern as the other pages */
+var jaVoice=null;
+function pickVoice(){
+  if(!('speechSynthesis' in window))return;
+  var vs=speechSynthesis.getVoices();
+  for(var i=0;i<vs.length;i++){var l=(vs[i].lang||'').toLowerCase().replace('_','-');if(l.indexOf('ja')===0){jaVoice=vs[i];break;}}
+}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function speakJa(text,btn){
+  if(!('speechSynthesis' in window)||!text)return;
+  try{
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='ja-JP'; u.rate=0.9;
+    if(jaVoice)u.voice=jaVoice;
+    if(btn){btn.classList.add('playing');u.onend=function(){btn.classList.remove('playing');};u.onerror=function(){btn.classList.remove('playing');};}
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* data */
+var cache={};
+function loadLevel(lv){
+  if(cache[lv])return Promise.resolve(cache[lv]);
+  return fetch('data/vocab-'+lv+'.json').then(function(r){
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(d){cache[lv]=d;return d;});
+}
+
+/* hub state */
+var ROUND_SIZE=10;
+var SCOPE_LABEL={learned:'最近学んだことば · 学过的词',wrong:'間違いノート · 错题本',random:'ランダム · 随机'};
+var sel={mode:'quiz',lv:'n5',scope:'learned'};
+var poolInfo=null; /* {data,pool:[idx],fellBack} */
+var poolToken=0;
+
+function computePool(){
+  var lv=sel.lv,scope=sel.scope;
+  return loadLevel(lv).then(function(data){
+    var pool=null,fellBack=false;
+    if(scope==='learned'){
+      pool=HK.learnedWords(lv).filter(function(i){return i>=0&&i<data.length;});
+      if(!pool.length)fellBack=true;
+    }else if(scope==='wrong'){
+      pool=HK.wrongList(lv).filter(function(i){return i>=0&&i<data.length;});
+      if(!pool.length)fellBack=true;
+    }
+    if(!pool||fellBack){
+      pool=data.map(function(_,i){return i;});
+    }
+    return {data:data,pool:pool,fellBack:fellBack};
+  });
+}
+
+function updateHub(){
+  var token=++poolToken;
+  $('#errBox').classList.add('hidden');
+  $('#poolNote').textContent='読み込み中… · 加载中…';
+  $('#startBtn').disabled=true;
+  computePool().then(function(info){
+    if(token!==poolToken)return;
+    poolInfo=info;
+    var n=Math.min(ROUND_SIZE,info.pool.length);
+    if(info.fellBack){
+      $('#poolNote').textContent='「'+SCOPE_LABEL[sel.scope]+'」はまだ空なので、ランダム出題に切り替えました。· 所选范围还没有词，已自动切换为随机出题。（プール · 题池 '+info.pool.length+' 語）';
+    }else{
+      $('#poolNote').textContent='出題プール · 题池：'+info.pool.length+' 語（'+SCOPE_LABEL[sel.scope]+'）から '+n+' 問出題します。';
+    }
+    $('#startBtn').textContent='スタート · 开始（'+n+' 問）';
+    $('#startBtn').disabled=info.pool.length===0;
+  }).catch(function(){
+    if(token!==poolToken)return;
+    $('#poolNote').textContent='';
+    $('#errBox').classList.remove('hidden');
+  });
+}
+
+function showScreen(which){
+  $('#hubScreen').classList.toggle('hidden',which!=='hub');
+  $('#roundScreen').classList.toggle('hidden',which!=='round');
+  $('#doneScreen').classList.toggle('hidden',which!=='done');
+  window.scrollTo(0,0);
+}
+
+/* round state */
+var R=null; /* {lv,data,mode,items:[idx],pos,answered,firstCorrect,missed:[idx],cur} */
+
+function updateStats(){
+  if(!R)return;
+  var total=R.items.length;
+  $('#rPos').textContent=Math.min(R.pos+1,total)+'/'+total;
+  $('#rAcc').textContent=R.answered?Math.round(R.firstCorrect/R.answered*100)+'%':'—';
+  $('#rProg').style.width=(total?Math.round(R.answered/total*100):0)+'%';
+  var chip=$('#rLevel');
+  chip.textContent=R.lv.toUpperCase();
+  chip.className='lvl l-'+R.lv;
+}
+
+function exampleHTML(e){
+  if(!e.ex||!e.ex.length||!e.ex[0]||!e.ex[0].ja)return '';
+  var ex=e.ex[0];
+  var h='<div class="vocab-ex"><div class="ex-row"><p class="ex-jp jp">'+esc(ex.ja)+'</p>'+
+     '<button class="speak-btn sm" type="button" data-speak="'+esc(ex.ja)+'" aria-label="例文の発音 · 例句发音">'+SPEAK_SVG+'</button></div>';
+  if(ex.en)h+='<span class="ex-en">'+esc(ex.en)+'</span>';
+  return h+'</div>';
+}
+
+function quizOptions(e){
+  var correct=e.zh||'';
+  var texts=[correct],guard=0;
+  while(texts.length<4&&guard<400){
+    guard++;
+    var cand=R.data[Math.floor(Math.random()*R.data.length)];
+    var t=cand&&cand.zh?cand.zh:'';
+    if(t&&texts.indexOf(t)<0)texts.push(t);
+  }
+  return shuffle(texts.slice());
+}
+
+function quizHTML(e){
+  var opts=quizOptions(e);
+  R.currentOptions=opts; R.currentCorrect=e.zh||'';
+  var keys=['A','B','C','D'];
+  var h='<p class="stage-label">意味クイズ<span>意思测验</span></p>';
+  h+='<div class="card prompt-card">';
+  h+='<div class="qc-word-row"><span class="qc-word serif jp">'+esc(e.w)+'</span>'+
+     '<button class="speak-btn" type="button" data-speak="'+esc(e.w)+'" aria-label="発音 · 发音" style="width:44px;height:44px">'+SPEAK_SVG+'</button></div>';
+  h+='<p class="q-help">正しい意味を選んでください。· 选出正确的意思。</p>';
+  h+='<div class="opts">';
+  opts.forEach(function(t,i){
+    h+='<button class="opt" type="button" data-opt="'+i+'"><span class="key">'+keys[i]+'</span><span>'+esc(t)+'</span></button>';
+  });
+  h+='</div><div id="fbEl"></div>';
+  return h+'</div>';
+}
+
+function feedbackHTML(e,ok){
+  var h='<div class="explain feedback'+(ok?'':' bad')+'">';
+  h+='<p class="fb-title '+(ok?'ok':'bad')+'">'+(ok?'正解！· 答对了':'残念… · 答错了')+'</p>';
+  h+='<p class="fb-word"><b class="jp">'+esc(e.w)+'</b>';
+  if(e.r)h+='<span class="rd jp">'+esc(e.r)+'</span>';
+  if(e.zh)h+=' — '+esc(e.zh);
+  h+='</p>';
+  h+=exampleHTML(e);
+  h+='<div class="fb-foot"><button class="btn btn-primary" type="button" data-act="rnext">次へ · 下一题</button></div>';
+  return h+'</div>';
+}
+
+function typingHTML(e){
+  var isListen=(R.mode==='listening');
+  var h='<p class="stage-label">'+(isListen?'聞き取り<span>听力输入</span>':'読みタイピング<span>读音输入</span>')+'</p>';
+  h+='<div class="card prompt-card">';
+  if(isListen){
+    h+='<div class="listen-stage"><button class="speak-btn lg" type="button" data-speak="'+esc(e.w)+'" aria-label="聞く · 听">'+SPEAK_SVG+'</button>'+
+       '<p class="q-help" style="margin:10px 0 0">音声を聞いて、読み方をかなで入力してください。タップでもう一度聞けます。· 听发音，用假名输入读音；点喇叭可重听。</p></div>';
+  }else{
+    h+='<div class="prompt-zh">'+esc(e.zh||'')+'</div>';
+    if(e.en&&e.en.length)h+='<div class="prompt-en">'+esc(e.en.join('; '))+'</div>';
+    h+='<p class="q-help" style="text-align:center;margin-top:10px">この単語の読み方をかなで入力してください。· 输入这个单词的读音（假名）。</p>';
+  }
+  h+='<form class="type-form" id="typeForm" autocomplete="off">'+
+     '<input class="type-input jp" id="typeInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="よみかた · 读音（かな）" aria-label="読み方 · 读音">'+
+     '<div class="type-row">'+
+       '<button class="btn btn-ghost" type="button" data-act="reveal">答えを見る · 看答案</button>'+
+       '<button class="btn btn-primary" type="submit">確認 · 确认</button>'+
+     '</div>'+
+     '<p class="type-msg" id="typeMsg"></p>'+
+     '</form>';
+  h+='<div id="revealEl"></div>';
+  return h+'</div>';
+}
+
+function renderQuestion(){
+  var idx=R.items[R.pos],e=R.data[idx];
+  R.cur={attempts:0,failed:false,resolved:false};
+  $('#roundStage').innerHTML=(R.mode==='quiz')?quizHTML(e):typingHTML(e);
+  updateStats();
+  window.scrollTo(0,0);
+  if(R.mode==='listening'){speakJa(e.w,null);}
+  if(R.mode!=='quiz'){
+    var inp=$('#typeInput');
+    if(inp)inp.focus();
+  }
+}
+
+function markMissed(idx){
+  if(R.missed.indexOf(idx)<0)R.missed.push(idx);
+}
+
+function resolveCurrent(firstTry){
+  if(R.cur.resolved)return;
+  R.cur.resolved=true;
+  R.answered++;
+  var idx=R.items[R.pos];
+  if(firstTry){R.firstCorrect++;HK.removeWrong(R.lv,idx);}
+  updateStats();
+}
+
+function nextQuestion(){
+  if(!R)return;
+  if(R.pos>=R.items.length-1){finishRound();return;}
+  R.pos++;
+  renderQuestion();
+}
+
+function answerQuiz(btn){
+  if(!R||R.cur.resolved)return;
+  var idx=R.items[R.pos],e=R.data[idx];
+  var picked=R.currentOptions[parseInt(btn.getAttribute('data-opt'),10)];
+  var ok=(picked===R.currentCorrect);
+  if(ok){resolveCurrent(true);}
+  else{
+    R.cur.failed=true;
+    markMissed(idx);
+    HK.addWrong(R.lv,idx);
+    R.cur.resolved=true; R.answered++; updateStats();
+  }
+  var opts=document.querySelectorAll('#roundStage .opt');
+  for(var i=0;i<opts.length;i++){
+    var t=R.currentOptions[i];
+    opts[i].disabled=true;
+    if(t===R.currentCorrect)opts[i].classList.add('correct');
+    else if(opts[i]===btn)opts[i].classList.add('wrong');
+    else opts[i].classList.add('dim');
+  }
+  $('#fbEl').innerHTML=feedbackHTML(e,ok);
+  btn.blur();
+}
+
+function revealAnswer(){
+  if(!R||R.mode==='quiz')return;
+  var idx=R.items[R.pos],e=R.data[idx];
+  if(!R.cur.resolved){
+    if(!R.cur.failed){R.cur.failed=true;markMissed(idx);HK.addWrong(R.lv,idx);}
+    resolveCurrent(false);
+  }
+  var inp=$('#typeInput');
+  if(inp)inp.disabled=true;
+  var msg=$('#typeMsg');
+  if(msg){msg.textContent='';msg.className='type-msg';}
+  var h='<div class="explain bad feedback">';
+  h+='<p class="fb-title bad">答え · 答案</p>';
+  h+='<div class="reveal-reading jp">'+esc(e.r||'')+'</div>';
+  h+='<p class="fb-word" style="text-align:center"><b class="jp">'+esc(e.w)+'</b>';
+  if(e.zh)h+=' — '+esc(e.zh);
+  h+=' <button class="speak-btn sm" type="button" data-speak="'+esc(e.w)+'" aria-label="発音 · 发音" style="display:inline-grid;vertical-align:middle;margin-left:6px">'+SPEAK_SVG+'</button></p>';
+  h+=exampleHTML(e);
+  h+='<div class="fb-foot"><button class="btn btn-primary" type="button" data-act="rnext">次へ · 下一题</button></div>';
+  h+='</div>';
+  $('#revealEl').innerHTML=h;
+}
+
+function checkAnswer(){
+  if(!R||R.mode==='quiz'||R.cur.resolved)return;
+  var idx=R.items[R.pos],e=R.data[idx];
+  var inp=$('#typeInput'),msg=$('#typeMsg');
+  if(!inp)return;
+  var v=normKana(inp.value);
+  if(!v)return;
+  if(v===normKana(e.r)){
+    var firstTry=!R.cur.failed;
+    resolveCurrent(firstTry);
+    inp.classList.remove('bad');inp.classList.add('ok');inp.disabled=true;
+    if(msg){msg.textContent=firstTry?'正解！· 答对了':'正解！· 这次答对了';msg.className='type-msg ok';}
+    setTimeout(nextQuestion,850);
+  }else{
+    if(!R.cur.failed){R.cur.failed=true;markMissed(idx);HK.addWrong(R.lv,idx);}
+    R.cur.attempts++;
+    inp.classList.add('bad','shake');
+    setTimeout(function(){inp.classList.remove('shake');},450);
+    if(R.cur.attempts>=2){
+      revealAnswer();
+    }else{
+      if(msg){msg.textContent='違います · 不对，再想一想（もう一度間違えると答えが出ます）';msg.className='type-msg bad';}
+      inp.select();
+    }
+  }
+}
+
+function finishRound(){
+  var acc=R.answered?Math.round(R.firstCorrect/R.answered*100):0;
+  $('#doneAcc').textContent=(R.answered?acc+'%':'—');
+  $('#doneCorrect').textContent=R.firstCorrect+'/'+R.answered;
+  var html='';
+  if(!R.missed.length){
+    $('#missedHead').classList.add('hidden');
+    html='<p class="small">全部正解でした！· 本轮没有错词，太棒了。</p>';
+  }else{
+    $('#missedHead').classList.remove('hidden');
+    R.missed.forEach(function(idx){
+      var e=R.data[idx];
+      html+='<div class="review-item"><div class="rw"><b class="jp">'+esc(e.w)+'</b>'+
+        (e.r?'<span class="rr jp">'+esc(e.r)+'</span>':'')+
+        (e.zh?'<span class="rz">'+esc(e.zh)+'</span>':'')+
+        '</div><button class="speak-btn sm" type="button" data-speak="'+esc(e.w)+'" aria-label="発音 · 发音">'+SPEAK_SVG+'</button>'+
+        '<a href="atlas.html?lv='+R.lv+'&q='+encodeURIComponent(e.w||'')+'">図鑑で見る · 在图鉴查看</a></div>';
+    });
+  }
+  $('#missedList').innerHTML=html;
+  showScreen('done');
+}
+
+function beginRound(){
+  $('#startBtn').disabled=true;
+  computePool().then(function(info){
+    poolInfo=info;
+    $('#startBtn').disabled=false;
+    if(!info.pool.length)return;
+    var items=shuffle(info.pool.slice()).slice(0,ROUND_SIZE);
+    R={lv:sel.lv,data:info.data,mode:sel.mode,items:items,pos:0,answered:0,firstCorrect:0,missed:[],cur:null,currentOptions:[],currentCorrect:''};
+    HK.touchToday(); /* once per round */
+    showScreen('round');
+    renderQuestion();
+  }).catch(function(){
+    $('#startBtn').disabled=false;
+    showScreen('hub');
+    $('#errBox').classList.remove('hidden');
+  });
+}
+
+/* hub events */
+$('#modeCards').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-mode]');if(!b)return;
+  sel.mode=b.getAttribute('data-mode');
+  var cs=this.querySelectorAll('[data-mode]');
+  for(var i=0;i<cs.length;i++)cs[i].setAttribute('aria-checked',cs[i]===b?'true':'false');
+});
+$('#lvlTabs').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-lv]');if(!b)return;
+  sel.lv=b.getAttribute('data-lv');
+  var ts=this.querySelectorAll('[data-lv]');
+  for(var i=0;i<ts.length;i++)ts[i].setAttribute('aria-selected',ts[i]===b?'true':'false');
+  updateHub();
+});
+$('#scopeTabs').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-scope]');if(!b)return;
+  sel.scope=b.getAttribute('data-scope');
+  var ts=this.querySelectorAll('[data-scope]');
+  for(var i=0;i<ts.length;i++)ts[i].setAttribute('aria-selected',ts[i]===b?'true':'false');
+  updateHub();
+});
+$('#startBtn').addEventListener('click',beginRound);
+$('#againBtn').addEventListener('click',beginRound);
+$('#hubBtn').addEventListener('click',function(){showScreen('hub');updateHub();});
+$('#endBtn').addEventListener('click',function(){
+  if(R&&R.answered>0){finishRound();}
+  else{R=null;showScreen('hub');updateHub();}
+});
+
+/* round events */
+$('#roundStage').addEventListener('click',function(ev){
+  var sp=ev.target.closest('[data-speak]');
+  if(sp){speakJa(sp.getAttribute('data-speak'),sp);return;}
+  var op=ev.target.closest('[data-opt]');
+  if(op){answerQuiz(op);return;}
+  var act=ev.target.closest('[data-act]');
+  if(act){
+    var a=act.getAttribute('data-act');
+    if(a==='rnext')nextQuestion();
+    else if(a==='reveal')revealAnswer();
+  }
+});
+$('#roundStage').addEventListener('submit',function(ev){
+  if(ev.target&&ev.target.id==='typeForm'){ev.preventDefault();checkAnswer();}
+});
+$('#doneScreen').addEventListener('click',function(ev){
+  var sp=ev.target.closest('[data-speak]');
+  if(sp)speakJa(sp.getAttribute('data-speak'),sp);
+});
+
+document.addEventListener('keydown',function(ev){
+  if(ev.key!=='Enter')return;
+  if($('#roundScreen').classList.contains('hidden')||!R)return;
+  var tag=(ev.target&&ev.target.tagName)||'';
+  if(tag==='INPUT'||tag==='TEXTAREA')return;
+  if(R.mode==='quiz'&&R.cur&&R.cur.resolved){ev.preventDefault();nextQuestion();}
+});
+
+updateHub();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>ほしことば Hoshikotoba · 星语图鉴 — レベルマップ · 等级地图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+.display{font-family:"Noto Serif JP","Noto Sans SC",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+    .navlinks a.on{background:var(--surface2);color:var(--verm)}
+
+/* hero */
+.hero{padding:38px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;margin:12px 0 14px;font-weight:900}
+.hero h1 .jp-big{display:block;font-size:.62em;margin-top:8px;color:var(--indigo)}
+.hero p.lead{font-size:17.5px;color:var(--muted);max-width:56ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:13px 22px;text-decoration:none}
+.btn-primary{background:var(--verm);color:#fff}
+.btn-primary:hover{background:var(--verm-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.hero-img{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.hero-img figcaption{font-size:12.5px;color:var(--muted);padding:10px 14px;background:var(--surface)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+@media(max-width:640px){.hero-stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.stat b{display:block;font-size:20px;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr}}
+
+/* level pills */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)} .l-all{background:var(--indigo)}
+
+/* level mapping cards */
+.level-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.level-top{display:flex;gap:16px;align-items:flex-start;padding:20px 22px 6px;flex-wrap:wrap}
+.level-badge{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:21px;flex:none}
+.level-top h3{font-size:20px}
+.level-top p{color:var(--muted);font-size:14.5px;max-width:62ch}
+.level-nums{margin-left:auto;text-align:right}
+.level-nums b{display:block;font-size:19px}
+.level-nums span{font-size:12px;color:var(--muted)}
+.level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:10px 22px 20px}
+@media(max-width:860px){.level-grid{grid-template-columns:1fr}}
+.level-cell{padding:12px 14px 4px;border-top:1px solid var(--line)}
+.level-cell h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--verm);margin-bottom:5px}
+.level-cell p,.level-cell li{font-size:14px;color:var(--ink)}
+.level-cell li{padding:2px 0 2px 14px;position:relative}
+.level-cell li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* flow */
+.flow{display:flex;gap:0;flex-wrap:wrap;align-items:stretch}
+.flow-step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.flow-arrow{display:grid;place-items:center;padding:0 6px;color:var(--verm);font-weight:900;font-size:20px}
+@media(max-width:700px){.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg);padding:4px 0}}
+.flow-step .num{width:28px;height:28px;border-radius:50%;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:900;font-size:13px;margin-bottom:8px}
+@media(prefers-color-scheme:dark){.flow-step .num{background:var(--verm)}}
+.flow-step h3{font-size:15.5px;margin-bottom:5px}
+.flow-step p{font-size:13.5px;color:var(--muted)}
+.loop-ring{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:860px){.loop-ring{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.loop-ring{grid-template-columns:1fr}}
+.loop-item{border-radius:16px;padding:18px;color:#fff}
+.loop-item h3{font-size:17px;margin-bottom:4px}
+.loop-item p{font-size:13.5px;opacity:.92}
+.loop-item .jp{font-size:22px;font-weight:900;display:block;margin-bottom:6px}
+
+/* mapping table */
+.maptable{width:100%;border-collapse:collapse;font-size:14.5px}
+.maptable th,.maptable td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.maptable th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:760px){
+  .maptable thead{display:none}
+  .maptable tr{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;padding:8px 4px}
+  .maptable td{display:block;border:0;padding:7px 14px}
+  .maptable td::before{content:attr(data-h);display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800}
+}
+.tablebox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;overflow:hidden}
+
+/* phone prototype */
+.proto-layout{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+@media(max-width:860px){.proto-layout{grid-template-columns:1fr}}
+.screen-tabs{display:flex;flex-direction:column;gap:8px}
+@media(max-width:860px){.screen-tabs{flex-direction:row;flex-wrap:wrap}}
+.stab{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.stab[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.stab small{font-weight:500;color:var(--muted)}
+.phone{width:min(375px,100%);margin:0 auto;background:#10182B;border-radius:42px;padding:11px;box-shadow:var(--shadow)}
+.phone-screen{background:#FBF7EC;color:#182236;border-radius:32px;overflow:hidden;min-height:640px;display:flex;flex-direction:column}
+@media(prefers-color-scheme:dark){.phone-screen{background:#171F33;color:#EEF0F6}}
+.p-status{display:flex;justify-content:space-between;padding:12px 20px 4px;font-size:12px;font-weight:700;opacity:.7}
+.p-body{padding:12px 18px 18px;flex:1}
+.p-body h3{font-size:19px;line-height:1.3}
+.p-sub{font-size:12.5px;opacity:.65;margin:3px 0 14px}
+.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.mini-pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:#EFE8D8;color:#5B4A12}
+@media(prefers-color-scheme:dark){.mini-pill{background:#2A3654;color:#E8D9A0}}
+.task{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;margin-bottom:8px;background:rgba(255,255,255,.45)}
+@media(prefers-color-scheme:dark){.task{background:rgba(255,255,255,.04)}}
+.task-dot{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;font-weight:900;color:#fff;margin-top:1px}
+.done{background:var(--matcha)} .todo{background:#B9B09A} .now{background:var(--verm)}
+.task b{font-size:14px;display:block;line-height:1.35}
+.task span{font-size:12px;opacity:.65}
+.p-nav{display:flex;justify-content:space-around;border-top:1px solid var(--line);padding:10px 6px 16px;font-size:10.5px;font-weight:700}
+.p-nav span{text-align:center;opacity:.55}
+.p-nav span.on{opacity:1;color:var(--verm)}
+.p-nav svg{display:block;margin:0 auto 3px}
+.progress-track{height:9px;border-radius:99px;background:#E4DCC6;overflow:hidden}
+@media(prefers-color-scheme:dark){.progress-track{background:#2A3654}}
+.progress-fill{height:100%;background:var(--verm);border-radius:99px}
+.wordcard-hero{border-radius:16px;background:var(--indigo);color:#fff;padding:18px;text-align:center}
+.wordcard-hero .big{font-family:"Noto Serif JP",serif;font-size:46px;font-weight:900;line-height:1.1}
+.wordcard-hero .reading{font-size:15px;opacity:.85}
+.pitch{display:flex;gap:3px;justify-content:center;margin-top:8px}
+.pitch i{width:22px;height:5px;border-radius:99px;background:#E8C95A;display:block}
+.pitch i.low{background:rgba(255,255,255,.35)}
+.annot{font-size:14px}
+.annot h3{font-size:19px;margin-bottom:6px}
+.annot dl{display:grid;grid-template-columns:86px 1fr;gap:7px 12px;font-size:14px;margin-top:12px}
+.annot dt{font-weight:800;color:var(--verm);font-size:12px;letter-spacing:.06em;padding-top:2px}
+.specbox{border-left:4px solid var(--gold);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14px;margin-top:14px}
+
+/* star map */
+.starmap{background:#16233F;border-radius:18px;padding:10px;position:relative}
+.star-btn{position:absolute;width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.75);cursor:pointer;display:grid;place-items:center;font-size:11px;font-weight:900;color:#10182B}
+.star-info{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-top:14px;font-size:14.5px;min-height:74px}
+
+/* quiz */
+.quizbox{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
+.q-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px}
+.q-text{font-size:20px;line-height:1.55;margin:12px 0 6px}
+.q-text .jp{font-size:22px}
+.q-help{color:var(--muted);font-size:14px;margin-bottom:16px}
+.opts{display:grid;gap:9px}
+.opt{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:13px;padding:14px 16px;font-size:16.5px;font-weight:600;display:flex;gap:11px;align-items:center}
+.opt:hover{border-color:var(--indigo)}
+.opt .key{width:26px;height:26px;border-radius:8px;background:var(--surface2);display:grid;place-items:center;font-size:13px;font-weight:900;flex:none}
+.opt.picked{border-color:var(--verm);background:var(--surface2)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.q-msg{font-size:14px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:760px){.result-grid{grid-template-columns:1fr}}
+.bar-row{display:grid;grid-template-columns:104px 1fr 44px;gap:10px;align-items:center;font-size:13.5px;font-weight:700;margin-bottom:9px}
+.big-level{font-size:40px;line-height:1.05;font-weight:900}
+.hidden{display:none !important}
+
+/* timeline */
+.timeline{border-left:3px solid var(--line);margin-left:10px;padding-left:24px}
+.tl-item{position:relative;padding-bottom:22px}
+.tl-item::before{content:"";position:absolute;left:-32.5px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--verm);border:3px solid var(--bg)}
+.tl-item h3{font-size:17px}
+.tl-item p{color:var(--muted);font-size:14.5px;max-width:64ch}
+
+/* swatches */
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatch{width:118px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.swatch i{display:block;height:52px}
+.swatch span{display:block;padding:8px 10px;font-size:12px;font-weight:700;background:var(--surface)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+.small{font-size:13.5px;color:var(--muted)}
+.tag-note{display:inline-block;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13.5px}
+
+/* lessons */
+.lesson-layout{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start}
+@media(max-width:860px){.lesson-layout{grid-template-columns:1fr}}
+.ltab{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px;align-items:center;width:100%}
+.ltab[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.ltab small{font-weight:500;color:var(--muted)}
+.kana-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+@media(max-width:560px){.kana-grid{grid-template-columns:repeat(5,1fr);gap:6px}}
+.kana-cell{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.kana-cell .k{font-family:"Noto Serif JP",serif;font-size:27px;font-weight:900;line-height:1.15;display:block}
+.kana-cell .r{font-size:12.5px;font-weight:800;color:var(--verm)}
+.kana-cell .s{font-size:11.5px;color:var(--muted);display:block}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:760px){.vocab-grid{grid-template-columns:1fr}}
+.vocab-cell{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg);display:flex;flex-direction:column;gap:2px}
+.vocab-top{display:flex;align-items:flex-start;gap:8px}
+.vocab-top .vw{flex:1;min-width:0}
+.vocab-cell b{font-size:17px;line-height:1.3}
+.vocab-cell .vr{font-size:13px;color:var(--verm);font-weight:700}
+.vocab-cell .vm{display:block;font-size:13px;color:var(--muted)}
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--verm);display:grid;place-items:center;cursor:pointer;padding:0}
+.speak-btn:hover{border-color:var(--verm);background:var(--surface2)}
+.speak-btn:active{transform:scale(.94)}
+.speak-btn.playing{background:var(--verm);color:#fff;border-color:var(--verm)}
+.speak-btn svg{width:17px;height:17px;display:block}
+.speak-btn.sm{width:26px;height:26px}
+.speak-btn.sm svg{width:13px;height:13px}
+.vocab-ex{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+.vocab-ex .ex-label{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--verm);text-transform:uppercase}
+.vocab-ex .ex-row{display:flex;gap:7px;align-items:flex-start;margin-top:3px}
+.vocab-ex .ex-jp{flex:1;font-size:15px;line-height:1.55}
+.vocab-ex .ex-cn{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+.reading-sent{padding:8px 0;border-bottom:1px dashed var(--line)}
+.reading-sent:last-child{border-bottom:0}
+.reading-sent .jp{font-size:17.5px;line-height:1.5}
+.reading-sent .cn{font-size:13.5px;color:var(--muted)}
+.lesson-audio{width:100%;margin:6px 0 10px}
+.lesson-h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800;margin:20px 0 9px}
+.lesson-h:first-of-type{margin-top:4px}
+.ex-line{padding:7px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.ex-line:last-child{border-bottom:0}
+.ex-line .cn{color:var(--muted);font-size:13.5px}
+
+/* training center */
+.train-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tlvl{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:900;font-size:15px}
+.tlvl[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.tlvl:disabled{opacity:.45;cursor:not-allowed}
+.train-modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tmode{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 16px;font-weight:800;font-size:14.5px}
+.tmode[aria-selected="true"]{border-color:var(--indigo);background:var(--surface2)}
+.train-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tsec{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;font-size:13.5px}
+.tsec[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.passage{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:16.5px;line-height:1.8;margin-bottom:14px;white-space:pre-line}
+.opt.correct{border-color:var(--matcha);background:rgba(95,125,79,.14)}
+.opt.wrong{border-color:var(--verm);background:rgba(199,62,46,.12)}
+.opt:disabled{cursor:default;opacity:.92}
+.explain{border-left:4px solid var(--matcha);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14.5px;margin-top:14px}
+.explain.bad{border-left-color:var(--verm)}
+.scriptbox{background:var(--surface2);border:1px dashed var(--line);border-radius:12px;padding:13px 15px;font-size:15px;margin-top:12px;line-height:1.7}
+.scriptbox .cn{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
+.timer-chip{font-weight:900;font-size:15px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.timer-chip.low{background:var(--verm);color:#fff;border-color:var(--verm)}
+.review-item{border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px;background:var(--bg)}
+.review-item .rq{font-size:16px;line-height:1.6}
+.review-item .ra{font-size:14px;margin-top:6px}
+.score-table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:10px}
+.score-table th,.score-table td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+.pass-badge{display:inline-block;font-weight:900;border-radius:999px;padding:6px 16px;color:#fff}
+.pass-badge.ok{background:var(--matcha)} .pass-badge.no{background:var(--verm)}
+.official-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:18px}
+</style>
+</head>
+<body>
+
+<header class="topnav"><div class="topnav-in">
+  <div class="brand"><a href="index.html"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></a></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="index.html">今日</a><a href="learn.html">学習</a><a href="lessons.html">授業</a><a href="atlas.html">図鑑</a><a href="grammar.html">文法</a><a href="practice.html">練習</a><a href="training.html">訓練</a>
+  </nav>
+</div></header>
+<main>
+<section id="levels" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">中心軸 · JLPT レベル対応 · 等级主线</p>
+  <h2><span class="jp">一枚の地図で N5 → N1</span> · 一张地图管全程</h2>
+  <p>词汇与汉字数量是用于规划的累计约数（JLPT 官方不公布词表）。教材对照以《新版中日交流标准日本语》（标日）为主线，方便正在学标日的同学直接对位。</p></div>
+  <div id="levelCards"></div>
+  <p class="small">在应用里怎么看这张图：你始终处在<strong>一个学习档</strong>里，可以预览高一档的内容；高一档显示为「挑战」，高两档先锁定，等低一档学扎实再开——解锁规则见下方「学习逻辑」。</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <p><strong style="color:var(--ink)">ほしことば Hoshikotoba · 星语图鉴</strong>——一款只为日语设计的学习应用概念：按 JLPT N5→N1 组织单词、汉字与语法，星图点亮进度，FSRS 安排复习。JLPT 词汇/汉字数字为规划用累计约数，官方不公布词表。教材对照指《新版中日交流标准日本语》。</p><p style="margin-top:10px;font-size:12.5px">付録・出典（小さな謝辞）：「一語一星の星図」という着想は英語学習サイト <a href="https://0xlei.tech/words/#/" target="_blank" rel="noopener">词光 Word Atlas</a> と開源項目 <a href="https://github.com/designfuchen/word-atlas" target="_blank" rel="noopener">designfuchen/word-atlas</a>（コード MIT、データ CC BY 4.0）に着想を得たものです。本アプリの内容は全て日本語学習用に作り直したものです。</p>
+</div></footer><script>
+/* ============ LEVEL MAP CARDS ============ */
+var LEVELS=[
+ {band:"N5",color:"var(--n5)",name:"入門 · 入门基础",vocab:"~800",kanji:"~100",
+  can:"应付日常基础：打招呼、购物、时间、家人、简单的喜欢/不喜欢和过去发生的事。",
+  grammar:"は/が/を/に/へ/で particles · ます & dictionary forms · past tense · adjectives & て-form · たい · ほしい · ～てはいけません",
+  modules:"假名训练 · 星图（N5 区域）· 汉字图 1 · 每日计划 · FSRS 复习 · 分级阅读 L1",
+  content:"单物插图、全程振假名、慢速音频、5–10 词短句、日常话题对话。",
+  textbook:"标日 初级上册 第 1–24 课 · 约相当于 Genki I"},
+ {band:"N4",color:"var(--n4)",name:"初級後半 · 初级后半",vocab:"~1,500",kanji:"~300",
+  can:"用日语过日子：约计划、发邀请、说原因、讲经历、谈能力和打算。",
+  grammar:"～ことができます · ～前に · ～たことがある · たら/ば conditionals (intro) · volitional form · ～つもり · potential form · giving / receiving",
+  modules:"N5 全部 + 汉字书写练习 · 语法句型卡 · 口语角色扮演 L1 · 听力听写 · 每月模考（N4）",
+  content:"场景插图、振假名只标生词、可选自然语速、10–18 词句子。",
+  textbook:"标日 初级下册 第 25–48 课 · 约相当于 Genki II"},
+ {band:"N3",color:"var(--n3)",name:"中級への橋 · 通向中级的桥",vocab:"~3,700",kanji:"~650",
+  can:"跟上日常会话和较长文章；能谈工作、健康、新闻，并带理由表达看法。",
+  grammar:"Passive & causative · ～ば / ～ても · ～わけではない · ～ところだ · ～ばかり · honorific basics (尊敬・謙譲 intro) · compound patterns",
+  modules:"N4 全部 + 长篇阅读 · 新闻式听力 · 口语角色扮演 L2（自由话题）· 模考（N3）· 弱项专练周",
+  content:"振假名默认关（点开才显示）、抽象概念插图、300–600 字文章。",
+  textbook:"标日 中级上册 · 约相当于 TRY! N3 / 総まとめ N3"},
+ {band:"N2",color:"var(--n2)",name:"中上級 · 中上级",vocab:"~6,000",kanji:"~1,000",
+  can:"用日语工作和学习：跟上会议、文章和广播，能有分寸地论证立场。",
+  grammar:"～ざるを得ない · ～にもかかわらず · ～つつある · formal written patterns · full keigo system · advanced conditionals & concessions",
+  modules:"N3 全部 + 文章与短文阅读 · 讲座听力 · 讨论式口语练习 · 分项限时模考（N2）",
+  content:"无振假名、600–1,000+ 字密集文章、职场/学术主题、惯用语与四字熟语卡。",
+  textbook:"标日 中级下册 – 高级上册 · 约相当于 TRY! N2 / 新完全マスター N2"},
+ {band:"N1",color:"var(--n1)",name:"上級 · 高级",vocab:"~10,000",kanji:"~2,000",
+  can:"接近母语者的广度：文学、专业文本、快速自然口语、细微的语体切换。",
+  grammar:"Literary & formal patterns · ～んばかりに · ～を余儀なくされる · classical-influenced forms · fine nuance distinctions between near-synonyms",
+  modules:"N2 全部 + 文学与专业阅读 · 倍速听力（1.25×）· 发表式口语 · 真题全套模拟（N1）",
+  content:"真实材料、辅助最少、1,000+ 字文章、抽象与学术风插图。",
+  textbook:"标日 高级 · 约相当于 新完全マスター N1 / 上级教材"}
+];
+var lc=document.getElementById('levelCards');
+LEVELS.forEach(function(L){
+  var d=document.createElement('article'); d.className='level-card';
+  d.innerHTML='<div class="level-top"><div class="level-badge" style="background:'+L.color+'">'+L.band+'</div>'+
+   '<div><h3>'+L.band+' — '+L.name+'</h3><p>'+L.can+'</p></div>'+
+   '<div class="level-nums"><span>語彙（累計）· 词汇累计</span><b>'+L.vocab+'</b><span>漢字（累計）· 汉字累计</span><b>'+L.kanji+'</b></div></div>'+
+   '<div class="level-grid">'+
+   '<div class="level-cell"><h4>できること · 能做到</h4><p>'+L.can+'</p></div>'+
+   '<div class="level-cell"><h4>文法範囲 · 语法范围</h4><p>'+L.grammar+'</p></div>'+
+   '<div class="level-cell"><h4>教材対応 · 教材对照</h4><p>'+L.textbook+'</p></div>'+
+   '<div class="level-cell"><h4>解放モジュール · 解锁模块</h4><p>'+L.modules+'</p></div>'+
+   '<div class="level-cell"><h4>内容の難しさ · 内容难度</h4><p>'+L.content+'</p></div>'+
+   '<div class="level-cell"><h4>進級条件 · 升级门槛</h4><p>档位进度 ≥ 80% · 近 30 天 FSRS 记住率 ≥ 85% · 限时模考 ≥ 60%（每部分 ≥ 50%）。</p></div>'+
+   '</div>';
+  lc.appendChild(d);
+});
+</script>
+</body>
+</html>

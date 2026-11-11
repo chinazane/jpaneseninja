@@ -39,6 +39,7 @@ img{max-width:100%;display:block}
 .navlinks{display:flex;gap:6px;flex-wrap:wrap}
 .navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
 .navlinks a:hover{background:var(--surface2)}
+    .navlinks a.on{background:var(--surface2);color:var(--verm)}
 
 /* hero */
 .hero{padding:38px 0 30px}
@@ -281,9 +282,9 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
 <body>
 
 <header class="topnav"><div class="topnav-in">
-    <div class="brand"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></div>
+  <div class="brand"><a href="index.html"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></a></div>
   <nav class="navlinks" aria-label="Sections">
-    <a href="index.html">今日 · ホーム</a><a href="learn.html">学習 · 学习</a><a href="lessons.html">授業 · 课程</a><a href="atlas.html">図鑑 · 图鉴</a><a href="grammar.html">文法 · 语法课</a><a href="practice.html">練習 · 练习</a><a href="training.html" aria-current="page" style="color:var(--ink);font-weight:700">訓練 · 训练</a>
+    <a href="index.html">今日</a><a href="learn.html">学習</a><a href="lessons.html">授業</a><a href="atlas.html">図鑑</a><a href="grammar.html">文法</a><a href="practice.html">練習</a><a href="training.html" class="on">訓練</a>
   </nav>
 </div></header>
 

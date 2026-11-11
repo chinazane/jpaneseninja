@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>単語バンク · 单词库 — ほしことば Hoshikotoba · 星语图鉴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+.display{font-family:"Noto Serif JP","Noto Sans SC",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+.navlinks a.on{background:var(--surface2);color:var(--verm)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:13px 22px;text-decoration:none}
+.btn-primary{background:var(--verm);color:#fff}
+.btn-primary:hover{background:var(--verm-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.hidden{display:none !important}
+.small{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+
+/* level pills */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)}
+
+/* level tabs */
+.train-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tlvl{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:900;font-size:15px}
+.tlvl[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.tlvl .cnt{font-size:12px;font-weight:700;color:var(--muted);margin-left:5px}
+.tlvl[aria-selected="true"] .cnt{color:var(--verm)}
+
+/* mode tabs */
+.train-modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tmode{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 16px;font-weight:800;font-size:14.5px}
+.tmode[aria-selected="true"]{border-color:var(--indigo);background:var(--surface2)}
+.tmode[aria-pressed="true"]{border-color:var(--verm);background:var(--surface2)}
+
+/* search */
+.searchbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.search-input{flex:1 1 260px;font:inherit;font-size:16px;padding:12px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.search-input:focus{outline:none;border-color:var(--verm)}
+.count-note{font-size:13.5px;color:var(--muted);font-weight:700}
+
+/* vocab list (from index lessons styles) */
+.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mini-pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:#EFE8D8;color:#5B4A12}
+@media(prefers-color-scheme:dark){.mini-pill{background:#2A3654;color:#E8D9A0}}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:760px){.vocab-grid{grid-template-columns:1fr}}
+.vocab-cell{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);display:flex;flex-direction:column;gap:2px}
+.vocab-top{display:flex;align-items:flex-start;gap:8px}
+.vocab-top .vw{flex:1;min-width:0}
+.vocab-cell b{font-size:19px;line-height:1.3}
+.vocab-cell .vr{font-size:13.5px;color:var(--verm);font-weight:700;margin-left:6px}
+.vocab-cell .vzh{display:block;font-size:15.5px;font-weight:700;color:var(--ink);margin-top:2px}
+.vocab-cell .vm{display:block;font-size:13px;color:var(--muted)}
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--verm);display:grid;place-items:center;cursor:pointer;padding:0}
+.speak-btn:hover{border-color:var(--verm);background:var(--surface2)}
+.speak-btn:active{transform:scale(.94)}
+.speak-btn.playing{background:var(--verm);color:#fff;border-color:var(--verm)}
+.speak-btn svg{width:17px;height:17px;display:block}
+.vocab-ex{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+.vocab-ex .ex-label{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--verm);text-transform:uppercase}
+.vocab-ex .ex-jp{font-size:15px;line-height:1.55;margin-top:3px}
+.vocab-ex .ex-en{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+.loadmore-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px}
+.err-box{border:1.5px solid var(--verm);background:var(--surface);border-radius:14px;padding:18px 20px;font-weight:700}
+.loading-note{color:var(--muted);font-weight:700;padding:18px 0}
+
+/* flashcards */
+.fc-stage{max-width:560px;margin:0 auto}
+.fc-card{background:var(--indigo);color:#fff;border-radius:22px;box-shadow:var(--shadow);padding:38px 26px 30px;text-align:center;cursor:pointer;min-height:250px;display:flex;flex-direction:column;justify-content:center;gap:8px;border:1px solid var(--line)}
+@media(prefers-color-scheme:dark){.fc-card{background:var(--surface2);border-color:var(--line)}}
+.fc-word{font-family:"Noto Serif JP",serif;font-size:52px;font-weight:900;line-height:1.15}
+.fc-reading{font-size:17px;opacity:.88;font-weight:700}
+.fc-zh{font-size:26px;font-weight:900;line-height:1.4}
+.fc-en{font-size:15px;opacity:.85}
+.fc-hint{font-size:12.5px;opacity:.75;margin-top:10px;letter-spacing:.06em}
+.fc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.fc-count{font-weight:900;font-size:14px;color:var(--muted)}
+.fc-score{display:flex;gap:8px;flex-wrap:wrap}
+.fc-controls{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.fc-btn{font:inherit;cursor:pointer;border-radius:999px;padding:12px 20px;font-weight:800;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.fc-btn:hover{border-color:var(--verm)}
+.fc-btn.bad{border-color:var(--verm);color:var(--verm)}
+.fc-btn.good{border-color:var(--matcha);color:var(--matcha)}
+.fc-btn:disabled{opacity:.45;cursor:not-allowed}
+</style>
+</head>
+<body>
+<header class="topnav"><div class="topnav-in">
+  <div class="brand"><a href="index.html"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></a></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="index.html#lessons">授業 · 课程</a><a href="index.html#training">訓練 · 训练中心</a><a href="vocab.html" class="on">単語 · 单词库</a><a href="kanji.html">漢字 · 汉字库</a><a href="grammar.html">文法 · 语法课</a>
+  </nav>
+</div></header>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">単語バンク · Word Bank</p>
+      <h2><span class="jp">単語バンク</span> · 单词库</h2>
+      <p>JLPT N5〜N1 の全単語を収録。レベルを選んで、検索・一覧・フラッシュカードで覚えましょう。收录 JLPT N5 到 N1 的全部单词：按级别浏览、搜索，或用闪卡记忆。点喇叭可以听发音。</p>
+    </div>
+
+    <div class="train-levels" role="tablist" aria-label="レベル · 级别" id="lvlTabs">
+      <button class="tlvl" role="tab" data-lv="n5" aria-selected="true">N5<span class="cnt">674</span></button>
+      <button class="tlvl" role="tab" data-lv="n4" aria-selected="false">N4<span class="cnt">630</span></button>
+      <button class="tlvl" role="tab" data-lv="n3" aria-selected="false">N3<span class="cnt">1,659</span></button>
+      <button class="tlvl" role="tab" data-lv="n2" aria-selected="false">N2<span class="cnt">1,778</span></button>
+      <button class="tlvl" role="tab" data-lv="n1" aria-selected="false">N1<span class="cnt">3,070</span></button>
+    </div>
+
+    <div class="searchbar">
+      <input class="search-input" id="searchInput" type="search" placeholder="単語・読み方・中文で検索 · 按单词、读音或中文搜索" aria-label="検索 · 搜索">
+      <span class="count-note" id="countNote"></span>
+    </div>
+
+    <div class="train-modes" role="group" aria-label="モード · 模式">
+      <button class="tmode" id="modeList" aria-selected="true">リスト · 列表</button>
+      <button class="tmode" id="modeCard" aria-selected="false">フラッシュカード · 闪卡</button>
+      <button class="tmode" id="shuffleBtn" aria-pressed="false">シャッフル · 乱序：OFF</button>
+    </div>
+
+    <div id="errBox" class="err-box hidden">データの読み込みに失敗しました。· 数据加载失败，请检查网络后刷新页面重试。</div>
+    <p id="loadingNote" class="loading-note hidden">読み込み中… · 加载中…</p>
+
+    <div id="listWrap">
+      <div class="vocab-grid" id="listEl"></div>
+      <div class="loadmore-wrap" id="moreWrap">
+        <span class="count-note" id="shownNote"></span>
+        <button class="btn btn-ghost" id="moreBtn">もっと見る · 加载更多</button>
+      </div>
+      <p class="small hidden" id="emptyNote">見つかりませんでした。· 没有找到匹配的单词，换个关键词试试。</p>
+    </div>
+
+    <div id="fcWrap" class="fc-stage hidden">
+      <div class="fc-top">
+        <span class="fc-count" id="fcCount"></span>
+        <span class="fc-score">
+          <span class="lvl" style="background:var(--matcha)">知ってる · 认识了 <span id="fcKnown">0</span></span>
+          <span class="lvl" style="background:var(--verm)">知らない · 不认识 <span id="fcUnknown">0</span></span>
+        </span>
+      </div>
+      <div class="fc-card" id="fcCard" role="button" tabindex="0" aria-label="カード · 单词卡（タップで反転 · 点按翻面）"></div>
+      <div class="fc-controls">
+        <button class="fc-btn" id="fcPrev">← 前へ · 上一张</button>
+        <button class="fc-btn bad" id="fcBad">知らない · 不认识</button>
+        <button class="fc-btn good" id="fcGood">知ってる · 认识了</button>
+        <button class="fc-btn" id="fcNext">次へ · 下一张 →</button>
+      </div>
+      <p class="small" style="text-align:center;margin-top:12px">カードをタップすると意味が表示されます。シャッフルは上のボタンで切り替え。· 点按卡片翻面看释义；乱序开关在上方。</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>収録データ · 内容来源：OpenJLPT 数据集（© OpenJLPT contributors, CC BY-SA 4.0；底层词典 JMdict/KANJIDIC2, EDRDG）；中文释义与语法讲解为本站原创。</p>
+  <p class="small" style="margin-top:8px"><a href="index.html">ほしことば Hoshikotoba · 星语图鉴</a> — JLPT 日语学习</p>
+</div></footer>
+
+<script>
+(function(){
+"use strict";
+var SPEAK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>';
+function $(s){return document.querySelector(s);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+/* speech (ja-JP, ~0.9 rate) */
+var jaVoice=null;
+function pickVoice(){
+  if(!('speechSynthesis' in window))return;
+  var vs=speechSynthesis.getVoices();
+  for(var i=0;i<vs.length;i++){var l=(vs[i].lang||'').toLowerCase().replace('_','-');if(l.indexOf('ja')===0){jaVoice=vs[i];break;}}
+}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function speakJa(text,btn){
+  if(!('speechSynthesis' in window)||!text)return;
+  try{
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='ja-JP'; u.rate=0.9;
+    if(jaVoice)u.voice=jaVoice;
+    if(btn){btn.classList.add('playing');u.onend=function(){btn.classList.remove('playing');};u.onerror=function(){btn.classList.remove('playing');};}
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* data loading with per-level cache */
+var cache={};
+function loadLevel(lv){
+  if(cache[lv])return Promise.resolve(cache[lv]);
+  return fetch('data/vocab-'+lv+'.json').then(function(r){
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(d){cache[lv]=d;return d;});
+}
+
+var CHUNK=100;
+var state={lv:'n5',data:[],filtered:[],shown:0,mode:'list',
+           deck:[],pos:0,flipped:false,known:0,unknown:0,shuffle:false};
+
+function applyFilter(){
+  var q=$('#searchInput').value.trim().toLowerCase();
+  if(!q){state.filtered=state.data.slice();}
+  else{
+    state.filtered=state.data.filter(function(e){
+      return (e.w&&e.w.toLowerCase().indexOf(q)>=0)||
+             (e.r&&e.r.toLowerCase().indexOf(q)>=0)||
+             (e.zh&&e.zh.toLowerCase().indexOf(q)>=0);
+    });
+  }
+  $('#countNote').textContent=state.filtered.length+' 件 · 共 '+state.filtered.length+' 条';
+  buildDeck();
+}
+
+function rowHTML(e,i){
+  var h='<div class="vocab-cell"><div class="vocab-top"><div class="vw"><b class="jp">'+esc(e.w)+'</b>';
+  if(e.r)h+='<span class="vr jp">'+esc(e.r)+'</span>';
+  h+='</div><button class="speak-btn" type="button" data-speak="'+i+'" aria-label="発音 · 发音">'+SPEAK_SVG+'</button></div>';
+  if(e.zh)h+='<span class="vzh">'+esc(e.zh)+'</span>';
+  if(e.en&&e.en.length)h+='<span class="vm">'+esc(e.en.join('; '))+'</span>';
+  if(e.pos&&e.pos.length){
+    h+='<div class="pillrow">';
+    e.pos.forEach(function(p){h+='<span class="mini-pill">'+esc(p)+'</span>';});
+    h+='</div>';
+  }
+  if(e.ex&&e.ex.length&&e.ex[0]&&e.ex[0].ja){
+    h+='<div class="vocab-ex"><span class="ex-label">例文 · 例句</span><p class="ex-jp jp">'+esc(e.ex[0].ja)+'</p>';
+    if(e.ex[0].en)h+='<span class="ex-en">'+esc(e.ex[0].en)+'</span>';
+    h+='</div>';
+  }
+  return h+'</div>';
+}
+
+function renderList(reset){
+  var listEl=$('#listEl');
+  if(reset){listEl.innerHTML='';state.shown=0;}
+  var end=Math.min(state.shown+CHUNK,state.filtered.length);
+  var html='';
+  for(var i=state.shown;i<end;i++)html+=rowHTML(state.filtered[i],i);
+  listEl.insertAdjacentHTML('beforeend',html);
+  state.shown=end;
+  $('#shownNote').textContent=state.filtered.length+' 件中 '+state.shown+' 件を表示 · 已显示 '+state.shown+' / '+state.filtered.length;
+  $('#moreBtn').style.display=(state.shown<state.filtered.length)?'':'none';
+  $('#emptyNote').classList.toggle('hidden',state.filtered.length>0);
+  $('#moreWrap').style.display=state.filtered.length?'':'none';
+}
+
+/* flashcards */
+function shuffledIndices(n){
+  var a=[];for(var i=0;i<n;i++)a.push(i);
+  for(var j=a.length-1;j>0;j--){var k=Math.floor(Math.random()*(j+1));var t=a[j];a[j]=a[k];a[k]=t;}
+  return a;
+}
+function buildDeck(){
+  var n=state.filtered.length;
+  if(state.shuffle){state.deck=shuffledIndices(n);}
+  else{state.deck=[];for(var i=0;i<n;i++)state.deck.push(i);}
+  state.pos=0;state.flipped=false;
+  renderCard();
+}
+function currentEntry(){
+  if(!state.deck.length)return null;
+  return state.filtered[state.deck[state.pos]];
+}
+function renderCard(){
+  var card=$('#fcCard');if(!card)return;
+  var e=currentEntry();
+  $('#fcKnown').textContent=state.known;
+  $('#fcUnknown').textContent=state.unknown;
+  if(!e){
+    $('#fcCount').textContent='0 / 0';
+    card.innerHTML='<div class="fc-zh">カードがありません · 没有卡片</div><div class="fc-hint">検索条件を変えてみてください · 换个搜索条件试试</div>';
+    return;
+  }
+  $('#fcCount').textContent=(state.pos+1)+' / '+state.deck.length+' 枚 · 张';
+  if(!state.flipped){
+    var h='<div class="fc-word jp">'+esc(e.w)+'</div>';
+    if(e.r)h+='<div class="fc-reading jp">'+esc(e.r)+'</div>';
+    h+='<div class="fc-hint">タップで意味を見る · 点按查看释义</div>';
+    card.innerHTML=h;
+  }else{
+    var b='';
+    if(e.zh)b+='<div class="fc-zh">'+esc(e.zh)+'</div>';
+    if(e.en&&e.en.length)b+='<div class="fc-en">'+esc(e.en.join('; '))+'</div>';
+    if(e.pos&&e.pos.length)b+='<div class="fc-hint">'+esc(e.pos.join(' · '))+'</div>';
+    b+='<div class="fc-hint">タップで単語に戻る · 点按回到正面</div>';
+    card.innerHTML=b;
+  }
+}
+function step(d){
+  if(!state.deck.length)return;
+  state.pos=(state.pos+d+state.deck.length)%state.deck.length;
+  state.flipped=false;renderCard();
+}
+
+/* mode switching */
+function setMode(m){
+  state.mode=m;
+  $('#modeList').setAttribute('aria-selected',m==='list'?'true':'false');
+  $('#modeCard').setAttribute('aria-selected',m==='card'?'true':'false');
+  $('#listWrap').classList.toggle('hidden',m!=='list');
+  $('#fcWrap').classList.toggle('hidden',m!=='card');
+  if(m==='card')renderCard();
+}
+
+/* level switching */
+function selectLevel(lv,btn){
+  state.lv=lv;
+  var tabs=document.querySelectorAll('#lvlTabs .tlvl');
+  tabs.forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('data-lv')===lv?'true':'false');});
+  $('#errBox').classList.add('hidden');
+  $('#loadingNote').classList.remove('hidden');
+  loadLevel(lv).then(function(d){
+    $('#loadingNote').classList.add('hidden');
+    if(state.lv!==lv)return;
+    state.data=d;
+    state.known=0;state.unknown=0;
+    applyFilter();
+    renderList(true);
+  }).catch(function(){
+    $('#loadingNote').classList.add('hidden');
+    if(state.lv!==lv)return;
+    $('#errBox').classList.remove('hidden');
+  });
+}
+
+/* events */
+$('#lvlTabs').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-lv]');if(!b)return;
+  if(b.getAttribute('data-lv')!==state.lv)selectLevel(b.getAttribute('data-lv'));
+});
+$('#searchInput').addEventListener('input',function(){
+  applyFilter();
+  renderList(true);
+});
+$('#moreBtn').addEventListener('click',function(){renderList(false);});
+$('#listEl').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-speak]');if(!b)return;
+  var e=state.filtered[parseInt(b.getAttribute('data-speak'),10)];
+  if(e)speakJa(e.w,b);
+});
+$('#modeList').addEventListener('click',function(){setMode('list');});
+$('#modeCard').addEventListener('click',function(){setMode('card');});
+$('#shuffleBtn').addEventListener('click',function(){
+  state.shuffle=!state.shuffle;
+  this.setAttribute('aria-pressed',state.shuffle?'true':'false');
+  this.textContent=state.shuffle?'シャッフル · 乱序：ON':'シャッフル · 乱序：OFF';
+  buildDeck();
+});
+$('#fcCard').addEventListener('click',function(){state.flipped=!state.flipped;renderCard();});
+$('#fcCard').addEventListener('keydown',function(ev){
+  if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();state.flipped=!state.flipped;renderCard();}
+});
+$('#fcPrev').addEventListener('click',function(){step(-1);});
+$('#fcNext').addEventListener('click',function(){step(1);});
+$('#fcBad').addEventListener('click',function(){state.unknown++;step(1);$('#fcUnknown').textContent=state.unknown;});
+$('#fcGood').addEventListener('click',function(){state.known++;step(1);$('#fcKnown').textContent=state.known;});
+
+/* init */
+selectLevel('n5');
+})();
+</script>
+</body>
+</html>

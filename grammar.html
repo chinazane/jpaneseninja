@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>文法レッスン · 语法课 — ほしことば Hoshikotoba · 星语图鉴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+.display{font-family:"Noto Serif JP","Noto Sans SC",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand a{color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+.navlinks a.on{background:var(--surface2);color:var(--verm)}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.hidden{display:none !important}
+.small{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+.tag-note{display:inline-block;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13.5px}
+
+/* level pills */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)}
+
+/* level tabs */
+.train-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tlvl{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:900;font-size:15px}
+.tlvl[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.tlvl .cnt{font-size:12px;font-weight:700;color:var(--muted);margin-left:5px}
+.tlvl[aria-selected="true"] .cnt{color:var(--verm)}
+
+/* sort toggle */
+.train-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.tsec{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;font-size:13.5px}
+.tsec[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.sort-label{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.06em}
+
+/* search */
+.searchbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.search-input{flex:1 1 260px;font:inherit;font-size:16px;padding:12px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.search-input:focus{outline:none;border-color:var(--verm)}
+.count-note{font-size:13.5px;color:var(--muted);font-weight:700}
+.err-box{border:1.5px solid var(--verm);background:var(--surface);border-radius:14px;padding:18px 20px;font-weight:700}
+.loading-note{color:var(--muted);font-weight:700;padding:18px 0}
+
+/* grammar cards */
+.gcard{margin-bottom:16px}
+.g-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.g-head h3{font-size:26px;line-height:1.25}
+.tb-tag{display:inline-block;background:var(--surface2);border:1px solid var(--gold);color:var(--ink);border-radius:999px;padding:3px 11px;font-size:12.5px;font-weight:800}
+.g-label{font-size:11.5px;letter-spacing:.1em;font-weight:800;color:var(--verm);text-transform:uppercase;display:block;margin-bottom:2px}
+.g-form{border-left:4px solid var(--gold);background:var(--surface2);border-radius:0 12px 12px 0;padding:11px 15px;font-size:15px;margin-bottom:13px}
+.g-form .jp{font-weight:700}
+.g-zh{font-size:15.5px;line-height:1.8;margin-bottom:6px}
+.g-exs{margin-top:10px}
+.ex-line{padding:7px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.ex-line:last-child{border-bottom:0}
+.ex-line .jp{font-size:16.5px;line-height:1.55;display:block}
+.ex-line .cn{color:var(--muted);font-size:13.5px;display:block}
+.explain{border-left:4px solid var(--matcha);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14.5px;margin-top:14px}
+.explain.notebox{border-left-color:var(--verm)}
+.explain .nb-title{font-weight:900;color:var(--verm);font-size:13px;letter-spacing:.08em;display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+<header class="topnav"><div class="topnav-in">
+  <div class="brand"><a href="index.html"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></a></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="index.html#lessons">授業 · 课程</a><a href="index.html#training">訓練 · 训练中心</a><a href="vocab.html">単語 · 单词库</a><a href="kanji.html">漢字 · 汉字库</a><a href="grammar.html" class="on">文法 · 语法课</a>
+  </nav>
+</div></header>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">文法レッスン · Grammar Lessons</p>
+      <h2><span class="jp">文法レッスン</span> · 语法课</h2>
+      <p>JLPT N5〜N1 の文法を、接续・中文解説・例文で一課ずつ学べます。N5・N4 は『標準日本語』『みんなの日本語』の課順でも並べ替えできます。每个语法点一课：接续、中文讲解、例句与中文翻译、易错提示，一应俱全。</p>
+    </div>
+
+    <div class="train-levels" role="tablist" aria-label="レベル · 级别" id="lvlTabs">
+      <button class="tlvl" role="tab" data-lv="n5" aria-selected="true">N5<span class="cnt">81</span></button>
+      <button class="tlvl" role="tab" data-lv="n4" aria-selected="false">N4<span class="cnt">98</span></button>
+      <button class="tlvl" role="tab" data-lv="n3" aria-selected="false">N3<span class="cnt">101</span></button>
+      <button class="tlvl" role="tab" data-lv="n2" aria-selected="false">N2<span class="cnt">123</span></button>
+      <button class="tlvl" role="tab" data-lv="n1" aria-selected="false">N1<span class="cnt">123</span></button>
+    </div>
+
+    <div class="searchbar">
+      <input class="search-input" id="searchInput" type="search" placeholder="文型・中文で検索 · 按句型或中文搜索" aria-label="検索 · 搜索">
+      <span class="count-note" id="countNote"></span>
+    </div>
+
+    <div class="train-secs hidden" id="sortWrap" role="group" aria-label="並び順 · 排序">
+      <span class="sort-label">並び順 · 排序</span>
+      <button class="tsec" data-sort="jlpt" aria-selected="true">JLPT 順 · 级别顺序</button>
+      <button class="tsec" data-sort="bj" aria-selected="false">標日課順 · 《标日》课序</button>
+      <button class="tsec" data-sort="mn" aria-selected="false">みんな課順 · 《大家的日语》课序</button>
+    </div>
+
+    <div id="errBox" class="err-box hidden">データの読み込みに失敗しました。· 数据加载失败，请检查网络后刷新页面重试。</div>
+    <p id="loadingNote" class="loading-note hidden">読み込み中… · 加载中…</p>
+
+    <div id="listEl"></div>
+    <p class="small hidden" id="emptyNote">見つかりませんでした。· 没有找到匹配的语法点，换个关键词试试。</p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>収録データ · 内容来源：OpenJLPT 数据集（© OpenJLPT contributors, CC BY-SA 4.0；底层词典 JMdict/KANJIDIC2, EDRDG）；中文释义与语法讲解为本站原创。</p>
+  <p class="small" style="margin-top:8px"><a href="index.html">ほしことば Hoshikotoba · 星语图鉴</a> — JLPT 日语学习</p>
+</div></footer>
+
+<script>
+(function(){
+"use strict";
+function $(s){return document.querySelector(s);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+/* data loading with per-level cache */
+var cache={};
+function loadLevel(lv){
+  if(cache[lv])return Promise.resolve(cache[lv]);
+  return fetch('data/grammar-'+lv+'.json').then(function(r){
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(d){cache[lv]=d;return d;});
+}
+
+var state={lv:'n5',data:[],sort:'jlpt'};
+
+function hasTextbook(data){
+  return data.length>0 && ('bj' in data[0] || 'mn' in data[0]);
+}
+
+function currentView(){
+  var q=$('#searchInput').value.trim().toLowerCase();
+  var view=state.data.map(function(e,i){return {e:e,idx:i};});
+  if(q){
+    view=view.filter(function(v){
+      return (v.e.p&&v.e.p.toLowerCase().indexOf(q)>=0)||
+             (v.e.zh&&v.e.zh.toLowerCase().indexOf(q)>=0);
+    });
+  }
+  if(state.sort==='bj'||state.sort==='mn'){
+    var key=state.sort;
+    view.sort(function(a,b){
+      var av=a.e[key],bv=b.e[key];
+      var an=(av===null||av===undefined),bn=(bv===null||bv===undefined);
+      if(an&&bn)return a.idx-b.idx;
+      if(an)return 1;
+      if(bn)return -1;
+      if(av!==bv)return av-bv;
+      return a.idx-b.idx;
+    });
+  }
+  return view;
+}
+
+function cardHTML(e,lv){
+  var h='<article class="card gcard"><div class="g-head"><h3 class="jp serif">'+esc(e.p)+'</h3>';
+  h+='<span class="lvl l-'+lv+'">'+lv.toUpperCase()+'</span>';
+  if(e.bj!==null&&e.bj!==undefined)h+='<span class="tb-tag">標日 第'+esc(e.bj)+'課</span>';
+  if(e.mn!==null&&e.mn!==undefined)h+='<span class="tb-tag">みんな 第'+esc(e.mn)+'課</span>';
+  h+='</div>';
+  if(e.f)h+='<div class="g-form"><span class="g-label">接续 · 接续</span><span class="jp">'+esc(e.f)+'</span></div>';
+  if(e.zh)h+='<p class="g-zh">'+esc(e.zh)+'</p>';
+  if(e.ex&&e.ex.length){
+    h+='<div class="g-exs"><span class="g-label">例文 · 例句</span>';
+    e.ex.forEach(function(x,i){
+      if(!x||!x.ja)return;
+      h+='<div class="ex-line"><span class="jp">'+esc(x.ja)+'</span>';
+      if(e.ex_zh&&e.ex_zh[i])h+='<span class="cn">'+esc(e.ex_zh[i])+'</span>';
+      h+='</div>';
+    });
+    h+='</div>';
+  }
+  if(e.note)h+='<div class="explain notebox"><span class="nb-title">易错提示 · よくある間違い</span>'+esc(e.note)+'</div>';
+  return h+'</article>';
+}
+
+function render(){
+  var view=currentView();
+  $('#countNote').textContent=view.length+' 件 · 共 '+view.length+' 条';
+  var html='';
+  view.forEach(function(v){html+=cardHTML(v.e,state.lv);});
+  $('#listEl').innerHTML=html;
+  $('#emptyNote').classList.toggle('hidden',view.length>0);
+}
+
+function setSort(s){
+  state.sort=s;
+  var btns=document.querySelectorAll('#sortWrap .tsec');
+  btns.forEach(function(b){b.setAttribute('aria-selected',b.getAttribute('data-sort')===s?'true':'false');});
+  render();
+}
+
+function selectLevel(lv){
+  state.lv=lv;
+  var tabs=document.querySelectorAll('#lvlTabs .tlvl');
+  tabs.forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('data-lv')===lv?'true':'false');});
+  $('#errBox').classList.add('hidden');
+  $('#loadingNote').classList.remove('hidden');
+  loadLevel(lv).then(function(d){
+    $('#loadingNote').classList.add('hidden');
+    if(state.lv!==lv)return;
+    state.data=d;
+    $('#sortWrap').classList.toggle('hidden',!hasTextbook(d));
+    if(!hasTextbook(d)&&state.sort!=='jlpt')setSort('jlpt');
+    render();
+  }).catch(function(){
+    $('#loadingNote').classList.add('hidden');
+    if(state.lv!==lv)return;
+    $('#errBox').classList.remove('hidden');
+  });
+}
+
+$('#lvlTabs').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-lv]');if(!b)return;
+  if(b.getAttribute('data-lv')!==state.lv)selectLevel(b.getAttribute('data-lv'));
+});
+$('#searchInput').addEventListener('input',render);
+$('#sortWrap').addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-sort]');if(!b)return;
+  setSort(b.getAttribute('data-sort'));
+});
+
+selectLevel('n5');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>ほしことば Hoshikotoba · 星语图鉴 — 授業 · 课程 Lessons 1–6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+.display{font-family:"Noto Serif JP","Noto Sans SC",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+
+/* hero */
+.hero{padding:38px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;margin:12px 0 14px;font-weight:900}
+.hero h1 .jp-big{display:block;font-size:.62em;margin-top:8px;color:var(--indigo)}
+.hero p.lead{font-size:17.5px;color:var(--muted);max-width:56ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:13px 22px;text-decoration:none}
+.btn-primary{background:var(--verm);color:#fff}
+.btn-primary:hover{background:var(--verm-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.hero-img{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.hero-img figcaption{font-size:12.5px;color:var(--muted);padding:10px 14px;background:var(--surface)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+@media(max-width:640px){.hero-stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.stat b{display:block;font-size:20px;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr}}
+
+/* level pills */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)} .l-all{background:var(--indigo)}
+
+/* level mapping cards */
+.level-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.level-top{display:flex;gap:16px;align-items:flex-start;padding:20px 22px 6px;flex-wrap:wrap}
+.level-badge{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:21px;flex:none}
+.level-top h3{font-size:20px}
+.level-top p{color:var(--muted);font-size:14.5px;max-width:62ch}
+.level-nums{margin-left:auto;text-align:right}
+.level-nums b{display:block;font-size:19px}
+.level-nums span{font-size:12px;color:var(--muted)}
+.level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:10px 22px 20px}
+@media(max-width:860px){.level-grid{grid-template-columns:1fr}}
+.level-cell{padding:12px 14px 4px;border-top:1px solid var(--line)}
+.level-cell h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--verm);margin-bottom:5px}
+.level-cell p,.level-cell li{font-size:14px;color:var(--ink)}
+.level-cell li{padding:2px 0 2px 14px;position:relative}
+.level-cell li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* flow */
+.flow{display:flex;gap:0;flex-wrap:wrap;align-items:stretch}
+.flow-step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.flow-arrow{display:grid;place-items:center;padding:0 6px;color:var(--verm);font-weight:900;font-size:20px}
+@media(max-width:700px){.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg);padding:4px 0}}
+.flow-step .num{width:28px;height:28px;border-radius:50%;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:900;font-size:13px;margin-bottom:8px}
+@media(prefers-color-scheme:dark){.flow-step .num{background:var(--verm)}}
+.flow-step h3{font-size:15.5px;margin-bottom:5px}
+.flow-step p{font-size:13.5px;color:var(--muted)}
+.loop-ring{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:860px){.loop-ring{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.loop-ring{grid-template-columns:1fr}}
+.loop-item{border-radius:16px;padding:18px;color:#fff}
+.loop-item h3{font-size:17px;margin-bottom:4px}
+.loop-item p{font-size:13.5px;opacity:.92}
+.loop-item .jp{font-size:22px;font-weight:900;display:block;margin-bottom:6px}
+
+/* mapping table */
+.maptable{width:100%;border-collapse:collapse;font-size:14.5px}
+.maptable th,.maptable td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.maptable th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:760px){
+  .maptable thead{display:none}
+  .maptable tr{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;padding:8px 4px}
+  .maptable td{display:block;border:0;padding:7px 14px}
+  .maptable td::before{content:attr(data-h);display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800}
+}
+.tablebox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;overflow:hidden}
+
+/* phone prototype */
+.proto-layout{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+@media(max-width:860px){.proto-layout{grid-template-columns:1fr}}
+.screen-tabs{display:flex;flex-direction:column;gap:8px}
+@media(max-width:860px){.screen-tabs{flex-direction:row;flex-wrap:wrap}}
+.stab{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.stab[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.stab small{font-weight:500;color:var(--muted)}
+.phone{width:min(375px,100%);margin:0 auto;background:#10182B;border-radius:42px;padding:11px;box-shadow:var(--shadow)}
+.phone-screen{background:#FBF7EC;color:#182236;border-radius:32px;overflow:hidden;min-height:640px;display:flex;flex-direction:column}
+@media(prefers-color-scheme:dark){.phone-screen{background:#171F33;color:#EEF0F6}}
+.p-status{display:flex;justify-content:space-between;padding:12px 20px 4px;font-size:12px;font-weight:700;opacity:.7}
+.p-body{padding:12px 18px 18px;flex:1}
+.p-body h3{font-size:19px;line-height:1.3}
+.p-sub{font-size:12.5px;opacity:.65;margin:3px 0 14px}
+.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.mini-pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:#EFE8D8;color:#5B4A12}
+@media(prefers-color-scheme:dark){.mini-pill{background:#2A3654;color:#E8D9A0}}
+.task{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;margin-bottom:8px;background:rgba(255,255,255,.45)}
+@media(prefers-color-scheme:dark){.task{background:rgba(255,255,255,.04)}}
+.task-dot{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;font-weight:900;color:#fff;margin-top:1px}
+.done{background:var(--matcha)} .todo{background:#B9B09A} .now{background:var(--verm)}
+.task b{font-size:14px;display:block;line-height:1.35}
+.task span{font-size:12px;opacity:.65}
+.p-nav{display:flex;justify-content:space-around;border-top:1px solid var(--line);padding:10px 6px 16px;font-size:10.5px;font-weight:700}
+.p-nav span{text-align:center;opacity:.55}
+.p-nav span.on{opacity:1;color:var(--verm)}
+.p-nav svg{display:block;margin:0 auto 3px}
+.progress-track{height:9px;border-radius:99px;background:#E4DCC6;overflow:hidden}
+@media(prefers-color-scheme:dark){.progress-track{background:#2A3654}}
+.progress-fill{height:100%;background:var(--verm);border-radius:99px}
+.wordcard-hero{border-radius:16px;background:var(--indigo);color:#fff;padding:18px;text-align:center}
+.wordcard-hero .big{font-family:"Noto Serif JP",serif;font-size:46px;font-weight:900;line-height:1.1}
+.wordcard-hero .reading{font-size:15px;opacity:.85}
+.pitch{display:flex;gap:3px;justify-content:center;margin-top:8px}
+.pitch i{width:22px;height:5px;border-radius:99px;background:#E8C95A;display:block}
+.pitch i.low{background:rgba(255,255,255,.35)}
+.annot{font-size:14px}
+.annot h3{font-size:19px;margin-bottom:6px}
+.annot dl{display:grid;grid-template-columns:86px 1fr;gap:7px 12px;font-size:14px;margin-top:12px}
+.annot dt{font-weight:800;color:var(--verm);font-size:12px;letter-spacing:.06em;padding-top:2px}
+.specbox{border-left:4px solid var(--gold);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14px;margin-top:14px}
+
+/* star map */
+.starmap{background:#16233F;border-radius:18px;padding:10px;position:relative}
+.star-btn{position:absolute;width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.75);cursor:pointer;display:grid;place-items:center;font-size:11px;font-weight:900;color:#10182B}
+.star-info{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-top:14px;font-size:14.5px;min-height:74px}
+
+/* quiz */
+.quizbox{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
+.q-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px}
+.q-text{font-size:20px;line-height:1.55;margin:12px 0 6px}
+.q-text .jp{font-size:22px}
+.q-help{color:var(--muted);font-size:14px;margin-bottom:16px}
+.opts{display:grid;gap:9px}
+.opt{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:13px;padding:14px 16px;font-size:16.5px;font-weight:600;display:flex;gap:11px;align-items:center}
+.opt:hover{border-color:var(--indigo)}
+.opt .key{width:26px;height:26px;border-radius:8px;background:var(--surface2);display:grid;place-items:center;font-size:13px;font-weight:900;flex:none}
+.opt.picked{border-color:var(--verm);background:var(--surface2)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.q-msg{font-size:14px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:760px){.result-grid{grid-template-columns:1fr}}
+.bar-row{display:grid;grid-template-columns:104px 1fr 44px;gap:10px;align-items:center;font-size:13.5px;font-weight:700;margin-bottom:9px}
+.big-level{font-size:40px;line-height:1.05;font-weight:900}
+.hidden{display:none !important}
+
+/* timeline */
+.timeline{border-left:3px solid var(--line);margin-left:10px;padding-left:24px}
+.tl-item{position:relative;padding-bottom:22px}
+.tl-item::before{content:"";position:absolute;left:-32.5px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--verm);border:3px solid var(--bg)}
+.tl-item h3{font-size:17px}
+.tl-item p{color:var(--muted);font-size:14.5px;max-width:64ch}
+
+/* swatches */
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatch{width:118px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.swatch i{display:block;height:52px}
+.swatch span{display:block;padding:8px 10px;font-size:12px;font-weight:700;background:var(--surface)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+.small{font-size:13.5px;color:var(--muted)}
+.tag-note{display:inline-block;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13.5px}
+
+/* lessons */
+.lesson-layout{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start}
+@media(max-width:860px){.lesson-layout{grid-template-columns:1fr}}
+.ltab{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px;align-items:center;width:100%}
+.ltab[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.ltab small{font-weight:500;color:var(--muted)}
+.kana-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+@media(max-width:560px){.kana-grid{grid-template-columns:repeat(5,1fr);gap:6px}}
+.kana-cell{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.kana-cell .k{font-family:"Noto Serif JP",serif;font-size:27px;font-weight:900;line-height:1.15;display:block}
+.kana-cell .r{font-size:12.5px;font-weight:800;color:var(--verm)}
+.kana-cell .s{font-size:11.5px;color:var(--muted);display:block}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:760px){.vocab-grid{grid-template-columns:1fr}}
+.vocab-cell{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg);display:flex;flex-direction:column;gap:2px}
+.vocab-top{display:flex;align-items:flex-start;gap:8px}
+.vocab-top .vw{flex:1;min-width:0}
+.vocab-cell b{font-size:17px;line-height:1.3}
+.vocab-cell .vr{font-size:13px;color:var(--verm);font-weight:700}
+.vocab-cell .vm{display:block;font-size:13px;color:var(--muted)}
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--verm);display:grid;place-items:center;cursor:pointer;padding:0}
+.speak-btn:hover{border-color:var(--verm);background:var(--surface2)}
+.speak-btn:active{transform:scale(.94)}
+.speak-btn.playing{background:var(--verm);color:#fff;border-color:var(--verm)}
+.speak-btn svg{width:17px;height:17px;display:block}
+.speak-btn.sm{width:26px;height:26px}
+.speak-btn.sm svg{width:13px;height:13px}
+.vocab-ex{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+.vocab-ex .ex-label{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--verm);text-transform:uppercase}
+.vocab-ex .ex-row{display:flex;gap:7px;align-items:flex-start;margin-top:3px}
+.vocab-ex .ex-jp{flex:1;font-size:15px;line-height:1.55}
+.vocab-ex .ex-cn{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+.reading-sent{padding:8px 0;border-bottom:1px dashed var(--line)}
+.reading-sent:last-child{border-bottom:0}
+.reading-sent .jp{font-size:17.5px;line-height:1.5}
+.reading-sent .cn{font-size:13.5px;color:var(--muted)}
+.lesson-audio{width:100%;margin:6px 0 10px}
+.lesson-h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800;margin:20px 0 9px}
+.lesson-h:first-of-type{margin-top:4px}
+.ex-line{padding:7px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.ex-line:last-child{border-bottom:0}
+.ex-line .cn{color:var(--muted);font-size:13.5px}
+
+/* training center */
+.train-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tlvl{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:900;font-size:15px}
+.tlvl[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.tlvl:disabled{opacity:.45;cursor:not-allowed}
+.train-modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tmode{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 16px;font-weight:800;font-size:14.5px}
+.tmode[aria-selected="true"]{border-color:var(--indigo);background:var(--surface2)}
+.train-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tsec{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;font-size:13.5px}
+.tsec[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.passage{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:16.5px;line-height:1.8;margin-bottom:14px;white-space:pre-line}
+.opt.correct{border-color:var(--matcha);background:rgba(95,125,79,.14)}
+.opt.wrong{border-color:var(--verm);background:rgba(199,62,46,.12)}
+.opt:disabled{cursor:default;opacity:.92}
+.explain{border-left:4px solid var(--matcha);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14.5px;margin-top:14px}
+.explain.bad{border-left-color:var(--verm)}
+.scriptbox{background:var(--surface2);border:1px dashed var(--line);border-radius:12px;padding:13px 15px;font-size:15px;margin-top:12px;line-height:1.7}
+.scriptbox .cn{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
+.timer-chip{font-weight:900;font-size:15px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.timer-chip.low{background:var(--verm);color:#fff;border-color:var(--verm)}
+.review-item{border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px;background:var(--bg)}
+.review-item .rq{font-size:16px;line-height:1.6}
+.review-item .ra{font-size:14px;margin-top:6px}
+.score-table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:10px}
+.score-table th,.score-table td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+.pass-badge{display:inline-block;font-weight:900;border-radius:999px;padding:6px 16px;color:#fff}
+.pass-badge.ok{background:var(--matcha)} .pass-badge.no{background:var(--verm)}
+.official-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:18px}
+</style>
+</head>
+<body>
+
+<header class="topnav"><div class="topnav-in">
+    <div class="brand"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="index.html">今日 · ホーム</a><a href="learn.html">学習 · 学习</a><a href="lessons.html" aria-current="page" style="color:var(--ink);font-weight:700">授業 · 课程</a><a href="atlas.html">図鑑 · 图鉴</a><a href="grammar.html">文法 · 语法课</a><a href="practice.html">練習 · 练习</a><a href="training.html">訓練 · 训练</a>
+  </nav>
+</div></header>
+
+<main>
+<section id="lessons" style="padding-top:10px"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">授業 · 课程（第1课 → 第6课）</p>
+  <h2><span class="jp">順番に学ぶ — あ行から、は行まで</span> · 按顺序学：从あ行到は行</h2>
+  <p>这就是你每天晨课的六课，按课次顺序排好：每课一行新假名（あ行 → か行 → さ行 → た行 → な行 → は行），一篇本课短文，短文配<strong>可播放的朗读音频</strong>——音频逐句录制、句间留真实停顿、接近日常说话的语速，读的正是下面显示的原文，一字不差。<strong>每个单词都带发音和例句：</strong>点单词旁的喇叭按钮就能听日语读音，例句旁的小喇叭能听整句，例句下有中文对照，帮你把词放进句子里记。点左侧课次切换。</p></div>
+  <div class="lesson-layout">
+    <div class="screen-tabs" id="lessonTabs" role="tablist" aria-label="Lessons"></div>
+    <div class="card" id="lessonPanel" style="padding:24px"></div>
+  </div>
+</div></section>
+
+</main>
+<footer><div class="wrap">
+  <p><strong style="color:var(--ink)">ほしことば Hoshikotoba · 星语图鉴</strong>——一款只为日语设计的学习应用概念：按 JLPT N5→N1 组织单词、汉字与语法，星图点亮进度，FSRS 安排复习。JLPT 词汇/汉字数字为规划用累计约数，官方不公布词表。教材对照指《新版中日交流标准日本语》。</p><p style="margin-top:10px;font-size:12.5px">付録・出典（小さな謝辞）：「一語一星の星図」という着想は英語学習サイト <a href="https://0xlei.tech/words/#/" target="_blank" rel="noopener">词光 Word Atlas</a> と開源項目 <a href="https://github.com/designfuchen/word-atlas" target="_blank" rel="noopener">designfuchen/word-atlas</a>（コード MIT、データ CC BY 4.0）に着想を得たものです。本アプリの内容は全て日本語学習用に作り直したものです。</p>
+</div></footer>
+<script>
+/* ============ LESSONS 1-6 ============ */
+var LESSONS=[
+ {n:1,row:"あ行",title:"あ行と あいさつ",theme:"家族 · 我的家人",date:"第 1 課 · Stage A / N5",
+  kana:[["あ","a","3画"],["い","i","2画"],["う","u","2画"],["え","e","2画"],["お","o","3画"]],
+  kanaNote:"五个元音是全部假名的地基：あ い う え お，先把这一行读准、写顺。",
+  greet:["おはようございます · 早上好","こんにちは · 你好（白天）","こんばんは · 晚上好","ありがとうございます · 谢谢","すみません · 不好意思 / 劳驾"],
+  vocab:[["家族","かぞく","家人","わたしの家族は四人です。","我家有四口人。"],["父","ちち","父亲","父は会社員です。","爸爸是公司职员。"],["母","はは","母亲","母は先生です。","妈妈是老师。"],["弟","おとうと","弟弟","弟は小学生です。","弟弟是小学生。"],["四人","よにん","四个人","家族は四人です。","家人是四个人。"],["会社員","かいしゃいん","公司职员","田中さんは会社員です。","田中先生是公司职员。"],["先生","せんせい","老师","あの人は先生です。","那个人是老师。"],["小学生","しょうがくせい","小学生","妹は小学生です。","妹妹是小学生。"],["晩ごはん","ばんごはん","晚饭","晩ごはんはおいしいです。","晚饭很好吃。"],["公園","こうえん","公园","公園は大きいです。","公园很大。"],["大きい","おおきい","大","この公園は大きいです。","这个公园很大。"],["好き","すき","喜欢","わたしは家族が好きです。","我喜欢我的家人。"]],
+  grammar:["自我介绍：～です（如「田中花子です」）","报名字：～と申します（礼貌说法）","问候语按时间用：早上 おはようございます · 白天 こんにちは · 晚上 こんばんは"],
+  kanji:null,
+  readingTitle:"わたしの かぞく · 我的家人",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["わたしの家族は四人です。","我家有四口人。"],["父と母と弟とわたしです。","是爸爸、妈妈、弟弟和我。"],["父は会社員です。","爸爸是公司职员。"],["母は先生です。","妈妈是老师。"],["弟は小学生です。","弟弟是小学生。"],["わたしたちは毎晩、いっしょに晩ごはんを食べます。","我们每天晚上一起吃晚饭。"],["晩ごはんはおいしいです。","晚饭很好吃。"],["日曜日は家族で公園へ行きます。","星期天全家去公园。"],["公園は大きくて、きれいです。","公园又大又漂亮。"],["わたしは家族が好きです。","我喜欢我的家人。"]],
+  audio:"assets/audio/lesson-1.mp3",
+  hyoujun:null,
+  homework:"大声读あ行三遍；五个问候各说一句；跟音频读短文两遍。"},
+ {n:2,row:"か行",title:"か行",theme:"スーパーで かいもの · 在超市买东西",date:"第 2 課 · Stage A / N5",
+  kana:[["か","ka","3画"],["き","ki","4画"],["く","ku","1画"],["け","ke","3画"],["こ","ko","2画"]],
+  kanaNote:"给五个元音各加一个轻 k 音。这个 k 比英语 cat 里的 k 更轻，接近 skip 里的 k。こ 和 さ、そ 有点像，认时多看一眼。",
+  greet:null,
+  vocab:[["傘","かさ","雨伞","傘は千円です。","雨伞一千日元。"],["鞄","かばん","包","この鞄は安いです。","这个包很便宜。"],["駅","えき","车站","駅は近いです。","车站很近。"],["声","こえ","声音","先生の声は大きいです。","老师的声音很大。"],["スーパー","スーパー","超市","スーパーへ行きます。","去超市。"],["林檎","りんご","苹果","りんごを買います。","买苹果。"],["バナナ","バナナ","香蕉","バナナは安いです。","香蕉很便宜。"],["卵","たまご","鸡蛋","たまごも買います。","也买鸡蛋。"],["買う","かう","买","スーパーで傘を買います。","在超市买伞。"],["安い","やすい","便宜","このバナナは安いです。","这个香蕉很便宜。"],["千円","せんえん","一千日元","ぜんぶで千円です。","一共一千日元。"],["買い物","かいもの","购物","買い物は楽しいです。","购物很开心。"]],
+  grammar:["～へ行きます：去……（如「スーパーへ行きます」）","～を買います：买……（を 先认读，正式讲解在第 5 课）"],
+  kanji:null,
+  readingTitle:"スーパーで かいもの · 在超市买东西",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きょう、スーパーへ買い物に行きます。","今天去超市买东西。"],["スーパーでりんごを買います。","在超市买苹果。"],["バナナも買います。","也买香蕉。"],["たまごも買います。","也买鸡蛋。"],["りんごは赤くて、大きいです。","苹果又红又大。"],["バナナは安いです。","香蕉很便宜。"],["ぜんぶで千円です。","一共一千日元。"],["買い物は楽しいです。","买东西很开心。"],["いえでりんごを食べたいです。","想在家里吃苹果。"]],
+  audio:"assets/audio/lesson-2.mp3",
+  hyoujun:null,
+  homework:"か行各写 3 遍、读 3 遍；跟音频读短文一遍；用「～を買います」说三样想买的东西。"},
+ {n:3,row:"さ行",title:"さ行と ～が すきです",theme:"わたしの へや · 我的房间",date:"第 3 課 · Stage A / N5",
+  kana:[["さ","sa","3画"],["し","shi","1画"],["す","su","2画"],["せ","se","3画"],["そ","so","1画"]],
+  kanaNote:"唯一的意外是 し：读 shi，不读 si。さ 和 き 长得有点像，认的时候多看一眼。",
+  greet:null,
+  vocab:[["桜","さくら","樱花","桜が好きです。","我喜欢樱花。"],["寿司","すし","寿司","すしが好きです。","我喜欢寿司。"],["先生","せんせい","老师","日本語の先生が好きです。","我喜欢日语老师。"],["空","そら","天空","空は青いです。","天空是蓝色的。"],["部屋","へや","房间","わたしの部屋は小さいです。","我的房间很小。"],["机","つくえ","桌子","机の上に本があります。","桌子上有书。"],["窓","まど","窗户","窓は大きいです。","窗户很大。"],["ベッド","ベッド","床","窓の近くにベッドがあります。","窗边有床。"],["静か","しずか","安静","部屋は静かです。","房间很安静。"],["小さい","ちいさい","小","この机は小さいです。","这张桌子很小。"],["読む","よむ","读","夜、本を読みます。","晚上看书。"],["勉強","べんきょう","学习","部屋で日本語を勉強します。","在房间里学日语。"]],
+  grammar:["～が好きです：喜欢……——喜欢的东西前面用 が（如「すしが好きです」），这是本课要焊牢的句型"],
+  kanji:null,
+  readingTitle:"わたしの へや · 我的房间",
+  reading:[["わたしの部屋は小さいです。","我的房间很小。"],["部屋は静かです。","房间很安静。"],["部屋に机があります。","房间里有桌子。"],["机の上に本があります。","桌子上有书。"],["窓の近くにベッドがあります。","窗边有床。"],["夜、本を読みます。","晚上看书。"],["本はおもしろいです。","书很有意思。"],["わたしは部屋が好きです。","我喜欢我的房间。"],["部屋で日本語を勉強します。","在房间里学日语。"],["毎日、少し勉強します。","每天学一点。"]],
+  audio:"assets/audio/lesson-3.mp3",
+  hyoujun:null,
+  homework:"さ行书写加朗读；用「～が好きです」说三样喜欢的东西；跟音频读短文一遍。"},
+ {n:4,row:"た行",title:"た行と 過去時",theme:"あきの こうえん · 秋天的公园",date:"第 4 課 · Stage A / N5",
+  kana:[["た","ta","4画"],["ち","chi","2画"],["つ","tsu","1画"],["て","te","1画"],["と","to","2画"]],
+  kanaNote:"两个意外：ち 读 chi，不读 ti；つ 读 tsu，不读 tu。ち 和 さ 长得像，多看一眼。",
+  greet:null,
+  vocab:[["公園","こうえん","公园","公園へ行きました。","去了公园。"],["友達","ともだち","朋友","友達と公園へ行きました。","和朋友去了公园。"],["昨日","きのう","昨天","昨日は日曜日でした。","昨天是星期天。"],["秋","あき","秋天","秋の公園はきれいです。","秋天的公园很漂亮。"],["葉っぱ","はっぱ","叶子","葉っぱは赤いです。","叶子是红色的。"],["広い","ひろい","宽敞","公園は広いです。","公园很宽敞。"],["近い","ちかい","近","公園は駅から近いです。","公园离车站近。"],["歩く","あるく","走","公園で歩きました。","在公园里散步了。"],["座る","すわる","坐","ベンチに座りました。","坐在长椅上。"],["お茶","おちゃ","茶","お茶を飲みました。","喝了茶。"],["ベンチ","ベンチ","长椅","公園にベンチがあります。","公园里有长椅。"],["楽しい","たのしい","开心","昨日は楽しかったです。","昨天很开心。"]],
+  grammar:["过去时：～ました（动词）／～でした（名词・形容词），如「行きました」「日曜日でした」","い形容词て形 ～くて：把两个形容词连起来，如「近くて、広いです」"],
+  kanji:[["日","ひ / にち","4画 · 日曜日（にちようび）星期日"],["月","つき / げつ","4画 · 月曜日（げつようび）星期一"]],
+  readingTitle:"あきの こうえん · 秋天的公园",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きのうは日曜日でした。","昨天是星期天。"],["ともだちと公園へ行きました。","和朋友去了公园。"],["公園は駅から近くて、広いです。","公园离车站近，又宽敞。"],["秋の葉っぱは赤くて、きれいです。","秋天的叶子又红又漂亮。"],["公園で歩きました。","在公园里散步了。"],["ベンチに座りました。","坐在长椅上。"],["お茶を飲みました。","喝了茶。"],["楽しかったです。","很开心。"]],
+  audio:"assets/audio/lesson-4.mp3",
+  hyoujun:null,
+  homework:"跟音频读短文 3 遍，重点练 ち（chi）和 つ（tsu）；日、月 各写 3 遍；用过去时造 3 个句子。"},
+ {n:5,row:"な行",title:"な行と ～たいです",theme:"ほんやで ほんを かう · 在书店买书",date:"第 5 課 · Stage A / N5",
+  kana:[["な","na","4画"],["に","ni","2画"],["ぬ","nu","2画"],["ね","ne","2画"],["の","no","1画"]],
+  kanaNote:"ぬ 和 め 有点像（め 是下一行的），认的时候多看一眼。",
+  greet:null,
+  vocab:[["名前","なまえ","名字","あなたの名前は何ですか。","你的名字是什么？"],["何","なに","什么","これは何ですか。","这是什么？"],["猫","ねこ","猫","猫が好きです。","我喜欢猫。"],["犬","いぬ","狗","犬は小さいです。","狗很小。"],["本屋","ほんや","书店","本屋へ行きました。","去了书店。"],["雑誌","ざっし","杂志","雑誌を買いました。","买了杂志。"],["新聞","しんぶん","报纸","新聞を読みます。","读报纸。"],["読む","よむ","读","本を読みたいです。","想读书。"],["買う","かう","买","本を買います。","买书。"],["高い","たかい","贵 / 高","この本は高いです。","这本书很贵。"],["安い","やすい","便宜","その雑誌は安いです。","那本杂志很便宜。"],["面白い","おもしろい","有意思","この本は面白いです。","这本书很有意思。"]],
+  grammar:["宾格助词 を：标示动作的对象，如「本を買います」","动词ます形词干＋たいです：想做……，如「読みたいです」"],
+  kanji:[["山","やま / サン","3画"],["川","かわ / セン","3画"],["本","ほん / ホン","5画"]],
+  readingTitle:"ほんやで ほんを かう · 在书店买书（加长版）",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きのうは日曜日でした。","昨天是星期天。"],["ともだちと本屋へ行きました。","和朋友去了书店。"],["本屋は駅から近くて、広いです。","书店离车站近，又宽敞。"],["本屋の中に、本がたくさんあります。","书店里有很多书。"],["わたしは本を見ました。","我看了书。"],["おもしろい本がありました。","有一本有意思的书。"],["わたしはその本を買いました。","我买了那本书。"],["本は安くて、おもしろいです。","书又便宜又有意思。"],["ともだちはざっしを見ました。","朋友看了杂志。"],["そして、ともだちはざっしを買いました。","然后，朋友买了杂志。"],["ざっしは新しいです。","杂志是新的。"],["いえで本を読みたいです。","想在家里看书。"],["きのうはとても楽しかったです。","昨天非常开心。"]],
+  audio:"assets/audio/lesson-5.mp3",
+  hyoujun:[["スミスさんはピアノを弾くことができます。","史密斯先生会弹钢琴。"],["わたしの趣味は本を読むことです。","我的爱好是读书。"],["寝る前に、本を読みます。","睡觉之前，我读书。"],["本屋へ行く前に、ともだちに電話をかけます。","去书店之前，我给朋友打电话。"],["だれが本を買いましたか。","谁买了书？"],["何を読みたいですか。","你想读什么？"]],
+  homework:"な行书写加朗读；复习 12 个新词和 山・川・本；用「～たいです」造 2 个句子；跟音频读短文。"},
+ {n:6,row:"は行",title:"は行と 誘い方",theme:"レストランで ひるごはん · 餐厅午餐",date:"第 6 課 · Stage A / N5",
+  kana:[["は","ha","3画 · 助词读 wa"],["ひ","hi","1画"],["ふ","fu","4画 · 读 fu，不读 hu"],["へ","he","1画 · 助词读 e"],["ほ","ho","4画"]],
+  kanaNote:"は 作助词时读 wa，へ 作助词时读 e——字形不变，读音变。ふ 读 fu，嘴唇不要咬住。",
+  greet:null,
+  vocab:[["昼","ひる","中午","昼にレストランへ行きます。","中午去餐厅。"],["昼ごはん","ひるごはん","午饭","昼ごはんを食べました。","吃了午饭。"],["レストラン","レストラン","餐厅","レストランで昼ごはんを食べます。","在餐厅吃午饭。"],["カレーライス","カレーライス","咖喱饭","カレーライスは美味しいです。","咖喱饭很好吃。"],["サラダ","サラダ","沙拉","サラダも食べました。","也吃了沙拉。"],["コーヒー","コーヒー","咖啡","コーヒーを飲みました。","喝了咖啡。"],["美味しい","おいしい","好吃","このカレーは美味しいです。","这个咖喱很好吃。"],["明日","あした","明天","明日は天気がいいです。","明天天气好。"],["天気","てんき","天气","今日の天気はいいです。","今天天气好。"],["花","はな","花","公園で花を見ましょう。","在公园赏花吧。"],["食事","しょくじ","吃饭 / 餐食","食事は楽しかったです。","这顿饭很开心。"],["後","あと","之后","食事の後で、コーヒーを飲みます。","饭后喝咖啡。"]],
+  grammar:["邀请：～ませんか，如「公園へ行きませんか」","提议：～ましょう，如「花を見ましょう」"],
+  kanji:[["人","ひと / ジン","人"],["大","おおきい / ダイ","大"],["小","ちいさい / ショウ","小"]],
+  readingTitle:"レストランで ひるごはん · 餐厅午餐",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きょうは水曜日です。","今天是星期三。"],["ひる、ともだちとレストランでひるごはんを食べました。","中午和朋友在餐厅吃了午饭。"],["レストランは駅から近くて、大きいです。","餐厅离车站近，又大。"],["わたしはカレーライスを食べました。","我吃了咖喱饭。"],["ともだちはサラダを食べました。","朋友吃了沙拉。"],["カレーライスはおいしいです。","咖喱饭很好吃。"],["あとで、コーヒーを飲みました。","之后喝了咖啡。"],["コーヒーは安くて、おいしいです。","咖啡又便宜又好喝。"],["しょくじは楽しかったです。","这顿饭很开心。"],["あしたはてんきがいいです。","明天天气好。"],["あした、公園へ行きませんか。","明天去公园吧？"],["公園で花を見ましょう。","在公园赏花吧。"],["あした、公園で花を見たいです。","明天想在公园看花。"]],
+  audio:"assets/audio/lesson-6.mp3",
+  hyoujun:[["日本語を話すことができます。","我会说日语。"],["わたしの趣味は映画を見ることです。","我的爱好是看电影。"],["寝る前に、歯を磨きます。","睡觉之前刷牙。"],["友達と会う前に、電話をかけます。","见朋友之前打电话。"],["どこかへ行きたいです。","想去某个地方。"],["何か飲みたいですか。","想喝点什么吗？"]],
+  homework:"は行书写加朗读（注意 は / へ 的助词读法）；用「～ませんか」邀请一句、「～ましょう」提议一句；跟音频读短文 3 遍。"}
+];
+var ltabs=document.getElementById('lessonTabs'), lpanel=document.getElementById('lessonPanel');
+LESSONS.forEach(function(L,i){
+  var b=document.createElement('button'); b.type='button'; b.className='ltab'; b.setAttribute('role','tab');
+  b.innerHTML='<span>第 '+L.n+' 課 · '+L.row+'<br><small>'+L.theme+'</small></span><span>›</span>';
+  b.addEventListener('click',function(){selectLesson(i);});
+  ltabs.appendChild(b);
+});
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var SPEAK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>';
+var currentLessonIdx=0;
+function speakJa(text,btn){
+  if(!('speechSynthesis' in window)){return;}
+  try{window.speechSynthesis.cancel();}catch(e){}
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang='ja-JP'; u.rate=0.88; u.pitch=1;
+  try{
+    var voices=window.speechSynthesis.getVoices();
+    for(var k=0;k<voices.length;k++){if(voices[k].lang&&voices[k].lang.toLowerCase().indexOf('ja')===0){u.voice=voices[k];break;}}
+  }catch(e){}
+  if(btn){
+    btn.classList.add('playing');
+    u.onend=function(){btn.classList.remove('playing');};
+    u.onerror=function(){btn.classList.remove('playing');};
+  }
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){try{window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged=function(){try{window.speechSynthesis.getVoices();}catch(e){}};}catch(e){}}
+function selectLesson(i){
+  var L=LESSONS[i];
+  var btns=ltabs.children; for(var j=0;j<btns.length;j++){btns[j].setAttribute('aria-selected', j===i?'true':'false');}
+  var h='<p class="p-sub" style="font-size:13px;color:var(--muted)">'+L.date+'</p>';
+  h+='<h3 style="font-size:23px;line-height:1.35">第 '+L.n+' 課 — <span class="jp">'+esc(L.title)+'</span></h3>';
+  h+='<p style="color:var(--muted);margin-top:4px">テーマ · 主题：'+esc(L.theme)+'</p>';
+  h+='<h4 class="lesson-h">仮名 · 本课假名（'+L.row+'）</h4><div class="kana-grid">'+L.kana.map(function(k){return '<div class="kana-cell"><span class="k jp">'+k[0]+'</span><span class="r">'+k[1]+'</span><span class="s">'+k[2]+'</span></div>';}).join('')+'</div><p class="small" style="margin-top:8px">'+esc(L.kanaNote)+'</p>';
+  if(L.greet){h+='<h4 class="lesson-h">挨拶 · 问候</h4><div class="pillrow">'+L.greet.map(function(g){return '<span class="mini-pill" style="font-size:12.5px;padding:6px 11px">'+esc(g)+'</span>';}).join('')+'</div>';}
+  h+='<h4 class="lesson-h">言葉 · 本课词汇（'+L.vocab.length+'）— 発音＋例文 · 带发音和例句</h4><p class="small" style="margin:-4px 0 10px">点喇叭听发音：大喇叭读单词，小喇叭读整条例句。先听、再跟读一遍，记得更牢。</p><div class="vocab-grid">'+L.vocab.map(function(v,vi){return '<div class="vocab-cell"><div class="vocab-top"><div class="vw"><b class="jp">'+esc(v[0])+'</b> <span class="vr jp">'+esc(v[1])+'</span><span class="vm">'+esc(v[2])+'</span></div><button type="button" class="speak-btn" data-vi="'+vi+'" data-kind="w" aria-label="播放单词发音：'+esc(v[0])+'（'+esc(v[1])+'）" title="听单词发音">'+SPEAK_SVG+'</button></div>'+(v[3]?'<div class="vocab-ex"><span class="ex-label">例文 · 例句</span><div class="ex-row"><div style="flex:1;min-width:0"><span class="ex-jp jp">'+esc(v[3])+'</span><span class="ex-cn">'+esc(v[4]||'')+'</span></div><button type="button" class="speak-btn sm" data-vi="'+vi+'" data-kind="e" aria-label="播放例句发音：'+esc(v[3])+'" title="听例句发音">'+SPEAK_SVG+'</button></div></div>':'')+'</div>';}).join('')+'</div>';
+  h+='<h4 class="lesson-h">文法 · 本课语法</h4>'+L.grammar.map(function(g){return '<p style="padding:4px 0;font-size:15px">› '+esc(g)+'</p>';}).join('');
+  if(L.kanji){h+='<h4 class="lesson-h">漢字 · 本课汉字</h4><div class="vocab-grid">'+L.kanji.map(function(k){return '<div class="vocab-cell"><b class="jp" style="font-size:22px">'+k[0]+'</b><span>'+k[1]+' · '+k[2]+'</span></div>';}).join('')+'</div>';}
+  h+='<h4 class="lesson-h">読解 · 短文朗读</h4><p style="font-weight:800;font-size:17px" class="jp">'+esc(L.readingTitle)+'</p>';
+  h+='<audio class="lesson-audio" controls preload="metadata" src="'+L.audio+'" aria-label="短文朗读音频"></audio>';
+  h+='<p class="small" style="margin-bottom:6px">音频逐句录制、句间有停顿，读的正是下面这篇原文。先听一遍，再跟读。</p>';
+  h+=L.reading.map(function(s){return '<div class="reading-sent"><span class="jp">'+esc(s[0])+'</span><br><span class="cn">'+esc(s[1])+'</span></div>';}).join('');
+  if(L.hyoujun){h+='<h4 class="lesson-h">標日例文練習 · 标日例文（第 20 课标准）</h4>'+L.hyoujun.map(function(s){return '<div class="ex-line"><span class="jp">'+esc(s[0])+'</span> <span class="cn">'+esc(s[1])+'</span></div>';}).join('');}
+  h+='<div class="specbox"><strong>宿題 · 今日作业：</strong>'+esc(L.homework)+'</div>';
+  lpanel.innerHTML=h;
+  currentLessonIdx=i;
+  var sbtns=lpanel.querySelectorAll('.speak-btn');
+  for(var bi=0;bi<sbtns.length;bi++){
+    sbtns[bi].addEventListener('click',function(){
+      var vi=parseInt(this.getAttribute('data-vi'),10);
+      var kind=this.getAttribute('data-kind');
+      var vv=LESSONS[currentLessonIdx].vocab[vi];
+      if(!vv) return;
+      if(kind==='e'){speakJa(vv[3],this);}
+      else{speakJa(vv[1],this);}
+    });
+  }
+}
+selectLesson(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>ほしことば Hoshikotoba · 星语图鉴 — JLPT 日语学习</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EA; --surface:#FFFCF4; --surface2:#EFE8D8; --ink:#182236; --muted:#5B6478; --line:#DAD0B8;
+  --indigo:#1E335C; --indigo2:#243A66; --verm:#C73E2E; --verm-dark:#A83226; --matcha:#5F7D4F; --gold:#C99A2B; --teal:#2A7A74;
+  --n5:#2A7A74; --n4:#5F7D4F; --n3:#C99A2B; --n2:#C05A2E; --n1:#8E2F3A;
+  --radius:18px; --shadow:0 12px 32px rgba(24,34,54,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121826; --surface:#1A2236; --surface2:#232E49; --ink:#EEF0F6; --muted:#A8B0C2; --line:#34405E; --indigo:#8FA8D8; --shadow:0 12px 32px rgba(0,0,0,.4); }
+}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--verm);text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.jp{font-family:"Noto Sans JP",sans-serif}
+.serif{font-family:"Noto Serif JP",serif}
+.display{font-family:"Noto Serif JP","Noto Sans SC",serif}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-family:"Noto Serif JP",serif;font-weight:900}
+@media(prefers-color-scheme:dark){.brand-mark{background:var(--verm)}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:700;padding:7px 11px;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+
+/* hero */
+.hero{padding:38px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--verm);font-weight:800}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;margin:12px 0 14px;font-weight:900}
+.hero h1 .jp-big{display:block;font-size:.62em;margin-top:8px;color:var(--indigo)}
+.hero p.lead{font-size:17.5px;color:var(--muted);max-width:56ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:999px;padding:13px 22px;text-decoration:none}
+.btn-primary{background:var(--verm);color:#fff}
+.btn-primary:hover{background:var(--verm-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.hero-img{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.hero-img figcaption{font-size:12.5px;color:var(--muted);padding:10px 14px;background:var(--surface)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+@media(max-width:640px){.hero-stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.stat b{display:block;font-size:20px;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{max-width:720px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);line-height:1.2;margin:8px 0 10px}
+.sec-head p{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr}}
+
+/* level pills */
+.lvl{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+.l-n5{background:var(--n5)} .l-n4{background:var(--n4)} .l-n3{background:var(--n3);color:#231a00} .l-n2{background:var(--n2)} .l-n1{background:var(--n1)} .l-all{background:var(--indigo)}
+
+/* level mapping cards */
+.level-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.level-top{display:flex;gap:16px;align-items:flex-start;padding:20px 22px 6px;flex-wrap:wrap}
+.level-badge{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:21px;flex:none}
+.level-top h3{font-size:20px}
+.level-top p{color:var(--muted);font-size:14.5px;max-width:62ch}
+.level-nums{margin-left:auto;text-align:right}
+.level-nums b{display:block;font-size:19px}
+.level-nums span{font-size:12px;color:var(--muted)}
+.level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:10px 22px 20px}
+@media(max-width:860px){.level-grid{grid-template-columns:1fr}}
+.level-cell{padding:12px 14px 4px;border-top:1px solid var(--line)}
+.level-cell h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--verm);margin-bottom:5px}
+.level-cell p,.level-cell li{font-size:14px;color:var(--ink)}
+.level-cell li{padding:2px 0 2px 14px;position:relative}
+.level-cell li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* flow */
+.flow{display:flex;gap:0;flex-wrap:wrap;align-items:stretch}
+.flow-step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.flow-arrow{display:grid;place-items:center;padding:0 6px;color:var(--verm);font-weight:900;font-size:20px}
+@media(max-width:700px){.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg);padding:4px 0}}
+.flow-step .num{width:28px;height:28px;border-radius:50%;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:900;font-size:13px;margin-bottom:8px}
+@media(prefers-color-scheme:dark){.flow-step .num{background:var(--verm)}}
+.flow-step h3{font-size:15.5px;margin-bottom:5px}
+.flow-step p{font-size:13.5px;color:var(--muted)}
+.loop-ring{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:860px){.loop-ring{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.loop-ring{grid-template-columns:1fr}}
+.loop-item{border-radius:16px;padding:18px;color:#fff}
+.loop-item h3{font-size:17px;margin-bottom:4px}
+.loop-item p{font-size:13.5px;opacity:.92}
+.loop-item .jp{font-size:22px;font-weight:900;display:block;margin-bottom:6px}
+
+/* mapping table */
+.maptable{width:100%;border-collapse:collapse;font-size:14.5px}
+.maptable th,.maptable td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.maptable th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:760px){
+  .maptable thead{display:none}
+  .maptable tr{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;padding:8px 4px}
+  .maptable td{display:block;border:0;padding:7px 14px}
+  .maptable td::before{content:attr(data-h);display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800}
+}
+.tablebox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;overflow:hidden}
+
+/* phone prototype */
+.proto-layout{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+@media(max-width:860px){.proto-layout{grid-template-columns:1fr}}
+.screen-tabs{display:flex;flex-direction:column;gap:8px}
+@media(max-width:860px){.screen-tabs{flex-direction:row;flex-wrap:wrap}}
+.stab{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.stab[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.stab small{font-weight:500;color:var(--muted)}
+.phone{width:min(375px,100%);margin:0 auto;background:#10182B;border-radius:42px;padding:11px;box-shadow:var(--shadow)}
+.phone-screen{background:#FBF7EC;color:#182236;border-radius:32px;overflow:hidden;min-height:640px;display:flex;flex-direction:column}
+@media(prefers-color-scheme:dark){.phone-screen{background:#171F33;color:#EEF0F6}}
+.p-status{display:flex;justify-content:space-between;padding:12px 20px 4px;font-size:12px;font-weight:700;opacity:.7}
+.p-body{padding:12px 18px 18px;flex:1}
+.p-body h3{font-size:19px;line-height:1.3}
+.p-sub{font-size:12.5px;opacity:.65;margin:3px 0 14px}
+.pillrow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.mini-pill{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:#EFE8D8;color:#5B4A12}
+@media(prefers-color-scheme:dark){.mini-pill{background:#2A3654;color:#E8D9A0}}
+.task{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:13px;margin-bottom:8px;background:rgba(255,255,255,.45)}
+@media(prefers-color-scheme:dark){.task{background:rgba(255,255,255,.04)}}
+.task-dot{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;font-weight:900;color:#fff;margin-top:1px}
+.done{background:var(--matcha)} .todo{background:#B9B09A} .now{background:var(--verm)}
+.task b{font-size:14px;display:block;line-height:1.35}
+.task span{font-size:12px;opacity:.65}
+.p-nav{display:flex;justify-content:space-around;border-top:1px solid var(--line);padding:10px 6px 16px;font-size:10.5px;font-weight:700}
+.p-nav span{text-align:center;opacity:.55}
+.p-nav span.on{opacity:1;color:var(--verm)}
+.p-nav svg{display:block;margin:0 auto 3px}
+.progress-track{height:9px;border-radius:99px;background:#E4DCC6;overflow:hidden}
+@media(prefers-color-scheme:dark){.progress-track{background:#2A3654}}
+.progress-fill{height:100%;background:var(--verm);border-radius:99px}
+.wordcard-hero{border-radius:16px;background:var(--indigo);color:#fff;padding:18px;text-align:center}
+.wordcard-hero .big{font-family:"Noto Serif JP",serif;font-size:46px;font-weight:900;line-height:1.1}
+.wordcard-hero .reading{font-size:15px;opacity:.85}
+.pitch{display:flex;gap:3px;justify-content:center;margin-top:8px}
+.pitch i{width:22px;height:5px;border-radius:99px;background:#E8C95A;display:block}
+.pitch i.low{background:rgba(255,255,255,.35)}
+.annot{font-size:14px}
+.annot h3{font-size:19px;margin-bottom:6px}
+.annot dl{display:grid;grid-template-columns:86px 1fr;gap:7px 12px;font-size:14px;margin-top:12px}
+.annot dt{font-weight:800;color:var(--verm);font-size:12px;letter-spacing:.06em;padding-top:2px}
+.specbox{border-left:4px solid var(--gold);background:var(--surface2);border-radius:0 12px 12px 0;padding:13px 15px;font-size:14px;margin-top:14px}
+
+/* star map */
+.starmap{background:#16233F;border-radius:18px;padding:10px;position:relative}
+.star-btn{position:absolute;width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.75);cursor:pointer;display:grid;place-items:center;font-size:11px;font-weight:900;color:#10182B}
+.star-info{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-top:14px;font-size:14.5px;min-height:74px}
+
+/* quiz */
+.quizbox{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
+.q-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px}
+.q-text{font-size:20px;line-height:1.55;margin:12px 0 6px}
+.q-text .jp{font-size:22px}
+.q-help{color:var(--muted);font-size:14px;margin-bottom:16px}
+.opts{display:grid;gap:9px}
+.opt{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:13px;padding:14px 16px;font-size:16.5px;font-weight:600;display:flex;gap:11px;align-items:center}
+.opt:hover{border-color:var(--indigo)}
+.opt .key{width:26px;height:26px;border-radius:8px;background:var(--surface2);display:grid;place-items:center;font-size:13px;font-weight:900;flex:none}
+.opt.picked{border-color:var(--verm);background:var(--surface2)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.q-msg{font-size:14px;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:760px){.result-grid{grid-template-columns:1fr}}
+.bar-row{display:grid;grid-template-columns:104px 1fr 44px;gap:10px;align-items:center;font-size:13.5px;font-weight:700;margin-bottom:9px}
+.big-level{font-size:40px;line-height:1.05;font-weight:900}
+.hidden{display:none !important}
+
+/* timeline */
+.timeline{border-left:3px solid var(--line);margin-left:10px;padding-left:24px}
+.tl-item{position:relative;padding-bottom:22px}
+.tl-item::before{content:"";position:absolute;left:-32.5px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--verm);border:3px solid var(--bg)}
+.tl-item h3{font-size:17px}
+.tl-item p{color:var(--muted);font-size:14.5px;max-width:64ch}
+
+/* swatches */
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatch{width:118px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.swatch i{display:block;height:52px}
+.swatch span{display:block;padding:8px 10px;font-size:12px;font-weight:700;background:var(--surface)}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:14px}
+.small{font-size:13.5px;color:var(--muted)}
+.tag-note{display:inline-block;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13.5px}
+
+/* lessons */
+.lesson-layout{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start}
+@media(max-width:860px){.lesson-layout{grid-template-columns:1fr}}
+.ltab{font:inherit;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;gap:10px;align-items:center;width:100%}
+.ltab[aria-selected="true"]{border-color:var(--verm);background:var(--surface2)}
+.ltab small{font-weight:500;color:var(--muted)}
+.kana-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+@media(max-width:560px){.kana-grid{grid-template-columns:repeat(5,1fr);gap:6px}}
+.kana-cell{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.kana-cell .k{font-family:"Noto Serif JP",serif;font-size:27px;font-weight:900;line-height:1.15;display:block}
+.kana-cell .r{font-size:12.5px;font-weight:800;color:var(--verm)}
+.kana-cell .s{font-size:11.5px;color:var(--muted);display:block}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:760px){.vocab-grid{grid-template-columns:1fr}}
+.vocab-cell{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg);display:flex;flex-direction:column;gap:2px}
+.vocab-top{display:flex;align-items:flex-start;gap:8px}
+.vocab-top .vw{flex:1;min-width:0}
+.vocab-cell b{font-size:17px;line-height:1.3}
+.vocab-cell .vr{font-size:13px;color:var(--verm);font-weight:700}
+.vocab-cell .vm{display:block;font-size:13px;color:var(--muted)}
+.speak-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--verm);display:grid;place-items:center;cursor:pointer;padding:0}
+.speak-btn:hover{border-color:var(--verm);background:var(--surface2)}
+.speak-btn:active{transform:scale(.94)}
+.speak-btn.playing{background:var(--verm);color:#fff;border-color:var(--verm)}
+.speak-btn svg{width:17px;height:17px;display:block}
+.speak-btn.sm{width:26px;height:26px}
+.speak-btn.sm svg{width:13px;height:13px}
+.vocab-ex{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+.vocab-ex .ex-label{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--verm);text-transform:uppercase}
+.vocab-ex .ex-row{display:flex;gap:7px;align-items:flex-start;margin-top:3px}
+.vocab-ex .ex-jp{flex:1;font-size:15px;line-height:1.55}
+.vocab-ex .ex-cn{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+.reading-sent{padding:8px 0;border-bottom:1px dashed var(--line)}
+.reading-sent:last-child{border-bottom:0}
+.reading-sent .jp{font-size:17.5px;line-height:1.5}
+.reading-sent .cn{font-size:13.5px;color:var(--muted)}
+.lesson-audio{width:100%;margin:6px 0 10px}
+.lesson-h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--verm);font-weight:800;margin:20px 0 9px}
+.lesson-h:first-of-type{margin-top:4px}
+.ex-line{padding:7px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.ex-line:last-child{border-bottom:0}
+.ex-line .cn{color:var(--muted);font-size:13.5px}
+</style>
+</head>
+<body>
+
+<header class="topnav"><div class="topnav-in">
+  <div class="brand"><span class="brand-mark jp">星</span> ほしことば <span style="font-weight:500;color:var(--muted)">Hoshikotoba · 星语图鉴</span></div>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="#lessons">授業 · 课程</a><a href="#levels">レベルマップ · 等级地图</a><a href="#logic">学び方 · 学习逻辑</a><a href="#screens">画面 · 界面</a><a href="#test">レベル診断 · 等级测试</a><a href="#example">学習例 · 学习示例</a>
+  </nav>
+</div></header>
+
+<main>
+<!-- HERO -->
+<div class="wrap hero"><div class="hero-grid">
+  <div>
+    <p class="eyebrow">日本語学習 · JLPT N5 → N1 · 日语学习设计</p>
+    <h1 class="display"><span class="jp">一語一星、学びは星図になる。</span><span class="jp-big">每学一个词，就点亮一颗星。</span></h1>
+    <p class="lead">这是一款<strong>只为日语设计</strong>的学习应用：单词卡、汉字卡、语法卡都放进一张星图里，配日语母语发音、跟读和 FSRS 复习。整条主线只有一条——<strong>JLPT 等级地图 N5 → N1</strong>。你在哪一档，看到的单词、例句、注音和语速就跟到哪一档；每一屏、每一张卡、每一道题都标着它属于哪个等级。</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#test">レベル診断を受ける · 做等级测试</a>
+      <a class="btn btn-ghost" href="#levels">レベルマップを見る · 查看 N5–N1 地图</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>5 段階</b><span>JLPT N5 · N4 · N3 · N2 · N1 五档管全部内容</span></div>
+      <div class="stat"><b>約10,000語</b><span>到 N1 的累计词汇目标</span></div>
+      <div class="stat"><b>約2,000字</b><span>到 N1 的累计汉字目标</span></div>
+      <div class="stat"><b>15 問</b><span>下方等级测试演示，约 6 分钟（正式版为自适应）</span></div>
+    </div>
+  </div>
+  <figure class="hero-img">
+    <img src="assets/hero-atlas.webp" alt="星图插画：星星连成钢琴、电车、樱花枝和打开的书，下方是红色鸟居与富士山" width="1920" height="1280">
+    <figcaption>星图的概念：掌握一个词，就点亮一颗星。图中钢琴星座就是贯穿全页的例句词——弾く（ひく）。</figcaption>
+  </figure>
+</div></div>
+
+<!-- LESSONS -->
+<section id="lessons" style="padding-top:10px"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">授業 · 课程（第1课 → 第6课）</p>
+  <h2><span class="jp">順番に学ぶ — あ行から、は行まで</span> · 按顺序学：从あ行到は行</h2>
+  <p>这就是你每天晨课的六课，按课次顺序排好：每课一行新假名（あ行 → か行 → さ行 → た行 → な行 → は行），一篇本课短文，短文配<strong>可播放的朗读音频</strong>——音频逐句录制、句间留真实停顿、接近日常说话的语速，读的正是下面显示的原文，一字不差。<strong>每个单词都带发音和例句：</strong>点单词旁的喇叭按钮就能听日语读音，例句旁的小喇叭能听整句，例句下有中文对照，帮你把词放进句子里记。点左侧课次切换。</p></div>
+  <div class="lesson-layout">
+    <div class="screen-tabs" id="lessonTabs" role="tablist" aria-label="Lessons"></div>
+    <div class="card" id="lessonPanel" style="padding:24px"></div>
+  </div>
+</div></section>
+
+<!-- LEVEL MAP -->
+<section id="levels" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">中心軸 · JLPT レベル対応 · 等级主线</p>
+  <h2><span class="jp">一枚の地図で N5 → N1</span> · 一张地图管全程</h2>
+  <p>词汇与汉字数量是用于规划的累计约数（JLPT 官方不公布词表）。教材对照以《新版中日交流标准日本语》（标日）为主线，方便正在学标日的同学直接对位。</p></div>
+  <div id="levelCards"></div>
+  <p class="small">在应用里怎么看这张图：你始终处在<strong>一个学习档</strong>里，可以预览高一档的内容；高一档显示为「挑战」，高两档先锁定，等低一档学扎实再开——解锁规则见下方「学习逻辑」。</p>
+</div></section>
+
+<!-- PRODUCT LOGIC -->
+<section id="logic"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">学習の仕組み · 学习逻辑</p>
+  <h2><span class="jp">初回からレベルアップまで</span> · 从第一次打开到升级</h2>
+  <p>没有断头路：每一步都接到下一步，所有结果都用 JLPT 档位说话，你随时知道自己在哪一档、下一步去哪。</p></div>
+
+  <h3 style="margin-bottom:12px">1 · 学習の流れ · 从入门到每天坚持</h3>
+  <div class="flow" role="list">
+    <div class="flow-step"><div class="num">1</div><h3>初めて · 第一次打开</h3><p>先选目标：JLPT 目标档（N5–N1）、考试日期、每天分钟数（10 / 20 / 30 / 45 / 60）。免注册。</p></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="num">2</div><h3>レベル診断 · 等级测试</h3><p>自适应测试：假名、词汇、汉字、语法、听力。约 15 题、6 分钟。可跳过，跳过就从 N5 开始。</p></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="num">3</div><h3>結果 · 测试结果</h3><p>总档位 + 每项技能的档位 + 在档内的位置（如「N5 上段，≈第 20 课」），并标到星图上。</p></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="num">4</div><h3>今日のプラン · 每日计划</h3><p>按你的档位、目标和分钟数生成：新单词、新汉字、到期复习、一篇阅读、一次口语练习。</p></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="num">5</div><h3>毎日の学習 · 每日循环</h3><p>見る → 聞く → 思い出す → 話す → 復習する（FSRS）。学一点，星亮一点，档位进度条涨一点。</p></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="num">6</div><h3>月例模試 · 每月模考</h3><p>每月最后一个周日，按当前档位限时模考。结果重新对位各项技能，并调整下月计划。</p></div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <div class="card">
+      <h3>2 · レベル診断の仕組み · 等级是怎么测出来的</h3>
+      <ul style="margin-top:10px">
+        <li style="padding:5px 0"><strong>从 N5 开始。</strong>一档一档往上测：先假名和基础词汇，再汉字、语法、听力。</li>
+        <li style="padding:5px 0"><strong>自适应：</strong>一档内连对 2 题 → 跳到该档末尾，再试探高一档；连错 2 题 → 退回确认低一档。</li>
+        <li style="padding:5px 0"><strong>停止条件：</strong>某档确认成立（档内正确率 ≥ 70% 且高一档 &lt; 50%），或答满 20 题。</li>
+        <li style="padding:5px 0"><strong>计分：</strong>每项技能（假名 / 词汇 / 汉字 / 语法 / 听力）各自定档。总档位 = 语法与词汇中较低的一档，不会把你放到语法撑不住的高度。</li>
+        <li style="padding:5px 0"><strong>展示方式：</strong>总档位、档内位置（下 / 中 / 上段）、各项技能条，再加一个教材锚点（如「≈ 标日第 20 课」），方便在学标日的同学自查。</li>
+      </ul>
+      <div class="specbox"><strong>本页演示：</strong>下方是固定 15 题版（N5 × 5、N4 × 5、N3 × 5），可以完整看到计分和结果页怎么跑通。</div>
+    </div>
+    <div class="card">
+      <h3>3 · 今日のプランの作り方 · 每日计划的生成规则</h3>
+      <ul style="margin-top:10px">
+        <li style="padding:5px 0"><strong>输入：</strong>当前档位与位置、目标档、考试日期、每天分钟数、FSRS 到期数、上次模考结果。</li>
+        <li style="padding:5px 0"><strong>时间分配（默认）：</strong>35% 复习（FSRS 到期优先）· 30% 新单词与新汉字 · 20% 阅读 / 听力 · 15% 口语与输出。</li>
+        <li style="padding:5px 0"><strong>各档新学上限：</strong>N5 约 12 词 + 2–3 汉字/天 · N4 约 15 + 3–4 · N3 约 18 + 4–5 · N2 约 20 + 5 · N1 约 20 + 5 且阅读权重更高。</li>
+        <li style="padding:5px 0"><strong>防欠账：</strong>到期复习超过当天预算时，新学自动暂停——复习债不会悄悄越堆越多。</li>
+        <li style="padding:5px 0"><strong>考前冲刺：</strong>考试前最后 4 周，新学逐步收尾，模考 + 复习占比升到约 70%。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin:26px 0 12px">4 · 学習ループ · 学习循环：見る・聞く・思い出す・話す・復習する</h3>
+  <div class="loop-ring">
+    <div class="loop-item" style="background:#2A7A74"><span class="jp">見る</span><h3>見る · 看</h3><p>插图卡：单词、汉字、场景图。N5–N4 显示振假名，N3 起默认隐藏。</p></div>
+    <div class="loop-item" style="background:#1E335C"><span class="jp">聞く</span><h3>聞く · 听</h3><p>母语发音 + 声调线。N5–N4 可慢速，N3 起用自然语速。</p></div>
+    <div class="loop-item" style="background:#C73E2E"><span class="jp">思い出す</span><h3>思い出す · 回忆</h3><p>主动回忆练习：看意思说词、听音选义、句子填空、汉字书写（N4 起）。</p></div>
+    <div class="loop-item" style="background:#C05A2E"><span class="jp">話す</span><h3>話す · 说</h3><p>跟读 + 短角色扮演，只用当前档及以下的语法。每周一次口语专练。</p></div>
+    <div class="loop-item" style="background:#5F7D4F"><span class="jp">復習する</span><h3>復習する · 复习</h3><p>FSRS 为每张卡排期。当天第一次作答计入正确率；答错的卡会更早回来。</p></div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <div class="card">
+      <h3>5 · FSRS 復習ルール · FSRS 排期规则</h3>
+      <ul style="margin-top:10px">
+        <li style="padding:5px 0"><strong>三类卡共用一个队列：</strong>词汇卡、汉字卡、语法句型卡——每张卡有自己的稳定度与难度。</li>
+        <li style="padding:5px 0"><strong>目标记住率：</strong>默认 90%，设置里可调 85–95%。记住率越高，间隔越短，每天复习量越大。</li>
+        <li style="padding:5px 0"><strong>评分：</strong>重来 / 难 / 好 / 简单。「重来」的卡在本次练习内再出现，之后约 10 分钟、再到次日。</li>
+        <li style="padding:5px 0"><strong>掌握标准（对应星图）：</strong>一张卡间隔达到 21 天以上、且最近 3 次复习没忘，它的星才完全点亮。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>6 · 進級・解放・模試 · 升级、解锁与模考</h3>
+      <ul style="margin-top:10px">
+        <li style="padding:5px 0"><strong>档位进度条：</strong>该档词汇 + 汉字达到掌握的比例，加上已学语法句型的比例。</li>
+        <li style="padding:5px 0"><strong>升级门槛——三条全过：</strong>档位进度 ≥ 80% · 近 30 天 FSRS 记住率 ≥ 85% · 限时档位模考 ≥ 60%（词汇/语法/阅读/听力每部分 ≥ 50%）。</li>
+        <li style="padding:5px 0"><strong>升级后：</strong>星图下一片区域解锁，振假名与语速默认切到新档，计划按新档上限重新分配。</li>
+        <li style="padding:5px 0"><strong>每月模考：</strong>每月最后一个周日，按当前档位。结果把每项技能重新对位；落后整整一档的技能，会在计划里安排一周专练。</li>
+        <li style="padding:5px 0"><strong>重测：</strong>「进度」页随时可重做完整等级测试；每次模考后有 5 题小复测。重测可把学习档往上调，不会自动往下调——要降档先提示、由你确认。</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- UI SCREENS -->
+<section id="screens" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">画面設計 · 界面设计</p>
+  <h2><span class="jp">主な画面を、レベル別に</span> · 主要界面逐屏标注等级</h2>
+  <p>点左侧界面名，在手机里预览；旁边的标注写清它服务哪些档、内容如何随等级变化。</p></div>
+  <div class="proto-layout">
+    <div>
+      <div class="screen-tabs" role="tablist" aria-label="App screens" id="screenTabs"></div>
+      <div class="annot card" style="margin-top:14px;padding:18px">
+        <h3 id="annotTitle"></h3>
+        <p id="annotPurpose"></p>
+        <dl>
+          <dt>対応 · 服务档位</dt><dd id="annotLevels"></dd>
+          <dt>レベル別 · 分档差异</dt><dd id="annotByLevel"></dd>
+          <dt>仕組み · 关键逻辑</dt><dd id="annotLogic"></dd>
+        </dl>
+      </div>
+    </div>
+    <div>
+      <div class="phone" aria-label="Phone prototype"><div class="phone-screen">
+        <div class="p-status"><span>9:20</span><span>ほしことば</span><span>●●●</span></div>
+        <div class="p-body" id="phoneBody"></div>
+        <div class="p-nav" id="phoneNav"></div>
+      </div></div>
+      <div class="specbox" style="max-width:375px;margin:14px auto 0"><strong>手机里的贯穿例句：</strong>单词卡是 <span class="jp"><strong>弾く（ひく）</strong></span>「弹（钢琴/吉他）」，例句 <span class="jp">スミスさんはピアノを弾くことができます</span>，用的正是标日第 20 课句型 ～ことができます。</div>
+    </div>
+  </div>
+
+  <h3 style="margin:30px 0 12px"><span class="jp">星図 — レベル帯の次にテーマ</span> · 星图：先按等级，再按主题</h3>
+  <div class="grid2">
+    <div>
+      <div class="starmap"><svg viewBox="0 0 520 300" width="100%" role="img" aria-label="Star atlas constellation diagram"><g stroke="rgba(255,255,255,.4)" stroke-width="1.2"><path d="M60 70 L130 50 L200 80 L150 140 L70 140 Z" fill="none"/><path d="M280 60 L350 40 L430 70 L400 140 L300 130 Z" fill="none"/><path d="M170 210 L260 190 L340 220 L260 265 Z" fill="none"/></g><g fill="#E8C95A"><circle cx="60" cy="70" r="4"/><circle cx="130" cy="50" r="4"/><circle cx="200" cy="80" r="4"/><circle cx="150" cy="140" r="4"/><circle cx="70" cy="140" r="4"/></g><g fill="#8FA8D8"><circle cx="280" cy="60" r="4"/><circle cx="350" cy="40" r="4"/><circle cx="430" cy="70" r="4"/><circle cx="400" cy="140" r="4"/><circle cx="300" cy="130" r="4"/></g><g fill="#5B6478"><circle cx="170" cy="210" r="4"/><circle cx="260" cy="190" r="4"/><circle cx="340" cy="220" r="4"/><circle cx="260" cy="265" r="4"/></g></svg>
+        <button class="star-btn" style="left:18%;top:12%;background:#7FC6BE" data-star="n5">N5</button>
+        <button class="star-btn" style="left:62%;top:10%;background:#A9C48E" data-star="n4">N4</button>
+        <button class="star-btn" style="left:44%;top:62%;background:#3A4763;color:#A8B0C2" data-star="n3">N3</button>
+      </div>
+      <div class="star-info" id="starInfo"><strong>点 N5、N4 或 N3</strong>——天空的每一片区域就是一个 JLPT 档。区域内星的亮度 = FSRS 掌握程度，一颗一颗算。</div>
+    </div>
+    <div class="card">
+      <h3>星図の対応 · 星图怎么对应</h3>
+      <ul style="margin-top:8px">
+        <li style="padding:5px 0"><strong>区域 = 档位。</strong>N5 天空（日常生活、学校、旅行基础）最先打开；N4、N3、N2、N1 区域按升级门槛依次解锁。</li>
+        <li style="padding:5px 0"><strong>星座 = 主题。</strong>一档之内，星按主题成团——如 N5 的食べ物・駅・家族・時間，N3 的仕事・ニュース・健康・社会。</li>
+        <li style="padding:5px 0"><strong>星 = 单词或汉字。</strong>暗 = 已学过，亮 = 已掌握（FSRS 间隔 21 天以上、近期没忘）。点星打开它的卡。</li>
+        <li style="padding:5px 0"><strong>进度一目了然：</strong>星图下方的档位进度条显示当前档「已亮星 / 总星数」——就是喂给升级门槛的同一个数字。</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- LEVEL TEST -->
+<section id="test"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">やってみよう · 试一试</p>
+  <h2><span class="jp">レベル診断 — 15問、N5 → N3</span> · 等级测试</h2>
+  <p>这是上面诊断流程的可操作演示：假名/词汇、汉字、语法和阅读，按 N5 到 N3 排。答完每题，就能看到你的档位、各项技能拆解、教材锚点，以及应用会为你生成的计划。</p></div>
+
+  <div class="grid3" style="margin-bottom:16px">
+    <div class="card"><h3>何を測るか · 测什么</h3><p class="small" style="margin-top:6px">词汇与汉字读音、语法句型（包括 ～ことができます、～前に——第 20 课句型），以及短篇阅读理解。</p></div>
+    <div class="card"><h3>正式版の適応 · 正式版怎么自适应</h3><p class="small" style="margin-top:6px">按档试探；连对 2 题推到该档顶部，连错 2 题拉回。本演示用固定的 N5 → N4 → N3 阶梯，让计分透明可见。</p></div>
+    <div class="card"><h3>結果の使い方 · 结果怎么用</h3><p class="small" style="margin-top:6px">总档位 = 语法与词汇中较低的一档。结果决定你的学习档、星图区域、每日上限和教材起始课。</p></div>
+  </div>
+
+  <div class="quizbox" id="quizBox">
+    <!-- start -->
+    <div id="qStart">
+      <p class="eyebrow">レベル診断 · 等级诊断</p>
+      <h3 style="font-size:24px;margin:8px 0"><span class="jp">約6分で、あなたのJLPTレベルが分かります</span></h3>
+      <p style="color:var(--muted);max-width:58ch">全 15 题 · 本演示不限时（正式诊断也不限时，只有每月模考限时）· 随时可重开。答案只在本页、本次会话内使用。</p>
+      <div class="pillrow" style="margin-top:14px"><span class="lvl l-n5">N5 × 5</span><span class="lvl l-n4">N4 × 5</span><span class="lvl l-n3">N3 × 5</span></div>
+      <button class="btn btn-primary" id="btnStart" type="button">テストを始める · 开始测试</button>
+    </div>
+    <!-- question -->
+    <div id="qMain" class="hidden">
+      <div class="q-meta"><span id="qCount"></span><span id="qBand"></span><span id="qSkill"></span></div>
+      <div class="progress-track"><div class="progress-fill" id="qProg" style="width:0%"></div></div>
+      <p class="q-text" id="qPrompt"></p>
+      <p class="q-help" id="qHelp"></p>
+      <div class="opts" id="qOpts"></div>
+      <div class="q-foot"><span class="q-msg" id="qMsg">答えを選んでください。（选一个答案继续）</span>
+      <span><button class="btn btn-ghost" id="btnRestart1" type="button" style="padding:10px 16px">最初から · 重开</button>
+      <button class="btn btn-primary" id="btnNext" type="button" disabled style="padding:10px 20px;opacity:.55">次へ →</button></span></div>
+    </div>
+    <!-- result -->
+    <div id="qResult" class="hidden">
+      <p class="eyebrow">診断結果 · 你的结果</p>
+      <div class="result-grid">
+        <div>
+          <p class="small">推定学習帯 · 估计学习档</p>
+          <p class="big-level" id="rLevel"></p>
+          <p id="rAnchor" style="font-weight:700;margin-top:6px"></p>
+          <p id="rSummary" style="color:var(--muted);margin-top:8px"></p>
+          <p style="margin-top:12px"><span class="tag-note" id="rScore"></span></p>
+        </div>
+        <div>
+          <h3 style="margin-bottom:12px">技能別 · 各项技能拆解</h3>
+          <div id="rBars"></div>
+          <h3 style="margin:16px 0 8px">アプリのプラン · 应用会为你建的计划</h3>
+          <ul id="rPlan" style="font-size:14.5px"></ul>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+        <button class="btn btn-primary" id="btnRetake" type="button">もう一度 · 重测</button>
+        <a class="btn btn-ghost" href="#levels">N5–N1 地図と比べる · 对照完整地图</a>
+        <a class="btn btn-ghost" href="#screens">今日画面を見る · 看今日界面</a>
+      </div>
+      <p class="small" style="margin-top:14px">这是简短的诊断演示，不是 JLPT 官方成绩。完整测试约 20 题自适应，含带音频的听力部分。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- EXAMPLE LEARNER -->
+<section id="example" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">学習例 · 示例（仅为示例）</p>
+  <h2><span class="jp">一人の学習者の流れ</span> · 一个学习者如何走完这张图</h2>
+  <p><strong>示例画像（明确标注为示例）：</strong>一位学完《标日》初级上册第 20 课的学习者——语法到 ～ことができます、～こと 名词化、～前に 和 疑问词＋か——正按计划走向 JLPT N3。</p></div>
+  <div class="timeline">
+    <div class="tl-item"><h3>診断結果：「N5 上段 / N4 入口」 <span class="lvl l-n5">N5</span> → <span class="lvl l-n4">N4</span></h3><p>各项技能：词汇 N5 上段、汉字 N5 中段、语法 N4 入口（第 20 课句型属 N4 入口语法）、阅读 N5 上段。总档位 = 语法与词汇较低者 → 学习档设为<strong>N5 上段巩固、N4 预览解锁</strong>。教材锚点显示：≈ 标日第 20–24 课。</p></div>
+    <div class="tl-item"><h3>生成される今日のプラン · 生成的每日计划（每天 60–90 分钟档）</h3><p>早课主线不变；先 FSRS 复习（约 15 分钟），12 个新词 + 2–3 个汉字，一篇本阶段短文（带朗读），再加一小块「标日例文练习」（第 20 课标准）——4–6 句轮换第 1–20 课语法，配 1–2 题翻译练习。</p></div>
+    <div class="tl-item"><h3>週例スピーキング · 每周口语专练（周六，约 15–20 分钟）</h3><p>跟读 2–3 句模范句，一个角色扮演（车站、餐厅、用 ～前に 打电话、用 ～ことができます 谈爱好），只用第 20 课及以下语法；4–6 个语音回答题，一次 30–60 秒自由表达。反馈以「纠正 + 干净的模范版」返回。</p></div>
+    <div class="tl-item"><h3>N3 への節目 · 通往 N3 的节点</h3><p>学完标日上册（第 21–24 课）→ 每月最后一个周日 N5 档位模考 → 标日下册第 25–48 课对应 N4 档 → 3 月起进入 N3 材料（标日中级 / TRY! N3），交流练习升到学习时间的约 30–40% → 主考场次 <strong>2027 年 7 月 4 日周日（预计日期）</strong>，<strong>12 月 5 日</strong>为内置的第二次机会。每一步都用同一把尺：进度 ≥ 80%、记住率 ≥ 85%、模考 ≥ 60%。</p></div>
+  </div>
+</div></section>
+
+<!-- DESIGN SYSTEM -->
+<section><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">デザイン · 设计系统</p><h2><span class="jp">見た目と手触り</span> · 外观与手感</h2>
+  <p>浅色模式是和纸的暖意，深色模式是深蓝的「夜空」——星图本就是一片天，所以深色才是它的主场。朱红只留给主操作和当前等级；每个 JLPT 档在全应用只用一个颜色（徽章、星图区域、进度条、计划标签），一眼认出等级。</p></div>
+  <div class="swatches">
+    <div class="swatch"><i style="background:#1E335C"></i><span>藍 Indigo<br>#1E335C · 空 / 主色</span></div>
+    <div class="swatch"><i style="background:#C73E2E"></i><span>朱 Vermillion<br>#C73E2E · 操作 / 当前</span></div>
+    <div class="swatch"><i style="background:#C99A2B"></i><span>金 Gold<br>#C99A2B · 星 / N3</span></div>
+    <div class="swatch"><i style="background:#5F7D4F"></i><span>抹茶 Matcha<br>#5F7D4F · 掌握 / N4</span></div>
+    <div class="swatch"><i style="background:#2A7A74"></i><span>Teal 青緑<br>#2A7A74 · N5</span></div>
+    <div class="swatch"><i style="background:#8E2F3A"></i><span>Crimson 深紅<br>#8E2F3A · N1</span></div>
+  </div>
+  <div class="grid3" style="margin-top:16px">
+    <div class="card"><h3>文字 · 字体</h3><p class="small" style="margin-top:6px">日语展示：单词与汉字用 <span class="serif"><strong>Noto Serif JP</strong></span>（笔画细节清楚）。界面与中文：Noto Sans JP / SC。振假名一律用 ruby 注音，不用下方小字代替。</p></div>
+    <div class="card"><h3>レベルの色 · 等级颜色规则</h3><p class="small" style="margin-top:6px">N5 青绿 · N4 抹茶 · N3 金 · N2  burnt orange 赭橙 · N1 深红。一张卡的档位色只出现在三处——徽章、星图星点、进度条——别处不作装饰。</p></div>
+    <div class="card"><h3>動きと音 · 动效与声音</h3><p class="small" style="margin-top:6px">星点亮时一声轻响，播放时背景音自动降低。所有动效尊重「减少动态」设置；声音不自动播放。</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p><strong style="color:var(--ink)">ほしことば Hoshikotoba · 星语图鉴</strong>——一款只为日语设计的学习应用概念：按 JLPT N5→N1 组织单词、汉字与语法，星图点亮进度，FSRS 安排复习。JLPT 词汇/汉字数字为规划用累计约数，官方不公布词表。教材对照指《新版中日交流标准日本语》。</p><p style="margin-top:10px;font-size:12.5px">付録・出典（小さな謝辞）：「一語一星の星図」という着想は英語学習サイト <a href="https://0xlei.tech/words/#/" target="_blank" rel="noopener">词光 Word Atlas</a> と開源項目 <a href="https://github.com/designfuchen/word-atlas" target="_blank" rel="noopener">designfuchen/word-atlas</a>（コード MIT、データ CC BY 4.0）に着想を得たものです。本アプリの内容は全て日本語学習用に作り直したものです。</p>
+</div></footer>
+
+<script>
+/* ============ LEVEL MAP CARDS ============ */
+var LEVELS=[
+ {band:"N5",color:"var(--n5)",name:"入門 · 入门基础",vocab:"~800",kanji:"~100",
+  can:"应付日常基础：打招呼、购物、时间、家人、简单的喜欢/不喜欢和过去发生的事。",
+  grammar:"は/が/を/に/へ/で particles · ます & dictionary forms · past tense · adjectives & て-form · たい · ほしい · ～てはいけません",
+  modules:"假名训练 · 星图（N5 区域）· 汉字图 1 · 每日计划 · FSRS 复习 · 分级阅读 L1",
+  content:"单物插图、全程振假名、慢速音频、5–10 词短句、日常话题对话。",
+  textbook:"标日 初级上册 第 1–24 课 · 约相当于 Genki I"},
+ {band:"N4",color:"var(--n4)",name:"初級後半 · 初级后半",vocab:"~1,500",kanji:"~300",
+  can:"用日语过日子：约计划、发邀请、说原因、讲经历、谈能力和打算。",
+  grammar:"～ことができます · ～前に · ～たことがある · たら/ば conditionals (intro) · volitional form · ～つもり · potential form · giving / receiving",
+  modules:"N5 全部 + 汉字书写练习 · 语法句型卡 · 口语角色扮演 L1 · 听力听写 · 每月模考（N4）",
+  content:"场景插图、振假名只标生词、可选自然语速、10–18 词句子。",
+  textbook:"标日 初级下册 第 25–48 课 · 约相当于 Genki II"},
+ {band:"N3",color:"var(--n3)",name:"中級への橋 · 通向中级的桥",vocab:"~3,700",kanji:"~650",
+  can:"跟上日常会话和较长文章；能谈工作、健康、新闻，并带理由表达看法。",
+  grammar:"Passive & causative · ～ば / ～ても · ～わけではない · ～ところだ · ～ばかり · honorific basics (尊敬・謙譲 intro) · compound patterns",
+  modules:"N4 全部 + 长篇阅读 · 新闻式听力 · 口语角色扮演 L2（自由话题）· 模考（N3）· 弱项专练周",
+  content:"振假名默认关（点开才显示）、抽象概念插图、300–600 字文章。",
+  textbook:"标日 中级上册 · 约相当于 TRY! N3 / 総まとめ N3"},
+ {band:"N2",color:"var(--n2)",name:"中上級 · 中上级",vocab:"~6,000",kanji:"~1,000",
+  can:"用日语工作和学习：跟上会议、文章和广播，能有分寸地论证立场。",
+  grammar:"～ざるを得ない · ～にもかかわらず · ～つつある · formal written patterns · full keigo system · advanced conditionals & concessions",
+  modules:"N3 全部 + 文章与短文阅读 · 讲座听力 · 讨论式口语练习 · 分项限时模考（N2）",
+  content:"无振假名、600–1,000+ 字密集文章、职场/学术主题、惯用语与四字熟语卡。",
+  textbook:"标日 中级下册 – 高级上册 · 约相当于 TRY! N2 / 新完全マスター N2"},
+ {band:"N1",color:"var(--n1)",name:"上級 · 高级",vocab:"~10,000",kanji:"~2,000",
+  can:"接近母语者的广度：文学、专业文本、快速自然口语、细微的语体切换。",
+  grammar:"Literary & formal patterns · ～んばかりに · ～を余儀なくされる · classical-influenced forms · fine nuance distinctions between near-synonyms",
+  modules:"N2 全部 + 文学与专业阅读 · 倍速听力（1.25×）· 发表式口语 · 真题全套模拟（N1）",
+  content:"真实材料、辅助最少、1,000+ 字文章、抽象与学术风插图。",
+  textbook:"标日 高级 · 约相当于 新完全マスター N1 / 上级教材"}
+];
+var lc=document.getElementById('levelCards');
+LEVELS.forEach(function(L){
+  var d=document.createElement('article'); d.className='level-card';
+  d.innerHTML='<div class="level-top"><div class="level-badge" style="background:'+L.color+'">'+L.band+'</div>'+
+   '<div><h3>'+L.band+' — '+L.name+'</h3><p>'+L.can+'</p></div>'+
+   '<div class="level-nums"><span>語彙（累計）· 词汇累计</span><b>'+L.vocab+'</b><span>漢字（累計）· 汉字累计</span><b>'+L.kanji+'</b></div></div>'+
+   '<div class="level-grid">'+
+   '<div class="level-cell"><h4>できること · 能做到</h4><p>'+L.can+'</p></div>'+
+   '<div class="level-cell"><h4>文法範囲 · 语法范围</h4><p>'+L.grammar+'</p></div>'+
+   '<div class="level-cell"><h4>教材対応 · 教材对照</h4><p>'+L.textbook+'</p></div>'+
+   '<div class="level-cell"><h4>解放モジュール · 解锁模块</h4><p>'+L.modules+'</p></div>'+
+   '<div class="level-cell"><h4>内容の難しさ · 内容难度</h4><p>'+L.content+'</p></div>'+
+   '<div class="level-cell"><h4>進級条件 · 升级门槛</h4><p>档位进度 ≥ 80% · 近 30 天 FSRS 记住率 ≥ 85% · 限时模考 ≥ 60%（每部分 ≥ 50%）。</p></div>'+
+   '</div>';
+  lc.appendChild(d);
+});
+
+/* ============ PHONE SCREENS ============ */
+function nav(active){
+  var items=[["today","今日"],["atlas","星図"],["review","復習"],["speak","話す"],["me","進歩"]];
+  var svg='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>';
+  return items.map(function(it){return '<span class="'+(it[0]===active?'on':'')+'">'+svg+it[1]+'</span>';}).join('');
+}
+var SCREENS=[
+ {id:"placement",tab:"1 · レベル診断",sub:"初めて · 入门",title:"レベル診断 · 等级测试界面",
+  purpose:"在任何个性化之前先定档。共五个短阶段，进度随时可见，听力题用和学习界面相同的播放器。",
+  levels:"全档位——题目覆盖 N5 → N1",
+  byLevel:"所有人从 N5 开始。连对就试探更高档；没通过 N3 试探的人，不会出现 N1 内容。",
+  logic:"自适应规则：连对 2 题往上探，连错 2 题往下确认。定档或满 20 题停止。跳过 = 从 N5 开始。",
+  html:'<p class="p-sub">ステップ 3/5 · 文法</p><h3 class="jp">ピアノを弾く（　）ができます。</h3><p class="p-sub">文を完成させる言葉を選んでください。（选出补全句子的词）</p><div class="opts"><div class="opt"><span class="key">A</span>もの</div><div class="opt picked"><span class="key">B</span><span class="jp">こと</span></div><div class="opt"><span class="key">C</span><span class="jp">とき</span></div><div class="opt"><span class="key">D</span><span class="jp">まえ</span></div></div><div class="progress-track" style="margin-top:16px"><div class="progress-fill" style="width:52%"></div></div><p class="p-sub" style="margin-top:8px">試探中：N4 · これまで：N5 確定</p>',
+  nav:"today"},
+ {id:"result",tab:"2 · 結果とレベル地図",sub:"診断の後 · 测试后",title:"結果と地図 · 结果与等级地图",
+  purpose:"结果先用 JLPT 档位说、再用教材课次说，并把你标到星图上——结果是一个位置，不只是一个分数。",
+  levels:"全档位",
+  byLevel:"地图始终显示五片区域；没去过的变暗，当前区域点亮，目标区域插旗。",
+  logic:"总档位 = 语法与词汇中较低的一档。各项技能以条形显示。点「学習を始める」就用本屏数据生成每日计划。",
+  html:'<p class="p-sub">診断結果 · 你的结果</p><h3>N5 上段 — N4 入口</h3><p class="p-sub">≈ 标日第 20 课 · 学習帯：N5 巩固 + N4 预览</p><div class="bar-row"><span>語彙</span><div class="progress-track"><div class="progress-fill" style="width:78%"></div></div><span>N5↑</span></div><div class="bar-row"><span>漢字</span><div class="progress-track"><div class="progress-fill" style="width:62%"></div></div><span>N5</span></div><div class="bar-row"><span>文法</span><div class="progress-track"><div class="progress-fill" style="width:70%"></div></div><span>N4→</span></div><div class="bar-row"><span>聴解</span><div class="progress-track"><div class="progress-fill" style="width:66%"></div></div><span>N5↑</span></div><div class="starmap" style="margin-top:12px"><svg viewBox="0 0 300 110" width="100%"><g stroke="rgba(255,255,255,.4)"><path d="M30 80 L80 30 L140 55 L110 90 Z" fill="none"/><path d="M180 40 L240 25 L280 60" fill="none"/></g><g fill="#E8C95A"><circle cx="30" cy="80" r="4"/><circle cx="80" cy="30" r="4"/><circle cx="140" cy="55" r="4"/><circle cx="110" cy="90" r="4"/></g><g fill="#5B6478"><circle cx="180" cy="40" r="4"/><circle cx="240" cy="25" r="4"/><circle cx="280" cy="60" r="4"/></g></svg><p style="color:#C9D2E8;font-size:12px;padding:2px 8px 8px">現在地：N5 の空 · 目標の旗：N3 区域</p></div>',
+  nav:"me"},
+ {id:"today",tab:"3 · 今日のプラン",sub:"ホーム · 主页",title:"今日のプラン · 今日计划",
+  purpose:"一屏一天：做什么、按什么顺序、要多久。FSRS 复习永远排第一；计划按「学习逻辑」的规则生成。",
+  levels:"全档位——内容与上限随档变化",
+  byLevel:"N5：约 12 新词、2–3 汉字、全振假名阅读。N4：约 15 词，角色扮演解锁。N3：约 18 词、更长阅读、振假名关。N2–N1：阅读/听力占比升，新词上限 20。",
+  logic:"到期复习超过时间预算时，新学暂停。考前最后 4 周，配比向模考 + 复习倾斜。",
+  html:'<p class="p-sub">火曜日 · 段階：N5 上段 → N4</p><h3>今日のプラン <span style="font-size:13px;opacity:.6">あと約35分</span></h3><div class="progress-track" style="margin:10px 0 14px"><div class="progress-fill" style="width:46%"></div></div><div class="task"><span class="task-dot done">✓</span><div><b>復習 · FSRS 复习</b><span>到期 24 张 · 語彙 / 漢字 / 文法</span></div></div><div class="task"><span class="task-dot now">›</span><div><b>新しい言葉 · 新单词</b><span>12 語 · N4 预览：弾く、運転、趣味…</span></div></div><div class="task"><span class="task-dot todo">·</span><div><b>漢字</b><span>弾・運・転 — 笔顺 + 读音</span></div></div><div class="task"><span class="task-dot todo">·</span><div><b>読解 · 阅读</b><span>《あきの こうえん》本档短文，带朗读音频</span></div></div><div class="task"><span class="task-dot todo">·</span><div><b>例文練習 · 标日例文练习</b><span>第 20 课句型：ことができます / ～前に</span></div></div>',
+  nav:"today"},
+ {id:"card",tab:"4 · 単語・漢字カード",sub:"星図の入口 · 图鉴卡",title:"単語・漢字カード · 单词汉字卡",
+  purpose:"为日语重做的图鉴卡：插图、读音、声调、意思、语境例句、搭配，再把汉字拆成部件并给笔顺。",
+  levels:"全档位——辅助随档递减",
+  byLevel:"N5：振假名 + 慢速音频 + 单物插图。N4：振假名只标生词。N3 起：振假名隐藏（点开显示）、抽象插图、出现近义词对比。N2–N1：加语体与语感说明。",
+  logic:"每张卡是一个 FSRS 条目、三种题型（认读、回忆、听力）。档位徽章和主题星座始终可见。",
+  html:'<div class="wordcard-hero"><p style="font-size:11px;letter-spacing:.14em;opacity:.8">N4 プレビュー · 音楽の星座</p><p class="big jp">弾く</p><p class="reading jp">ひく · [híꜜkù] 声调：头高型</p><div class="pitch"><i></i><i class="low"></i><i class="low"></i></div><p style="margin-top:10px;font-size:14px">弹、拉（钢琴、吉他等弦乐/键盘乐器）</p></div><div style="margin-top:13px;font-size:14px"><p class="jp" style="font-size:16px"><strong>スミスさんはピアノを弾くことができます。</strong></p><p style="opacity:.7">史密斯先生会弹钢琴。</p><p style="margin-top:9px"><strong>搭配：</strong> <span class="jp">ギターを弾く · バイオリンを弾く</span></p><p style="margin-top:5px"><strong>汉字 弾：</strong> <span class="jp">ダン / ひ（く）</span> · 12 画 · 部件：弓 + 単</p><p style="margin-top:9px"><span class="mini-pill">聞く · 単語</span> <span class="mini-pill">聞く · 例文</span> <span class="mini-pill">シャドーイング</span></p></div>',
+  nav:"atlas"},
+ {id:"drill",tab:"5 · ドリル",sub:"思い出す練習 · 回忆练习",title:"ドリル · 练习界面",
+  purpose:"主动回忆，不是重读：同一张卡会以「意思→词、听音→义、填空、（N4 起）汉字书写」回来，并为 FSRS 评分。",
+  levels:"全档位",
+  byLevel:"N5：选择题 + 听力选择。N4：填空输入 + 汉字笔顺书写解锁。N3：造句输出（翻译与组句）。N2–N1：近义词语感选择、摘要输出。",
+  logic:"本次第一次作答计入正确率。答错 → 卡在本节内再出现；评分（重来/难/好/简单）决定下次 FSRS 间隔。",
+  html:'<p class="p-sub">思い出す · 穴埋め — 文法カード（N4）</p><h3 class="jp">出かける（　）、電話してください。</h3><p class="p-sub">空欄を埋めてください：「出门之前，请给我打电话。」</p><div class="opts"><div class="opt"><span class="key">A</span><span class="jp">あとに</span></div><div class="opt picked"><span class="key">B</span><span class="jp">前に</span></div><div class="opt"><span class="key">C</span><span class="jp">ながら</span></div><div class="opt"><span class="key">D</span><span class="jp">ために</span></div></div><p style="margin-top:13px;font-size:13.5px"><strong>句型：</strong> <span class="jp">動詞辞書形＋前に</span>——名词用 の前に（食事の前に）。首次出现：标日第 20 课。</p><div class="pillrow" style="margin-top:10px"><span class="mini-pill">もう一度</span><span class="mini-pill">難しい</span><span class="mini-pill">良い · 1日</span><span class="mini-pill">簡単 · 4日</span></div>',
+  nav:"review"},
+ {id:"speak",tab:"6 · スピーキング",sub:"週例＋毎日 · 每周专练+每日",title:"スピーキング · 口语界面",
+  purpose:"把学过的语法变成开口说：跟读模范音频、限定档位的角色扮演、语音回答、一小段自由表达。",
+  levels:"角色扮演 N4 起（跟读 N5 起）",
+  byLevel:"N5：只跟读。N4：带句首提示的脚本角色扮演。N3：半自由角色扮演 + 1 分钟短讲。N2–N1：讨论与发表任务，带语体反馈。",
+  logic:"场景只用学习者当前档及以下的语法。每周专练：周六 15–20 分钟——跟读、一个场景、4–6 个语音题、一次自由表达。",
+  html:'<p class="p-sub">土曜ドリル · ロールプレイ：駅で</p><h3 class="jp">駅で — 切符を買います</h3><p style="font-size:14px;margin-top:8px"><strong>お手本（シャドーイング）：</strong></p><p class="jp" style="font-size:16.5px;margin-top:4px">すみません、新宿までいくらですか。</p><p style="font-size:13px;opacity:.65">不好意思，到新宿多少钱？</p><p style="margin-top:12px;font-size:14px"><strong>あなたの番 — 音声で答えてください：</strong></p><p class="jp" style="font-size:16.5px;margin-top:4px">電車に乗る前に、何をしますか。</p><p style="font-size:13px;opacity:.65">使う文法：～前に · 只用第 20 课为止的语法</p><div style="text-align:center;margin-top:16px"><span style="display:inline-grid;place-items:center;width:62px;height:62px;border-radius:50%;background:var(--verm);color:#fff;font-weight:900;font-size:13px">REC</span><p style="font-size:12px;opacity:.6;margin-top:7px">タップで録音 · 0:00 / 0:30 · 自由発話：週末の予定を話してください</p></div>',
+  nav:"speak"},
+ {id:"review",tab:"7 · FSRS 復習",sub:"毎日のキュー · 每日队列",title:"FSRS 復習 · 复习界面",
+  purpose:"复习队列：词汇、汉字、语法卡混合，按 FSRS 到期时间排序，当天记住率和明日预报可见。",
+  levels:"全档位",
+  byLevel:"队列构成随档变化：N5 多为假名/词汇认读；N4 汉字书写占比升；N3 起语法句型卡增多。",
+  logic:"目标记住率 90%（可调）。「重来」卡在本节内循环。一张卡间隔 21 天以上、3 次复习没忘即掌握——它的星完全点亮。",
+  html:'<p class="p-sub">復習 — 今日の到期 24 件</p><h3 class="jp">集める</h3><p class="p-sub">タップで表示 · カード：語彙（N5 帯）</p><div class="card" style="padding:15px;margin-bottom:12px"><p class="jp" style="font-size:16px"><strong>あつめる</strong> — to collect / to gather</p><p style="font-size:13.5px;opacity:.75;margin-top:5px">趣味は切手を集めることです。我的爱好是集邮。</p></div><div class="pillrow"><span class="mini-pill">もう一度 · 10分</span><span class="mini-pill">難しい · 1日</span><span class="mini-pill">良い · 3日</span><span class="mini-pill">簡単 · 8日</span></div><div class="bar-row" style="margin-top:12px"><span>保持率 30日</span><div class="progress-track"><div class="progress-fill" style="width:89%"></div></div><span>89%</span></div><div class="bar-row"><span>明日の到期</span><div class="progress-track"><div class="progress-fill" style="width:40%"></div></div><span>17</span></div><p class="p-sub">预报：明天控制在你的 45 分钟预算内。</p>',
+  nav:"review"},
+ {id:"progress",tab:"8 · 進歩と模試",sub:"月例 · 每月循环",title:"進歩と模試 · 进度与模考",
+  purpose:"长线视角：档位进度条、各项技能档位、每月模考记录和升级门槛——全部用 JLPT 档位说话。",
+  levels:"全档位",
+  byLevel:"模考与学习档一致（在 N5 就考 N5 模考，以此类推）。档位进度过 80% 后，可挑战高一档模考。",
+  logic:"模考：限时，每月最后一个周日，分词汇 / 语法 / 阅读 / 听力。落后整整一档的技能触发一周专练。",
+  html:'<p class="p-sub">進歩 · N5 帯メーター</p><h3>82% — 進級まであと少し</h3><div class="progress-track" style="margin:10px 0 13px"><div class="progress-fill" style="width:82%"></div></div><div class="task"><span class="task-dot done">✓</span><div><b>帯メーター ≥ 80%</b><span>N5 单词与汉字已掌握 82%</span></div></div><div class="task"><span class="task-dot done">✓</span><div><b>保持率 ≥ 85%</b><span>近 30 天 89%</span></div></div><div class="task"><span class="task-dot now">›</span><div><b>帯模試 ≥ 60%</b><span>前回：58%——阅读部分 46%，需要一周专练</span></div></div><p style="font-size:13.5px;margin-top:10px"><strong>次回模試：</strong>本月最后一个周日 · N5 全套模考（词汇 / 语法 / 阅读 / 听力），约 35 分钟，限时。</p>',
+  nav:"me"},
+ {id:"settings",tab:"9 · 設定",sub:"目標とペース · 目标与节奏",title:"設定 · 目标、考试、节奏",
+  purpose:"驱动整个计划的三个输入——目标档、考试日期、每天分钟数——再加 FSRS 记住率和辅助递减设置。",
+  levels:"全档位",
+  byLevel:"改目标会重插星图旗帜、重算每日上限；低档的已有进度永不删除。",
+  logic:"考试日期驱动倒计时收尾。每天分钟数封顶计划；记住率目标在复习量与遗忘之间取舍。",
+  html:'<p class="p-sub">設定 · 目標</p><h3>目標とペース · 你的目标与节奏</h3><div style="font-size:14.5px;margin-top:10px"><p style="padding:9px 0;border-bottom:1px solid var(--line)"><strong>目標レベル · 目标等级</strong><br><span class="lvl l-n3">N3</span> <span style="opacity:.65">— 现在学习档：N5 上段</span></p><p style="padding:9px 0;border-bottom:1px solid var(--line)"><strong>試験日 · 考试日期</strong><br>2027 年 7 月 4 日（周日，预计）· 备选 12 月 5 日</p><p style="padding:9px 0;border-bottom:1px solid var(--line)"><strong>毎日の時間 · 每天时长</strong><br>计划 60–90 分钟 · 最低日：10 分钟</p><p style="padding:9px 0;border-bottom:1px solid var(--line)"><strong>FSRS 保持率目標 · 记住率目标</strong><br>90% · 预计复习约 24 张/天</p><p style="padding:9px 0"><strong>補助 · 辅助</strong><br>振假名：生词开启 · 音频：自然语速</p></div>',
+  nav:"me"}
+];
+var tabsBox=document.getElementById('screenTabs'), phoneBody=document.getElementById('phoneBody'), phoneNav=document.getElementById('phoneNav');
+SCREENS.forEach(function(s,i){
+  var b=document.createElement('button'); b.type='button'; b.className='stab'; b.setAttribute('role','tab');
+  b.innerHTML='<span>'+s.tab+'<br><small>'+s.sub+'</small></span><span>›</span>';
+  b.addEventListener('click',function(){selectScreen(i);});
+  tabsBox.appendChild(b);
+});
+function selectScreen(i){
+  var s=SCREENS[i];
+  var btns=tabsBox.children; for(var j=0;j<btns.length;j++){btns[j].setAttribute('aria-selected', j===i?'true':'false');}
+  phoneBody.innerHTML=s.html; phoneNav.innerHTML=nav(s.nav);
+  document.getElementById('annotTitle').textContent=s.title;
+  document.getElementById('annotPurpose').textContent=s.purpose;
+  document.getElementById('annotLevels').textContent=s.levels;
+  document.getElementById('annotByLevel').textContent=s.byLevel;
+  document.getElementById('annotLogic').textContent=s.logic;
+}
+selectScreen(2);
+
+/* star info */
+var STARINFO={
+ n5:'<strong>N5 区域——日常生活の空。</strong>主题：食べ物・家族・時間・駅の基礎。约 800 词 / 约 100 汉字。已掌握的词亮金色；这片区域第一天就打开。',
+ n4:'<strong>N4 区域——街と予定の空。</strong>主题：旅行・健康・仕事の基礎・天気。通过 N5 升级门槛（进度 ≥80%、记住率 ≥85%、模考 ≥60%）后解锁。钢琴星座——弾く——就在这里。',
+ n3:'<strong>N3 区域——社会の空（本例中未解锁）。</strong>主题：ニュース・社会・意見・職場。通过 N4 门槛后解锁；当目标是 N3 时，显示为变暗 + 目标旗。'
+};
+document.querySelectorAll('[data-star]').forEach(function(b){
+  b.addEventListener('click',function(){document.getElementById('starInfo').innerHTML=STARINFO[b.getAttribute('data-star')];});
+});
+</script>
+
+<script>
+/* ============ LESSONS 1-6 ============ */
+var LESSONS=[
+ {n:1,row:"あ行",title:"あ行と あいさつ",theme:"家族 · 我的家人",date:"第 1 課 · Stage A / N5",
+  kana:[["あ","a","3画"],["い","i","2画"],["う","u","2画"],["え","e","2画"],["お","o","3画"]],
+  kanaNote:"五个元音是全部假名的地基：あ い う え お，先把这一行读准、写顺。",
+  greet:["おはようございます · 早上好","こんにちは · 你好（白天）","こんばんは · 晚上好","ありがとうございます · 谢谢","すみません · 不好意思 / 劳驾"],
+  vocab:[["家族","かぞく","家人","わたしの家族は四人です。","我家有四口人。"],["父","ちち","父亲","父は会社員です。","爸爸是公司职员。"],["母","はは","母亲","母は先生です。","妈妈是老师。"],["弟","おとうと","弟弟","弟は小学生です。","弟弟是小学生。"],["四人","よにん","四个人","家族は四人です。","家人是四个人。"],["会社員","かいしゃいん","公司职员","田中さんは会社員です。","田中先生是公司职员。"],["先生","せんせい","老师","あの人は先生です。","那个人是老师。"],["小学生","しょうがくせい","小学生","妹は小学生です。","妹妹是小学生。"],["晩ごはん","ばんごはん","晚饭","晩ごはんはおいしいです。","晚饭很好吃。"],["公園","こうえん","公园","公園は大きいです。","公园很大。"],["大きい","おおきい","大","この公園は大きいです。","这个公园很大。"],["好き","すき","喜欢","わたしは家族が好きです。","我喜欢我的家人。"]],
+  grammar:["自我介绍：～です（如「田中花子です」）","报名字：～と申します（礼貌说法）","问候语按时间用：早上 おはようございます · 白天 こんにちは · 晚上 こんばんは"],
+  kanji:null,
+  readingTitle:"わたしの かぞく · 我的家人",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["わたしの家族は四人です。","我家有四口人。"],["父と母と弟とわたしです。","是爸爸、妈妈、弟弟和我。"],["父は会社員です。","爸爸是公司职员。"],["母は先生です。","妈妈是老师。"],["弟は小学生です。","弟弟是小学生。"],["わたしたちは毎晩、いっしょに晩ごはんを食べます。","我们每天晚上一起吃晚饭。"],["晩ごはんはおいしいです。","晚饭很好吃。"],["日曜日は家族で公園へ行きます。","星期天全家去公园。"],["公園は大きくて、きれいです。","公园又大又漂亮。"],["わたしは家族が好きです。","我喜欢我的家人。"]],
+  audio:"assets/audio/lesson-1.mp3",
+  hyoujun:null,
+  homework:"大声读あ行三遍；五个问候各说一句；跟音频读短文两遍。"},
+ {n:2,row:"か行",title:"か行",theme:"スーパーで かいもの · 在超市买东西",date:"第 2 課 · Stage A / N5",
+  kana:[["か","ka","3画"],["き","ki","4画"],["く","ku","1画"],["け","ke","3画"],["こ","ko","2画"]],
+  kanaNote:"给五个元音各加一个轻 k 音。这个 k 比英语 cat 里的 k 更轻，接近 skip 里的 k。こ 和 さ、そ 有点像，认时多看一眼。",
+  greet:null,
+  vocab:[["傘","かさ","雨伞","傘は千円です。","雨伞一千日元。"],["鞄","かばん","包","この鞄は安いです。","这个包很便宜。"],["駅","えき","车站","駅は近いです。","车站很近。"],["声","こえ","声音","先生の声は大きいです。","老师的声音很大。"],["スーパー","スーパー","超市","スーパーへ行きます。","去超市。"],["林檎","りんご","苹果","りんごを買います。","买苹果。"],["バナナ","バナナ","香蕉","バナナは安いです。","香蕉很便宜。"],["卵","たまご","鸡蛋","たまごも買います。","也买鸡蛋。"],["買う","かう","买","スーパーで傘を買います。","在超市买伞。"],["安い","やすい","便宜","このバナナは安いです。","这个香蕉很便宜。"],["千円","せんえん","一千日元","ぜんぶで千円です。","一共一千日元。"],["買い物","かいもの","购物","買い物は楽しいです。","购物很开心。"]],
+  grammar:["～へ行きます：去……（如「スーパーへ行きます」）","～を買います：买……（を 先认读，正式讲解在第 5 课）"],
+  kanji:null,
+  readingTitle:"スーパーで かいもの · 在超市买东西",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きょう、スーパーへ買い物に行きます。","今天去超市买东西。"],["スーパーでりんごを買います。","在超市买苹果。"],["バナナも買います。","也买香蕉。"],["たまごも買います。","也买鸡蛋。"],["りんごは赤くて、大きいです。","苹果又红又大。"],["バナナは安いです。","香蕉很便宜。"],["ぜんぶで千円です。","一共一千日元。"],["買い物は楽しいです。","买东西很开心。"],["いえでりんごを食べたいです。","想在家里吃苹果。"]],
+  audio:"assets/audio/lesson-2.mp3",
+  hyoujun:null,
+  homework:"か行各写 3 遍、读 3 遍；跟音频读短文一遍；用「～を買います」说三样想买的东西。"},
+ {n:3,row:"さ行",title:"さ行と ～が すきです",theme:"わたしの へや · 我的房间",date:"第 3 課 · Stage A / N5",
+  kana:[["さ","sa","3画"],["し","shi","1画"],["す","su","2画"],["せ","se","3画"],["そ","so","1画"]],
+  kanaNote:"唯一的意外是 し：读 shi，不读 si。さ 和 き 长得有点像，认的时候多看一眼。",
+  greet:null,
+  vocab:[["桜","さくら","樱花","桜が好きです。","我喜欢樱花。"],["寿司","すし","寿司","すしが好きです。","我喜欢寿司。"],["先生","せんせい","老师","日本語の先生が好きです。","我喜欢日语老师。"],["空","そら","天空","空は青いです。","天空是蓝色的。"],["部屋","へや","房间","わたしの部屋は小さいです。","我的房间很小。"],["机","つくえ","桌子","机の上に本があります。","桌子上有书。"],["窓","まど","窗户","窓は大きいです。","窗户很大。"],["ベッド","ベッド","床","窓の近くにベッドがあります。","窗边有床。"],["静か","しずか","安静","部屋は静かです。","房间很安静。"],["小さい","ちいさい","小","この机は小さいです。","这张桌子很小。"],["読む","よむ","读","夜、本を読みます。","晚上看书。"],["勉強","べんきょう","学习","部屋で日本語を勉強します。","在房间里学日语。"]],
+  grammar:["～が好きです：喜欢……——喜欢的东西前面用 が（如「すしが好きです」），这是本课要焊牢的句型"],
+  kanji:null,
+  readingTitle:"わたしの へや · 我的房间",
+  reading:[["わたしの部屋は小さいです。","我的房间很小。"],["部屋は静かです。","房间很安静。"],["部屋に机があります。","房间里有桌子。"],["机の上に本があります。","桌子上有书。"],["窓の近くにベッドがあります。","窗边有床。"],["夜、本を読みます。","晚上看书。"],["本はおもしろいです。","书很有意思。"],["わたしは部屋が好きです。","我喜欢我的房间。"],["部屋で日本語を勉強します。","在房间里学日语。"],["毎日、少し勉強します。","每天学一点。"]],
+  audio:"assets/audio/lesson-3.mp3",
+  hyoujun:null,
+  homework:"さ行书写加朗读；用「～が好きです」说三样喜欢的东西；跟音频读短文一遍。"},
+ {n:4,row:"た行",title:"た行と 過去時",theme:"あきの こうえん · 秋天的公园",date:"第 4 課 · Stage A / N5",
+  kana:[["た","ta","4画"],["ち","chi","2画"],["つ","tsu","1画"],["て","te","1画"],["と","to","2画"]],
+  kanaNote:"两个意外：ち 读 chi，不读 ti；つ 读 tsu，不读 tu。ち 和 さ 长得像，多看一眼。",
+  greet:null,
+  vocab:[["公園","こうえん","公园","公園へ行きました。","去了公园。"],["友達","ともだち","朋友","友達と公園へ行きました。","和朋友去了公园。"],["昨日","きのう","昨天","昨日は日曜日でした。","昨天是星期天。"],["秋","あき","秋天","秋の公園はきれいです。","秋天的公园很漂亮。"],["葉っぱ","はっぱ","叶子","葉っぱは赤いです。","叶子是红色的。"],["広い","ひろい","宽敞","公園は広いです。","公园很宽敞。"],["近い","ちかい","近","公園は駅から近いです。","公园离车站近。"],["歩く","あるく","走","公園で歩きました。","在公园里散步了。"],["座る","すわる","坐","ベンチに座りました。","坐在长椅上。"],["お茶","おちゃ","茶","お茶を飲みました。","喝了茶。"],["ベンチ","ベンチ","长椅","公園にベンチがあります。","公园里有长椅。"],["楽しい","たのしい","开心","昨日は楽しかったです。","昨天很开心。"]],
+  grammar:["过去时：～ました（动词）／～でした（名词・形容词），如「行きました」「日曜日でした」","い形容词て形 ～くて：把两个形容词连起来，如「近くて、広いです」"],
+  kanji:[["日","ひ / にち","4画 · 日曜日（にちようび）星期日"],["月","つき / げつ","4画 · 月曜日（げつようび）星期一"]],
+  readingTitle:"あきの こうえん · 秋天的公园",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きのうは日曜日でした。","昨天是星期天。"],["ともだちと公園へ行きました。","和朋友去了公园。"],["公園は駅から近くて、広いです。","公园离车站近，又宽敞。"],["秋の葉っぱは赤くて、きれいです。","秋天的叶子又红又漂亮。"],["公園で歩きました。","在公园里散步了。"],["ベンチに座りました。","坐在长椅上。"],["お茶を飲みました。","喝了茶。"],["楽しかったです。","很开心。"]],
+  audio:"assets/audio/lesson-4.mp3",
+  hyoujun:null,
+  homework:"跟音频读短文 3 遍，重点练 ち（chi）和 つ（tsu）；日、月 各写 3 遍；用过去时造 3 个句子。"},
+ {n:5,row:"な行",title:"な行と ～たいです",theme:"ほんやで ほんを かう · 在书店买书",date:"第 5 課 · Stage A / N5",
+  kana:[["な","na","4画"],["に","ni","2画"],["ぬ","nu","2画"],["ね","ne","2画"],["の","no","1画"]],
+  kanaNote:"ぬ 和 め 有点像（め 是下一行的），认的时候多看一眼。",
+  greet:null,
+  vocab:[["名前","なまえ","名字","あなたの名前は何ですか。","你的名字是什么？"],["何","なに","什么","これは何ですか。","这是什么？"],["猫","ねこ","猫","猫が好きです。","我喜欢猫。"],["犬","いぬ","狗","犬は小さいです。","狗很小。"],["本屋","ほんや","书店","本屋へ行きました。","去了书店。"],["雑誌","ざっし","杂志","雑誌を買いました。","买了杂志。"],["新聞","しんぶん","报纸","新聞を読みます。","读报纸。"],["読む","よむ","读","本を読みたいです。","想读书。"],["買う","かう","买","本を買います。","买书。"],["高い","たかい","贵 / 高","この本は高いです。","这本书很贵。"],["安い","やすい","便宜","その雑誌は安いです。","那本杂志很便宜。"],["面白い","おもしろい","有意思","この本は面白いです。","这本书很有意思。"]],
+  grammar:["宾格助词 を：标示动作的对象，如「本を買います」","动词ます形词干＋たいです：想做……，如「読みたいです」"],
+  kanji:[["山","やま / サン","3画"],["川","かわ / セン","3画"],["本","ほん / ホン","5画"]],
+  readingTitle:"ほんやで ほんを かう · 在书店买书（加长版）",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きのうは日曜日でした。","昨天是星期天。"],["ともだちと本屋へ行きました。","和朋友去了书店。"],["本屋は駅から近くて、広いです。","书店离车站近，又宽敞。"],["本屋の中に、本がたくさんあります。","书店里有很多书。"],["わたしは本を見ました。","我看了书。"],["おもしろい本がありました。","有一本有意思的书。"],["わたしはその本を買いました。","我买了那本书。"],["本は安くて、おもしろいです。","书又便宜又有意思。"],["ともだちはざっしを見ました。","朋友看了杂志。"],["そして、ともだちはざっしを買いました。","然后，朋友买了杂志。"],["ざっしは新しいです。","杂志是新的。"],["いえで本を読みたいです。","想在家里看书。"],["きのうはとても楽しかったです。","昨天非常开心。"]],
+  audio:"assets/audio/lesson-5.mp3",
+  hyoujun:[["スミスさんはピアノを弾くことができます。","史密斯先生会弹钢琴。"],["わたしの趣味は本を読むことです。","我的爱好是读书。"],["寝る前に、本を読みます。","睡觉之前，我读书。"],["本屋へ行く前に、ともだちに電話をかけます。","去书店之前，我给朋友打电话。"],["だれが本を買いましたか。","谁买了书？"],["何を読みたいですか。","你想读什么？"]],
+  homework:"な行书写加朗读；复习 12 个新词和 山・川・本；用「～たいです」造 2 个句子；跟音频读短文。"},
+ {n:6,row:"は行",title:"は行と 誘い方",theme:"レストランで ひるごはん · 餐厅午餐",date:"第 6 課 · Stage A / N5",
+  kana:[["は","ha","3画 · 助词读 wa"],["ひ","hi","1画"],["ふ","fu","4画 · 读 fu，不读 hu"],["へ","he","1画 · 助词读 e"],["ほ","ho","4画"]],
+  kanaNote:"は 作助词时读 wa，へ 作助词时读 e——字形不变，读音变。ふ 读 fu，嘴唇不要咬住。",
+  greet:null,
+  vocab:[["昼","ひる","中午","昼にレストランへ行きます。","中午去餐厅。"],["昼ごはん","ひるごはん","午饭","昼ごはんを食べました。","吃了午饭。"],["レストラン","レストラン","餐厅","レストランで昼ごはんを食べます。","在餐厅吃午饭。"],["カレーライス","カレーライス","咖喱饭","カレーライスは美味しいです。","咖喱饭很好吃。"],["サラダ","サラダ","沙拉","サラダも食べました。","也吃了沙拉。"],["コーヒー","コーヒー","咖啡","コーヒーを飲みました。","喝了咖啡。"],["美味しい","おいしい","好吃","このカレーは美味しいです。","这个咖喱很好吃。"],["明日","あした","明天","明日は天気がいいです。","明天天气好。"],["天気","てんき","天气","今日の天気はいいです。","今天天气好。"],["花","はな","花","公園で花を見ましょう。","在公园赏花吧。"],["食事","しょくじ","吃饭 / 餐食","食事は楽しかったです。","这顿饭很开心。"],["後","あと","之后","食事の後で、コーヒーを飲みます。","饭后喝咖啡。"]],
+  grammar:["邀请：～ませんか，如「公園へ行きませんか」","提议：～ましょう，如「花を見ましょう」"],
+  kanji:[["人","ひと / ジン","人"],["大","おおきい / ダイ","大"],["小","ちいさい / ショウ","小"]],
+  readingTitle:"レストランで ひるごはん · 餐厅午餐",
+  reading:[["わたしは田中花子です。","我是田中花子。"],["きょうは水曜日です。","今天是星期三。"],["ひる、ともだちとレストランでひるごはんを食べました。","中午和朋友在餐厅吃了午饭。"],["レストランは駅から近くて、大きいです。","餐厅离车站近，又大。"],["わたしはカレーライスを食べました。","我吃了咖喱饭。"],["ともだちはサラダを食べました。","朋友吃了沙拉。"],["カレーライスはおいしいです。","咖喱饭很好吃。"],["あとで、コーヒーを飲みました。","之后喝了咖啡。"],["コーヒーは安くて、おいしいです。","咖啡又便宜又好喝。"],["しょくじは楽しかったです。","这顿饭很开心。"],["あしたはてんきがいいです。","明天天气好。"],["あした、公園へ行きませんか。","明天去公园吧？"],["公園で花を見ましょう。","在公园赏花吧。"],["あした、公園で花を見たいです。","明天想在公园看花。"]],
+  audio:"assets/audio/lesson-6.mp3",
+  hyoujun:[["日本語を話すことができます。","我会说日语。"],["わたしの趣味は映画を見ることです。","我的爱好是看电影。"],["寝る前に、歯を磨きます。","睡觉之前刷牙。"],["友達と会う前に、電話をかけます。","见朋友之前打电话。"],["どこかへ行きたいです。","想去某个地方。"],["何か飲みたいですか。","想喝点什么吗？"]],
+  homework:"は行书写加朗读（注意 は / へ 的助词读法）；用「～ませんか」邀请一句、「～ましょう」提议一句；跟音频读短文 3 遍。"}
+];
+var ltabs=document.getElementById('lessonTabs'), lpanel=document.getElementById('lessonPanel');
+LESSONS.forEach(function(L,i){
+  var b=document.createElement('button'); b.type='button'; b.className='ltab'; b.setAttribute('role','tab');
+  b.innerHTML='<span>第 '+L.n+' 課 · '+L.row+'<br><small>'+L.theme+'</small></span><span>›</span>';
+  b.addEventListener('click',function(){selectLesson(i);});
+  ltabs.appendChild(b);
+});
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var SPEAK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>';
+var currentLessonIdx=0;
+function speakJa(text,btn){
+  if(!('speechSynthesis' in window)){return;}
+  try{window.speechSynthesis.cancel();}catch(e){}
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang='ja-JP'; u.rate=0.88; u.pitch=1;
+  try{
+    var voices=window.speechSynthesis.getVoices();
+    for(var k=0;k<voices.length;k++){if(voices[k].lang&&voices[k].lang.toLowerCase().indexOf('ja')===0){u.voice=voices[k];break;}}
+  }catch(e){}
+  if(btn){
+    btn.classList.add('playing');
+    u.onend=function(){btn.classList.remove('playing');};
+    u.onerror=function(){btn.classList.remove('playing');};
+  }
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){try{window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged=function(){try{window.speechSynthesis.getVoices();}catch(e){}};}catch(e){}}
+function selectLesson(i){
+  var L=LESSONS[i];
+  var btns=ltabs.children; for(var j=0;j<btns.length;j++){btns[j].setAttribute('aria-selected', j===i?'true':'false');}
+  var h='<p class="p-sub" style="font-size:13px;color:var(--muted)">'+L.date+'</p>';
+  h+='<h3 style="font-size:23px;line-height:1.35">第 '+L.n+' 課 — <span class="jp">'+esc(L.title)+'</span></h3>';
+  h+='<p style="color:var(--muted);margin-top:4px">テーマ · 主题：'+esc(L.theme)+'</p>';
+  h+='<h4 class="lesson-h">仮名 · 本课假名（'+L.row+'）</h4><div class="kana-grid">'+L.kana.map(function(k){return '<div class="kana-cell"><span class="k jp">'+k[0]+'</span><span class="r">'+k[1]+'</span><span class="s">'+k[2]+'</span></div>';}).join('')+'</div><p class="small" style="margin-top:8px">'+esc(L.kanaNote)+'</p>';
+  if(L.greet){h+='<h4 class="lesson-h">挨拶 · 问候</h4><div class="pillrow">'+L.greet.map(function(g){return '<span class="mini-pill" style="font-size:12.5px;padding:6px 11px">'+esc(g)+'</span>';}).join('')+'</div>';}
+  h+='<h4 class="lesson-h">言葉 · 本课词汇（'+L.vocab.length+'）— 発音＋例文 · 带发音和例句</h4><p class="small" style="margin:-4px 0 10px">点喇叭听发音：大喇叭读单词，小喇叭读整条例句。先听、再跟读一遍，记得更牢。</p><div class="vocab-grid">'+L.vocab.map(function(v,vi){return '<div class="vocab-cell"><div class="vocab-top"><div class="vw"><b class="jp">'+esc(v[0])+'</b> <span class="vr jp">'+esc(v[1])+'</span><span class="vm">'+esc(v[2])+'</span></div><button type="button" class="speak-btn" data-vi="'+vi+'" data-kind="w" aria-label="播放单词发音：'+esc(v[0])+'（'+esc(v[1])+'）" title="听单词发音">'+SPEAK_SVG+'</button></div>'+(v[3]?'<div class="vocab-ex"><span class="ex-label">例文 · 例句</span><div class="ex-row"><div style="flex:1;min-width:0"><span class="ex-jp jp">'+esc(v[3])+'</span><span class="ex-cn">'+esc(v[4]||'')+'</span></div><button type="button" class="speak-btn sm" data-vi="'+vi+'" data-kind="e" aria-label="播放例句发音：'+esc(v[3])+'" title="听例句发音">'+SPEAK_SVG+'</button></div></div>':'')+'</div>';}).join('')+'</div>';
+  h+='<h4 class="lesson-h">文法 · 本课语法</h4>'+L.grammar.map(function(g){return '<p style="padding:4px 0;font-size:15px">› '+esc(g)+'</p>';}).join('');
+  if(L.kanji){h+='<h4 class="lesson-h">漢字 · 本课汉字</h4><div class="vocab-grid">'+L.kanji.map(function(k){return '<div class="vocab-cell"><b class="jp" style="font-size:22px">'+k[0]+'</b><span>'+k[1]+' · '+k[2]+'</span></div>';}).join('')+'</div>';}
+  h+='<h4 class="lesson-h">読解 · 短文朗读</h4><p style="font-weight:800;font-size:17px" class="jp">'+esc(L.readingTitle)+'</p>';
+  h+='<audio class="lesson-audio" controls preload="metadata" src="'+L.audio+'" aria-label="短文朗读音频"></audio>';
+  h+='<p class="small" style="margin-bottom:6px">音频逐句录制、句间有停顿，读的正是下面这篇原文。先听一遍，再跟读。</p>';
+  h+=L.reading.map(function(s){return '<div class="reading-sent"><span class="jp">'+esc(s[0])+'</span><br><span class="cn">'+esc(s[1])+'</span></div>';}).join('');
+  if(L.hyoujun){h+='<h4 class="lesson-h">標日例文練習 · 标日例文（第 20 课标准）</h4>'+L.hyoujun.map(function(s){return '<div class="ex-line"><span class="jp">'+esc(s[0])+'</span> <span class="cn">'+esc(s[1])+'</span></div>';}).join('');}
+  h+='<div class="specbox"><strong>宿題 · 今日作业：</strong>'+esc(L.homework)+'</div>';
+  lpanel.innerHTML=h;
+  currentLessonIdx=i;
+  var sbtns=lpanel.querySelectorAll('.speak-btn');
+  for(var bi=0;bi<sbtns.length;bi++){
+    sbtns[bi].addEventListener('click',function(){
+      var vi=parseInt(this.getAttribute('data-vi'),10);
+      var kind=this.getAttribute('data-kind');
+      var vv=LESSONS[currentLessonIdx].vocab[vi];
+      if(!vv) return;
+      if(kind==='e'){speakJa(vv[3],this);}
+      else{speakJa(vv[1],this);}
+    });
+  }
+}
+selectLesson(0);
+</script>
+
+<script>
+/* ============ PLACEMENT TEST ============ */
+var QUESTIONS=[
+ {band:"N5",skill:"Vocabulary",prompt:'<span class="jp">「先生」</span>の読み方（よみかた）はどれですか。',help:"この漢字の言葉はどう読みますか。（这个汉字词怎么读？）",opts:["せんせい","せんせん","せいせん","せんせえ"],ans:0},
+ {band:"N5",skill:"Vocabulary",prompt:'<span class="jp">「あした」</span>はどういう意味ですか。',help:"この言葉の意味はどれですか。（这个词是什么意思？）",opts:["昨日（昨天）","今日（今天）","明日（明天）","毎日（每天）"],ans:2},
+ {band:"N5",skill:"Grammar",prompt:'<span class="jp">わたしは図書館（　）本を読みます。</span>',help:"正しい助詞を選んでください。（我在图书馆看书。）",opts:["を","で","へ","が"],ans:1},
+ {band:"N5",skill:"Grammar",prompt:'<span class="jp">昨日、映画を（　）。</span>',help:"正しい過去形を選んでください。（昨天，我看了电影。）",opts:["見ます","見ました","見たいです","見てください"],ans:1},
+ {band:"N5",skill:"Grammar",prompt:'<span class="jp">この部屋は広（　）、明るいです。</span>',help:"二つの形容詞をつないでください。（这个房间又宽敞又明亮。）",opts:["くて","いで","く","に"],ans:0},
+ {band:"N4",skill:"Vocabulary",prompt:'<span class="jp">「運転」</span>の読み方はどれですか。',help:"この言葉はどう読みますか。（驾驶）",opts:["うんでん","うんてん","うんてんん","うんどう"],ans:1},
+ {band:"N4",skill:"Vocabulary",prompt:'<span class="jp">「趣味」</span>はどういう意味ですか。',help:"この言葉の意味はどれですか。（这个词是什么意思？）",opts:["仕事（工作）","趣味（爱好）","勉強（学习）","旅行（旅行）"],ans:1},
+ {band:"N4",skill:"Grammar",prompt:'<span class="jp">スミスさんはピアノを弾く（　）ができます。</span>',help:"第20課の文型：動詞辞書形＋___＋ができます。",opts:["もの","こと","とき","ところ"],ans:1},
+ {band:"N4",skill:"Grammar",prompt:'<span class="jp">寝る（　）、歯を磨きます。</span>',help:"（睡觉之前，我刷牙。）",opts:["あとで","前に","ながら","までに"],ans:1},
+ {band:"N4",skill:"Grammar",prompt:'<span class="jp">日本へ行っ（　）がありますか。</span>',help:"（你去过日本吗？）——～たことがある 句型。",opts:["こと","たこと","てこと","だこと"],ans:0},
+ {band:"N3",skill:"Vocabulary",prompt:'<span class="jp">「増える」</span>はどういう意味ですか。',help:"この動詞の意味はどれですか。（这个动词是什么意思？）",opts:["減る（减少）","増える（增加）","変わる（变化）","続く（继续）"],ans:1},
+ {band:"N3",skill:"Grammar",prompt:'<span class="jp">雨が降っている（　）、試合は行われた。</span>',help:"（尽管下雨，比赛还是举行了。）——选表示「尽管」的句型。",opts:["にもかかわらず","によって","について","にとって"],ans:0},
+ {band:"N3",skill:"Grammar",prompt:'<span class="jp">先生に褒め（　）。</span>',help:"（我被老师表扬了。）——选被动态的结尾。",opts:["られました","させました","ました","られます"],ans:0},
+ {band:"N3",skill:"Reading",prompt:'<span class="jp">「来月から、会社の近くに引っ越すことになりました。電車に乗る時間が短くなるので、朝は今より30分遅く起きられます。」</span>',help:"来月、筆者はなぜ30分遅く起きられますか。（下个月，作者为什么能晚起 30 分钟？）",opts:["会社が家に近くなる（公司搬近了）","会社の近くに住むので、電車の時間が短くなる（住到公司附近，坐车时间变短）","仕事が30分遅く始まる（上班晚30分钟）","電車が速くなる（电车变快了）"],ans:1},
+ {band:"N3",skill:"Grammar",prompt:'<span class="jp">この仕事は、経験のある人（　）できないと思います。</span>',help:"(I think only a person with experience can do this job.) — “unless” pattern.",opts:["でなければ","でも","なら","ばかり"],ans:0}
+];
+var qi=0,answers=[],picked=-1;
+var el=function(id){return document.getElementById(id);};
+function startQuiz(){qi=0;answers=[];picked=-1;el('qStart').classList.add('hidden');el('qResult').classList.add('hidden');el('qMain').classList.remove('hidden');renderQ();}
+function renderQ(){
+  var q=QUESTIONS[qi]; picked=-1;
+  el('qCount').textContent='第 '+(qi+1)+' 問 / 全 '+QUESTIONS.length+' 問';
+  el('qBand').innerHTML='<span class="lvl '+(q.band==='N5'?'l-n5':q.band==='N4'?'l-n4':'l-n3')+'">'+q.band+' 帯</span>';
+  el('qSkill').textContent=q.skill;
+  el('qProg').style.width=Math.round(qi/QUESTIONS.length*100)+'%';
+  el('qPrompt').innerHTML=q.prompt; el('qHelp').textContent=q.help;
+  el('qMsg').textContent='答えを選んでください。（选一个答案继续）';
+  var box=el('qOpts'); box.innerHTML='';
+  q.opts.forEach(function(o,i){
+    var b=document.createElement('button'); b.type='button'; b.className='opt';
+    b.innerHTML='<span class="key">'+'ABCD'[i]+'</span><span>'+o+'</span>';
+    b.addEventListener('click',function(){
+      picked=i; var all=box.children; for(var j=0;j<all.length;j++){all[j].classList.toggle('picked',j===i);}
+      var n=el('btnNext'); n.disabled=false; n.style.opacity='1'; el('qMsg').textContent='選択しました。「次へ」を押してください。';
+    });
+    box.appendChild(b);
+  });
+  var n=el('btnNext'); n.disabled=true; n.style.opacity='.55'; n.textContent=(qi===QUESTIONS.length-1?'結果を見る →':'次へ →');
+}
+function nextQ(){
+  if(picked<0) return;
+  answers[qi]=(picked===QUESTIONS[qi].ans)?1:0;
+  qi++;
+  if(qi<QUESTIONS.length){renderQ();} else {showResult();}
+}
+function bandScore(band){var t=0,c=0;QUESTIONS.forEach(function(q,i){if(q.band===band){t++;if(answers[i])c++;}});return {c:c,t:t,r:t?c/t:0};}
+function skillScore(skill){var t=0,c=0;QUESTIONS.forEach(function(q,i){if(q.skill===skill){t++;if(answers[i])c++;}});return {c:c,t:t,r:t?c/t:0};}
+function showResult(){
+  el('qMain').classList.add('hidden'); el('qResult').classList.remove('hidden');
+  var n5=bandScore('N5'),n4=bandScore('N4'),n3=bandScore('N3');
+  var total=answers.reduce(function(a,b){return a+b;},0);
+  var level,anchor,summary,plan;
+  if(n5.r<0.6){level='N5 スタート · N5 起步';anchor='≈ 标日第 1–8 课 · 学習帯：N5（基礎）';summary='N5 基础还在形成中——正好：应用从 N5 档开头带你走，每张卡都有假名辅助，不预设你会任何东西。';plan=['先练假名（第一周学完平假名与片假名）','每天 12 个新词 + 2 个汉字，全程振假名','分级阅读 L1，带慢速音频','第一次档位检查：4 周后一次 N5 小测'];}
+  else if(n4.r<0.6){level='N5 上段 · N4 入口';anchor='≈ 标日第 20 课左右 · 学習帯：N5 巩固 + N4 预览';summary='你的 N5 基础很稳（'+n5.c+'/5），N4 句型刚起步（'+n4.c+'/5）——正是学到标日第 20 课左右的典型状态。应用会在复习里巩固 N5，同时预览 ～ことができます、～前に 等 N4 语法。';plan=['FSRS 复习向 N5 弱点倾斜','每天 12 新词 + 2–3 汉字 · N4 预览卡解锁','标日例文练习块：按第 20 课标准','每周口语专练（周六），只用 ≤ 第 20 课语法','每月最后一个周日：N5 档位模考'];}
+  else if(n3.r<0.6){level='N4 堅実 · N3 入口';anchor='≈ 标日初级下册学完 · 学習帯：N4 巩固 + N3 预览';summary='N5（'+n5.c+'/5）与 N4（'+n4.c+'/5）都稳了。可以向 N3 过渡：更长阅读、被动/使役句型、半自由口语。';plan=['N4 语法在 FSRS 复习里保温','N3 档每天 18 新词 + 4–5 汉字','阅读升到 300–600 字文章，振假名默认关','先过 N4 档位模考，再完全打开 N3 学习档'];}
+  else {level='N3 到達圏 · N3 就绪';anchor='≈ 标日中级 / TRY! N3 · 学習帯：N3';summary='本演示三档都强（N3：'+n3.c+'/5）。完整自适应测试（含听力）会确认你的 N3 学习档，并检查是否够到 N2。';plan=['学习档设为 N3，N2 预览等门槛过后再开','每月限时 N3 分项模考','最弱技能安排专练周','振假名关 · 听力默认自然语速'];}
+  el('rLevel').textContent=level; el('rAnchor').textContent=anchor; el('rSummary').textContent=summary;
+  el('rScore').textContent='得点：'+total+' / '+QUESTIONS.length+' · N5 '+n5.c+'/5 · N4 '+n4.c+'/5 · N3 '+n3.c+'/5';
+  var skills=['Vocabulary','Kanji','Grammar','Reading'];
+  /* Kanji is folded into Vocabulary questions in this demo; show combined where needed */
+  var bars='';
+  [['語彙・漢字','Vocabulary'],['文法','Grammar'],['読解','Reading']].forEach(function(pair){
+    var s=skillScore(pair[1]); var pct=Math.round(s.r*100);
+    var bname=pct>=80?'強い · 强':pct>=50?'伸び中 · 成长中':'要重点 · 需重点练';
+    bars+='<div class="bar-row"><span>'+pair[0]+'</span><div class="progress-track"><div class="progress-fill" style="width:'+pct+'%"></div></div><span>'+pct+'%</span></div><p class="small" style="margin:-4px 0 10px">'+s.t+' 題中 '+s.c+' 題正解 · '+bname+'</p>';
+  });
+  bars+='<p class="small">聴解はこの15問デモには含まれません。完整测试会加音频听力部分；总档位取语法与词汇中较低的一档。</p>';
+  el('rBars').innerHTML=bars;
+  el('rPlan').innerHTML=plan.map(function(p){return '<li style="padding:4px 0 4px 16px;position:relative"><span style="position:absolute;left:0;color:var(--verm);font-weight:900">›</span>'+p+'</li>';}).join('');
+  el('qResult').scrollIntoView({behavior:'smooth',block:'start'});
+}
+el('btnStart').addEventListener('click',startQuiz);
+el('btnNext').addEventListener('click',nextQ);
+el('btnRetake').addEventListener('click',startQuiz);
+el('btnRestart1').addEventListener('click',startQuiz);
+</script>
+</body>
+</html>

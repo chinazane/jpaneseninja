@@ -1,0 +1,4 @@
+.DS_Store
+*.muse-github-snapshot-sync.json
+.space-build/
+audits/
